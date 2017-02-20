@@ -1,0 +1,273 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19/02/2017 12:54:03 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="br.com.gr.pojo.JrcPessoa" table="JRC_PESSOA" schema="DIONE_HOM" optimistic-lock="version">
+        <id name="idPessoa" type="long">
+            <column name="ID_PESSOA" precision="15" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="jrcEmpresa" class="br.com.gr.pojo.JrcEmpresa" fetch="select">
+            <column name="ID_EMPRESA" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcTipoCadastro" class="br.com.gr.pojo.JrcTipoCadastro" fetch="select">
+            <column name="ID_TIPO_CADASTRO" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcTipoPessoa" class="br.com.gr.pojo.JrcTipoPessoa" fetch="select">
+            <column name="ID_TIPO_PESSOA" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcUsuario" class="br.com.gr.pojo.JrcUsuario" fetch="select">
+            <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="filtroCpfCnpj" type="java.lang.Long">
+            <column name="FILTRO_CPF_CNPJ" precision="14" scale="0" />
+        </property>
+        <property name="filtroIndPf" type="java.lang.Boolean">
+            <column name="FILTRO_IND_PF" precision="1" scale="0" />
+        </property>
+        <property name="filtroNome1" type="string">
+            <column name="FILTRO_NOME_1" length="100" />
+        </property>
+        <property name="filtroNome2" type="string">
+            <column name="FILTRO_NOME_2" length="100" />
+        </property>
+        <property name="filtroUf" type="string">
+            <column name="FILTRO_UF" length="2" />
+        </property>
+        <property name="filtroLocalidade" type="string">
+            <column name="FILTRO_LOCALIDADE" length="100" />
+        </property>
+        <property name="filtroEndereco" type="string">
+            <column name="FILTRO_ENDERECO" length="100" />
+        </property>
+        <property name="dtInclusao" type="date">
+            <column name="DT_INCLUSAO" length="7" not-null="true" />
+        </property>
+        <property name="dtAlteracao" type="date">
+            <column name="DT_ALTERACAO" length="7" not-null="true" />
+        </property>
+        <property name="versaoSistema" type="long">
+            <column name="VERSAO_SISTEMA" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="versaoRegistro" type="long">
+            <column name="VERSAO_REGISTRO" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="indFornecedor" type="java.lang.Boolean">
+            <column name="IND_FORNECEDOR" precision="1" scale="0" />
+        </property>
+        <property name="indFabricante" type="java.lang.Boolean">
+            <column name="IND_FABRICANTE" precision="1" scale="0" />
+        </property>
+        <property name="indEstipulante" type="java.lang.Boolean">
+            <column name="IND_ESTIPULANTE" precision="1" scale="0" />
+        </property>
+        <property name="indSeguradora" type="java.lang.Boolean">
+            <column name="IND_SEGURADORA" precision="1" scale="0" />
+        </property>
+        <property name="indSubestipulante" type="java.lang.Boolean">
+            <column name="IND_SUBESTIPULANTE" precision="1" scale="0" />
+        </property>
+        <property name="indCorretora" type="java.lang.Boolean">
+            <column name="IND_CORRETORA" precision="1" scale="0" />
+        </property>
+        <property name="indTransportador" type="java.lang.Boolean">
+            <column name="IND_TRANSPORTADOR" precision="1" scale="0" />
+        </property>
+        <property name="indMotorista" type="java.lang.Boolean">
+            <column name="IND_MOTORISTA" precision="1" scale="0" />
+        </property>
+        <property name="indAjudante" type="java.lang.Boolean">
+            <column name="IND_AJUDANTE" precision="1" scale="0" />
+        </property>
+        <property name="indMontadora" type="java.lang.Boolean">
+            <column name="IND_MONTADORA" precision="1" scale="0" />
+        </property>
+        <property name="indMontador" type="java.lang.Boolean">
+            <column name="IND_MONTADOR" precision="1" scale="0" />
+        </property>
+        <property name="indAutorizada" type="java.lang.Boolean">
+            <column name="IND_AUTORIZADA" precision="1" scale="0" />
+        </property>
+        <property name="indLoja" type="java.lang.Boolean">
+            <column name="IND_LOJA" precision="1" scale="0" />
+        </property>
+        <property name="indOrganizacao" type="java.lang.Boolean">
+            <column name="IND_ORGANIZACAO" precision="1" scale="0" />
+        </property>
+        <property name="indEmpresa" type="java.lang.Boolean">
+            <column name="IND_EMPRESA" precision="1" scale="0" />
+        </property>
+        <property name="indFinanceira" type="java.lang.Boolean">
+            <column name="IND_FINANCEIRA" precision="1" scale="0" />
+        </property>
+        <property name="indCliente" type="java.lang.Boolean">
+            <column name="IND_CLIENTE" precision="1" scale="0" />
+        </property>
+        <property name="indCapitalizacao" type="java.lang.Boolean">
+            <column name="IND_CAPITALIZACAO" precision="1" scale="0" />
+        </property>
+        <property name="codPessoaRef" type="string">
+            <column name="COD_PESSOA_REF" length="20" />
+        </property>
+        <property name="indBanco" type="java.lang.Boolean">
+            <column name="IND_BANCO" precision="1" scale="0" />
+        </property>
+        <set name="jrcPessoaBancos" table="JRC_PESSOA_BANCO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_PESSOA" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcPessoaBanco" />
+        </set>
+        <set name="jrcLojas" table="JRC_LOJA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_PESSOA" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcLoja" />
+        </set>
+        <set name="jrcFornecedors" table="JRC_FORNECEDOR" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_PESSOA" precision="15" scale="0" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcFornecedor" />
+        </set>
+        <set name="jrcSubestipulantes" table="JRC_SUBESTIPULANTE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_PESSOA" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcSubestipulante" />
+        </set>
+        <set name="jrcFabricantes" table="JRC_FABRICANTE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_PESSOA" precision="15" scale="0" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcFabricante" />
+        </set>
+        <set name="jrcCapitalizacaos" table="JRC_CAPITALIZACAO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_PESSOA" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcCapitalizacao" />
+        </set>
+        <set name="jrcServicos" table="JRC_SERVICO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_PESSOA_AVERBADOR" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcServico" />
+        </set>
+        <set name="jrcMontadors" table="JRC_MONTADOR" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_PESSOA" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcMontador" />
+        </set>
+        <set name="jrcFinanceiras" table="JRC_FINANCEIRA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_PESSOA" precision="15" scale="0" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcFinanceira" />
+        </set>
+        <set name="jrcFinBorderos" table="JRC_FIN_BORDERO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_PESSOA_BORDERO" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcFinBordero" />
+        </set>
+        <set name="jrcTransportadors" table="JRC_TRANSPORTADOR" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_PESSOA" precision="15" scale="0" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcTransportador" />
+        </set>
+        <set name="jrcCorretoras" table="JRC_CORRETORA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_PESSOA" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcCorretora" />
+        </set>
+        <set name="jrcDevolucaoVendasForIdPessoa" table="JRC_DEVOLUCAO_VENDA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_PESSOA" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcDevolucaoVenda" />
+        </set>
+        <set name="jrcOrganizacaos" table="JRC_ORGANIZACAO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_PESSOA" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcOrganizacao" />
+        </set>
+        <set name="jrcPessoaTelefones" table="JRC_PESSOA_TELEFONE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_PESSOA" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcPessoaTelefone" />
+        </set>
+        <set name="jrcEstipulantes" table="JRC_ESTIPULANTE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_PESSOA" precision="15" scale="0" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcEstipulante" />
+        </set>
+        <set name="jrcSeguradoras" table="JRC_SEGURADORA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_PESSOA" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcSeguradora" />
+        </set>
+        <set name="jrcPedidoVendas" table="JRC_PEDIDO_VENDA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_PESSOA" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcPedidoVenda" />
+        </set>
+        <set name="jrcBancos" table="JRC_BANCO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_PESSOA" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcBanco" />
+        </set>
+        <set name="jrcBeneficiarios" table="JRC_BENEFICIARIO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_PESSOA" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcBeneficiario" />
+        </set>
+        <set name="jrcMotoristas" table="JRC_MOTORISTA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_PESSOA" precision="15" scale="0" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcMotorista" />
+        </set>
+        <set name="jrcEmpresas" table="JRC_EMPRESA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_PESSOA" precision="15" scale="0" unique="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcEmpresa" />
+        </set>
+        <set name="jrcNotaFiscalsForDrIdPessoa" table="JRC_NOTA_FISCAL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="DR_ID_PESSOA" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcNotaFiscal" />
+        </set>
+        <set name="jrcNotaFiscalsForEmIdPessoa" table="JRC_NOTA_FISCAL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EM_ID_PESSOA" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcNotaFiscal" />
+        </set>
+        <set name="jrcDevolucaoVendasForIdPessoaDev" table="JRC_DEVOLUCAO_VENDA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_PESSOA_DEV" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcDevolucaoVenda" />
+        </set>
+        <set name="jrcMontadoras" table="JRC_MONTADORA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_PESSOA" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcMontadora" />
+        </set>
+    </class>
+</hibernate-mapping>

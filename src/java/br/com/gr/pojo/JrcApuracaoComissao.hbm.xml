@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19/02/2017 12:54:03 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="br.com.gr.pojo.JrcApuracaoComissao" table="JRC_APURACAO_COMISSAO" schema="DIONE_HOM" optimistic-lock="version">
+        <id name="idApuracaoComissao" type="long">
+            <column name="ID_APURACAO_COMISSAO" precision="15" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="jrcFinLancamento" class="br.com.gr.pojo.JrcFinLancamento" fetch="select">
+            <column name="ID_FIN_LANCTO" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcBanco" class="br.com.gr.pojo.JrcBanco" fetch="select">
+            <column name="ID_BANCO_FIN" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcEmpresa" class="br.com.gr.pojo.JrcEmpresa" fetch="select">
+            <column name="ID_EMPRESA" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcLoja" class="br.com.gr.pojo.JrcLoja" fetch="select">
+            <column name="ID_LOJA_LANCTO" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcUsuarioByIdUsuarioApuracao" class="br.com.gr.pojo.JrcUsuario" fetch="select">
+            <column name="ID_USUARIO_APURACAO" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcUsuarioByIdUsuarioLancto" class="br.com.gr.pojo.JrcUsuario" fetch="select">
+            <column name="ID_USUARIO_LANCTO" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcUsuarioByIdUsuarioReg" class="br.com.gr.pojo.JrcUsuario" fetch="select">
+            <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="codLojaLancto" type="string">
+            <column name="COD_LOJA_LANCTO" length="10" not-null="true" />
+        </property>
+        <property name="lojaLancto" type="string">
+            <column name="LOJA_LANCTO" length="30" not-null="true" />
+        </property>
+        <property name="usuarioLancto" type="string">
+            <column name="USUARIO_LANCTO" length="50" not-null="true" />
+        </property>
+        <property name="dtLancto" type="date">
+            <column name="DT_LANCTO" length="7" not-null="true" />
+        </property>
+        <property name="vrVenda" type="big_decimal">
+            <column name="VR_VENDA" precision="15" not-null="true" />
+        </property>
+        <property name="vrDevolucao" type="big_decimal">
+            <column name="VR_DEVOLUCAO" precision="15" not-null="true" />
+        </property>
+        <property name="vrCreAvulso" type="big_decimal">
+            <column name="VR_CRE_AVULSO" precision="15" not-null="true" />
+        </property>
+        <property name="vrDebAvulso" type="big_decimal">
+            <column name="VR_DEB_AVULSO" precision="15" not-null="true" />
+        </property>
+        <property name="vrTotalApuracao" type="big_decimal">
+            <column name="VR_TOTAL_APURACAO" precision="15" not-null="true" />
+        </property>
+        <property name="flagStatus" type="string">
+            <column name="FLAG_STATUS" length="3" not-null="true" />
+        </property>
+        <property name="dtApuracao" type="date">
+            <column name="DT_APURACAO" length="7" />
+        </property>
+        <property name="bancoFin" type="string">
+            <column name="BANCO_FIN" length="20" />
+        </property>
+        <property name="dtInicioPeriodo" type="date">
+            <column name="DT_INICIO_PERIODO" length="7" />
+        </property>
+        <property name="dtFimPeriodo" type="date">
+            <column name="DT_FIM_PERIODO" length="7" />
+        </property>
+        <property name="dtInclusao" type="date">
+            <column name="DT_INCLUSAO" length="7" not-null="true" />
+        </property>
+        <property name="dtAlteracao" type="date">
+            <column name="DT_ALTERACAO" length="7" not-null="true" />
+        </property>
+        <property name="versaoSistema" type="long">
+            <column name="VERSAO_SISTEMA" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="versaoRegistro" type="long">
+            <column name="VERSAO_REGISTRO" precision="15" scale="0" not-null="true" />
+        </property>
+        <set name="jrcPedvdaitemApuracaosForIdApuracaoBon" table="JRC_PEDVDAITEM_APURACAO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_APURACAO_BON" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcPedvdaitemApuracao" />
+        </set>
+        <set name="jrcPedvdaitemApuracaosForIdApuracaoCom" table="JRC_PEDVDAITEM_APURACAO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_APURACAO_COM" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcPedvdaitemApuracao" />
+        </set>
+    </class>
+</hibernate-mapping>

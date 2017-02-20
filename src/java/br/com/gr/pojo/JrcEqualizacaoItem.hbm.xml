@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19/02/2017 12:54:03 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="br.com.gr.pojo.JrcEqualizacaoItem" table="JRC_EQUALIZACAO_ITEM" schema="DIONE_HOM" optimistic-lock="version">
+        <id name="idEqualizacaoItem" type="long">
+            <column name="ID_EQUALIZACAO_ITEM" precision="15" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="jrcEmpresa" class="br.com.gr.pojo.JrcEmpresa" fetch="select">
+            <column name="ID_EMPRESA" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcEqualizacao" class="br.com.gr.pojo.JrcEqualizacao" fetch="select">
+            <column name="ID_EQUALIZACAO" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcProduto" class="br.com.gr.pojo.JrcProduto" fetch="select">
+            <column name="ID_PRODUTO" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="indEqualizacaoPorLoja" type="boolean">
+            <column name="IND_EQUALIZACAO_POR_LOJA" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="qtdeEqualizada" type="big_decimal">
+            <column name="QTDE_EQUALIZADA" precision="15" scale="3" not-null="true" />
+        </property>
+        <property name="qtdeConsumida" type="big_decimal">
+            <column name="QTDE_CONSUMIDA" precision="15" scale="3" />
+        </property>
+        <property name="custoLiquido" type="big_decimal">
+            <column name="CUSTO_LIQUIDO" precision="15" />
+        </property>
+        <property name="custoBruto" type="big_decimal">
+            <column name="CUSTO_BRUTO" precision="15" />
+        </property>
+        <property name="equalizacao" type="big_decimal">
+            <column name="EQUALIZACAO" precision="15" />
+        </property>
+        <property name="custoLiquidoEqualizado" type="big_decimal">
+            <column name="CUSTO_LIQUIDO_EQUALIZADO" precision="15" />
+        </property>
+        <property name="custoBrutoEqualizado" type="big_decimal">
+            <column name="CUSTO_BRUTO_EQUALIZADO" precision="15" />
+        </property>
+        <property name="precoMinimo" type="big_decimal">
+            <column name="PRECO_MINIMO" precision="15" />
+        </property>
+        <property name="margemMinimaLiquida" type="big_decimal">
+            <column name="MARGEM_MINIMA_LIQUIDA" precision="5" />
+        </property>
+        <property name="margemMinimaBruta" type="big_decimal">
+            <column name="MARGEM_MINIMA_BRUTA" precision="5" />
+        </property>
+        <property name="margemLiquida" type="big_decimal">
+            <column name="MARGEM_LIQUIDA" precision="5" />
+        </property>
+        <property name="margemBruta" type="big_decimal">
+            <column name="MARGEM_BRUTA" precision="5" />
+        </property>
+        <property name="precoVenda" type="big_decimal">
+            <column name="PRECO_VENDA" precision="15" />
+        </property>
+        <property name="precoLista" type="big_decimal">
+            <column name="PRECO_LISTA" precision="15" />
+        </property>
+        <property name="dtInclusao" type="date">
+            <column name="DT_INCLUSAO" length="7" not-null="true" />
+        </property>
+        <property name="dtAlteracao" type="date">
+            <column name="DT_ALTERACAO" length="7" not-null="true" />
+        </property>
+        <property name="versaoSistema" type="long">
+            <column name="VERSAO_SISTEMA" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="versaoRegistro" type="long">
+            <column name="VERSAO_REGISTRO" precision="15" scale="0" not-null="true" />
+        </property>
+        <set name="jrcPedidoVendaItems" table="JRC_PEDIDO_VENDA_ITEM" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_EQUALIZACAO_ITEM" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcPedidoVendaItem" />
+        </set>
+        <set name="jrcPromocaoItemDetalhes" table="JRC_PROMOCAO_ITEM_DETALHE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_EQUALIZACAO_ITEM" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcPromocaoItemDetalhe" />
+        </set>
+    </class>
+</hibernate-mapping>

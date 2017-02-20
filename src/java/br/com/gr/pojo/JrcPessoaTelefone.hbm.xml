@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19/02/2017 12:54:03 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="br.com.gr.pojo.JrcPessoaTelefone" table="JRC_PESSOA_TELEFONE" schema="DIONE_HOM" optimistic-lock="version">
+        <composite-id name="id" class="br.com.gr.pojo.JrcPessoaTelefoneId">
+            <key-property name="idPessoa" type="long">
+                <column name="ID_PESSOA" precision="15" scale="0" />
+            </key-property>
+            <key-property name="sequencial" type="short">
+                <column name="SEQUENCIAL" precision="4" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="jrcOperadoraTelefonia" class="br.com.gr.pojo.JrcOperadoraTelefonia" fetch="select">
+            <column name="ID_OPERADORA_TELEFONIA" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcEmpresa" class="br.com.gr.pojo.JrcEmpresa" fetch="select">
+            <column name="ID_EMPRESA" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcPessoa" class="br.com.gr.pojo.JrcPessoa" update="false" insert="false" fetch="select">
+            <column name="ID_PESSOA" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcTipoTelefone" class="br.com.gr.pojo.JrcTipoTelefone" fetch="select">
+            <column name="ID_TIPO_TELEFONE" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcUsuario" class="br.com.gr.pojo.JrcUsuario" fetch="select">
+            <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="ddd" type="short">
+            <column name="DDD" precision="4" scale="0" not-null="true" />
+        </property>
+        <property name="fone" type="long">
+            <column name="FONE" precision="10" scale="0" not-null="true" />
+        </property>
+        <property name="ramal" type="java.lang.Short">
+            <column name="RAMAL" precision="4" scale="0" />
+        </property>
+        <property name="dtInicioPeriodo" type="date">
+            <column name="DT_INICIO_PERIODO" length="7" not-null="true" />
+        </property>
+        <property name="dtFimPeriodo" type="date">
+            <column name="DT_FIM_PERIODO" length="7" not-null="true" />
+        </property>
+        <property name="dtInclusao" type="date">
+            <column name="DT_INCLUSAO" length="7" not-null="true" />
+        </property>
+        <property name="dtAlteracao" type="date">
+            <column name="DT_ALTERACAO" length="7" not-null="true" />
+        </property>
+        <property name="versaoSistema" type="long">
+            <column name="VERSAO_SISTEMA" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="versaoRegistro" type="long">
+            <column name="VERSAO_REGISTRO" precision="15" scale="0" not-null="true" />
+        </property>
+        <set name="jrcLojasForFkJrcLoja06" table="JRC_LOJA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_PESFONE_ENTREGA" precision="15" scale="0" />
+                <column name="SEQ_PESFONE_ENTREGA" precision="4" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcLoja" />
+        </set>
+        <set name="jrcLojasForFkJrcLoja07" table="JRC_LOJA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_PESFONE_MONTAGEM" precision="15" scale="0" />
+                <column name="SEQ_PESFONE_MONTAGEM" precision="4" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcLoja" />
+        </set>
+        <set name="jrcOrganizacaos" table="JRC_ORGANIZACAO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_PESFONE_SAC" precision="15" scale="0" />
+                <column name="SEQ_PESFONE_SAC" precision="4" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcOrganizacao" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19/02/2017 12:54:03 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="br.com.gr.pojo.JrcRotaFaturamento" table="JRC_ROTA_FATURAMENTO" schema="DIONE_HOM" optimistic-lock="version">
+        <id name="idRotaFaturamento" type="long">
+            <column name="ID_ROTA_FATURAMENTO" precision="15" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="jrcEmpresa" class="br.com.gr.pojo.JrcEmpresa" fetch="select">
+            <column name="ID_EMPRESA" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcUsuario" class="br.com.gr.pojo.JrcUsuario" fetch="select">
+            <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="descBreve" type="string">
+            <column name="DESC_BREVE" length="20" not-null="true" />
+        </property>
+        <property name="descLonga" type="string">
+            <column name="DESC_LONGA" length="50" />
+        </property>
+        <property name="dtInicioPeriodo" type="date">
+            <column name="DT_INICIO_PERIODO" length="7" not-null="true" />
+        </property>
+        <property name="dtFimPeriodo" type="date">
+            <column name="DT_FIM_PERIODO" length="7" not-null="true" />
+        </property>
+        <property name="dtInclusao" type="date">
+            <column name="DT_INCLUSAO" length="7" not-null="true" />
+        </property>
+        <property name="dtAlteracao" type="date">
+            <column name="DT_ALTERACAO" length="7" not-null="true" />
+        </property>
+        <property name="versaoSistema" type="long">
+            <column name="VERSAO_SISTEMA" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="versaoRegistro" type="long">
+            <column name="VERSAO_REGISTRO" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="indEntrega" type="boolean">
+            <column name="IND_ENTREGA" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="indMontagem" type="boolean">
+            <column name="IND_MONTAGEM" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="indOrdemServico" type="boolean">
+            <column name="IND_ORDEM_SERVICO" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="flagEndRota" type="string">
+            <column name="FLAG_END_ROTA" length="3" not-null="true" />
+        </property>
+        <property name="indDomingo" type="boolean">
+            <column name="IND_DOMINGO" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="indSegunda" type="boolean">
+            <column name="IND_SEGUNDA" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="indTerca" type="boolean">
+            <column name="IND_TERCA" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="indQuarta" type="boolean">
+            <column name="IND_QUARTA" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="indQuinta" type="boolean">
+            <column name="IND_QUINTA" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="indSexta" type="boolean">
+            <column name="IND_SEXTA" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="indSabado" type="boolean">
+            <column name="IND_SABADO" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="hh24Corte" type="java.lang.Byte">
+            <column name="HH24_CORTE" precision="2" scale="0" />
+        </property>
+        <set name="jrcNotaFiscalsForIdRotaMontagem" table="JRC_NOTA_FISCAL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_ROTA_MONTAGEM" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcNotaFiscal" />
+        </set>
+        <set name="jrcNotaFiscalsForIdRotaFaturamento" table="JRC_NOTA_FISCAL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_ROTA_FATURAMENTO" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcNotaFiscal" />
+        </set>
+    </class>
+</hibernate-mapping>

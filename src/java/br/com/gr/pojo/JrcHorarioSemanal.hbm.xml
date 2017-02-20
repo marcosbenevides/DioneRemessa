@@ -1,0 +1,222 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19/02/2017 12:54:03 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="br.com.gr.pojo.JrcHorarioSemanal" table="JRC_HORARIO_SEMANAL" schema="DIONE_HOM" optimistic-lock="version">
+        <id name="idHorarioSemanal" type="long">
+            <column name="ID_HORARIO_SEMANAL" precision="15" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="jrcEmpresa" class="br.com.gr.pojo.JrcEmpresa" fetch="select">
+            <column name="ID_EMPRESA" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcUsuario" class="br.com.gr.pojo.JrcUsuario" fetch="select">
+            <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="descBreve" type="string">
+            <column name="DESC_BREVE" length="20" not-null="true" />
+        </property>
+        <property name="descLonga" type="string">
+            <column name="DESC_LONGA" length="50" />
+        </property>
+        <property name="EHhT1Seg" type="java.lang.Byte">
+            <column name="E_HH_T1_SEG" precision="2" scale="0" />
+        </property>
+        <property name="EMiT1Seg" type="java.lang.Byte">
+            <column name="E_MI_T1_SEG" precision="2" scale="0" />
+        </property>
+        <property name="SHhT1Seg" type="java.lang.Byte">
+            <column name="S_HH_T1_SEG" precision="2" scale="0" />
+        </property>
+        <property name="SMiT1Seg" type="java.lang.Byte">
+            <column name="S_MI_T1_SEG" precision="2" scale="0" />
+        </property>
+        <property name="EHhT2Seg" type="java.lang.Byte">
+            <column name="E_HH_T2_SEG" precision="2" scale="0" />
+        </property>
+        <property name="EMiT2Seg" type="java.lang.Byte">
+            <column name="E_MI_T2_SEG" precision="2" scale="0" />
+        </property>
+        <property name="SHhT2Seg" type="java.lang.Byte">
+            <column name="S_HH_T2_SEG" precision="2" scale="0" />
+        </property>
+        <property name="SMiT2Seg" type="java.lang.Byte">
+            <column name="S_MI_T2_SEG" precision="2" scale="0" />
+        </property>
+        <property name="EHhT1Ter" type="java.lang.Byte">
+            <column name="E_HH_T1_TER" precision="2" scale="0" />
+        </property>
+        <property name="EMiT1Ter" type="java.lang.Byte">
+            <column name="E_MI_T1_TER" precision="2" scale="0" />
+        </property>
+        <property name="SHhT1Ter" type="java.lang.Byte">
+            <column name="S_HH_T1_TER" precision="2" scale="0" />
+        </property>
+        <property name="SMiT1Ter" type="java.lang.Byte">
+            <column name="S_MI_T1_TER" precision="2" scale="0" />
+        </property>
+        <property name="EHhT2Ter" type="java.lang.Byte">
+            <column name="E_HH_T2_TER" precision="2" scale="0" />
+        </property>
+        <property name="EMiT2Ter" type="java.lang.Byte">
+            <column name="E_MI_T2_TER" precision="2" scale="0" />
+        </property>
+        <property name="SHhT2Ter" type="java.lang.Byte">
+            <column name="S_HH_T2_TER" precision="2" scale="0" />
+        </property>
+        <property name="SMiT2Ter" type="java.lang.Byte">
+            <column name="S_MI_T2_TER" precision="2" scale="0" />
+        </property>
+        <property name="EHhT1Qua" type="java.lang.Byte">
+            <column name="E_HH_T1_QUA" precision="2" scale="0" />
+        </property>
+        <property name="EMiT1Qua" type="java.lang.Byte">
+            <column name="E_MI_T1_QUA" precision="2" scale="0" />
+        </property>
+        <property name="SHhT1Qua" type="java.lang.Byte">
+            <column name="S_HH_T1_QUA" precision="2" scale="0" />
+        </property>
+        <property name="SMiT1Qua" type="java.lang.Byte">
+            <column name="S_MI_T1_QUA" precision="2" scale="0" />
+        </property>
+        <property name="EHhT2Qua" type="java.lang.Byte">
+            <column name="E_HH_T2_QUA" precision="2" scale="0" />
+        </property>
+        <property name="EMiT2Qua" type="java.lang.Byte">
+            <column name="E_MI_T2_QUA" precision="2" scale="0" />
+        </property>
+        <property name="SHhT2Qua" type="java.lang.Byte">
+            <column name="S_HH_T2_QUA" precision="2" scale="0" />
+        </property>
+        <property name="SMiT2Qua" type="java.lang.Byte">
+            <column name="S_MI_T2_QUA" precision="2" scale="0" />
+        </property>
+        <property name="EHhT1Qui" type="java.lang.Byte">
+            <column name="E_HH_T1_QUI" precision="2" scale="0" />
+        </property>
+        <property name="EMiT1Qui" type="java.lang.Byte">
+            <column name="E_MI_T1_QUI" precision="2" scale="0" />
+        </property>
+        <property name="SHhT1Qui" type="java.lang.Byte">
+            <column name="S_HH_T1_QUI" precision="2" scale="0" />
+        </property>
+        <property name="SMiT1Qui" type="java.lang.Byte">
+            <column name="S_MI_T1_QUI" precision="2" scale="0" />
+        </property>
+        <property name="EHhT2Qui" type="java.lang.Byte">
+            <column name="E_HH_T2_QUI" precision="2" scale="0" />
+        </property>
+        <property name="EMiT2Qui" type="java.lang.Byte">
+            <column name="E_MI_T2_QUI" precision="2" scale="0" />
+        </property>
+        <property name="SHhT2Qui" type="java.lang.Byte">
+            <column name="S_HH_T2_QUI" precision="2" scale="0" />
+        </property>
+        <property name="SMiT2Qui" type="java.lang.Byte">
+            <column name="S_MI_T2_QUI" precision="2" scale="0" />
+        </property>
+        <property name="EHhT1Sex" type="java.lang.Byte">
+            <column name="E_HH_T1_SEX" precision="2" scale="0" />
+        </property>
+        <property name="EMiT1Sex" type="java.lang.Byte">
+            <column name="E_MI_T1_SEX" precision="2" scale="0" />
+        </property>
+        <property name="SHhT1Sex" type="java.lang.Byte">
+            <column name="S_HH_T1_SEX" precision="2" scale="0" />
+        </property>
+        <property name="SMiT1Sex" type="java.lang.Byte">
+            <column name="S_MI_T1_SEX" precision="2" scale="0" />
+        </property>
+        <property name="EHhT2Sex" type="java.lang.Byte">
+            <column name="E_HH_T2_SEX" precision="2" scale="0" />
+        </property>
+        <property name="EMiT2Sex" type="java.lang.Byte">
+            <column name="E_MI_T2_SEX" precision="2" scale="0" />
+        </property>
+        <property name="SHhT2Sex" type="java.lang.Byte">
+            <column name="S_HH_T2_SEX" precision="2" scale="0" />
+        </property>
+        <property name="SMiT2Sex" type="java.lang.Byte">
+            <column name="S_MI_T2_SEX" precision="2" scale="0" />
+        </property>
+        <property name="EHhT1Sab" type="java.lang.Byte">
+            <column name="E_HH_T1_SAB" precision="2" scale="0" />
+        </property>
+        <property name="EMiT1Sab" type="java.lang.Byte">
+            <column name="E_MI_T1_SAB" precision="2" scale="0" />
+        </property>
+        <property name="SHhT1Sab" type="java.lang.Byte">
+            <column name="S_HH_T1_SAB" precision="2" scale="0" />
+        </property>
+        <property name="SMiT1Sab" type="java.lang.Byte">
+            <column name="S_MI_T1_SAB" precision="2" scale="0" />
+        </property>
+        <property name="EHhT2Sab" type="java.lang.Byte">
+            <column name="E_HH_T2_SAB" precision="2" scale="0" />
+        </property>
+        <property name="EMiT2Sab" type="java.lang.Byte">
+            <column name="E_MI_T2_SAB" precision="2" scale="0" />
+        </property>
+        <property name="SHhT2Sab" type="java.lang.Byte">
+            <column name="S_HH_T2_SAB" precision="2" scale="0" />
+        </property>
+        <property name="SMiT2Sab" type="java.lang.Byte">
+            <column name="S_MI_T2_SAB" precision="2" scale="0" />
+        </property>
+        <property name="EHhT1Dom" type="java.lang.Byte">
+            <column name="E_HH_T1_DOM" precision="2" scale="0" />
+        </property>
+        <property name="EMiT1Dom" type="java.lang.Byte">
+            <column name="E_MI_T1_DOM" precision="2" scale="0" />
+        </property>
+        <property name="SHhT1Dom" type="java.lang.Byte">
+            <column name="S_HH_T1_DOM" precision="2" scale="0" />
+        </property>
+        <property name="SMiT1Dom" type="java.lang.Byte">
+            <column name="S_MI_T1_DOM" precision="2" scale="0" />
+        </property>
+        <property name="EHhT2Dom" type="java.lang.Byte">
+            <column name="E_HH_T2_DOM" precision="2" scale="0" />
+        </property>
+        <property name="EMiT2Dom" type="java.lang.Byte">
+            <column name="E_MI_T2_DOM" precision="2" scale="0" />
+        </property>
+        <property name="SHhT2Dom" type="java.lang.Byte">
+            <column name="S_HH_T2_DOM" precision="2" scale="0" />
+        </property>
+        <property name="SMiT2Dom" type="java.lang.Byte">
+            <column name="S_MI_T2_DOM" precision="2" scale="0" />
+        </property>
+        <property name="indPermiteFeriado" type="java.lang.Boolean">
+            <column name="IND_PERMITE_FERIADO" precision="1" scale="0" />
+        </property>
+        <property name="dtInicioPeriodo" type="date">
+            <column name="DT_INICIO_PERIODO" length="7" not-null="true" />
+        </property>
+        <property name="dtFimPeriodo" type="date">
+            <column name="DT_FIM_PERIODO" length="7" not-null="true" />
+        </property>
+        <property name="dtInclusao" type="date">
+            <column name="DT_INCLUSAO" length="7" not-null="true" />
+        </property>
+        <property name="dtAlteracao" type="date">
+            <column name="DT_ALTERACAO" length="7" not-null="true" />
+        </property>
+        <property name="versaoSistema" type="long">
+            <column name="VERSAO_SISTEMA" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="versaoRegistro" type="long">
+            <column name="VERSAO_REGISTRO" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="miToleranciaExpediente" type="java.lang.Short">
+            <column name="MI_TOLERANCIA_EXPEDIENTE" precision="3" scale="0" />
+        </property>
+        <set name="jrcUsuarios" table="JRC_USUARIO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_HORARIO_SEMANAL" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcUsuario" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,732 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19/02/2017 12:54:03 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="br.com.gr.pojo.JrcNotaFiscal" table="JRC_NOTA_FISCAL" schema="DIONE_HOM" optimistic-lock="version">
+        <id name="idNotaFiscal" type="long">
+            <column name="ID_NOTA_FISCAL" precision="15" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="jrcLoteNfe" class="br.com.gr.pojo.JrcLoteNfe" fetch="select">
+            <column name="ID_LOTE_NFE" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcTipoNotaEstoque" class="br.com.gr.pojo.JrcTipoNotaEstoque" fetch="select">
+            <column name="ID_TIPO_NOTA_ESTOQUE" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcFinContaByIdFinContaPagto" class="br.com.gr.pojo.JrcFinConta" fetch="select">
+            <column name="ID_FIN_CONTA_PAGTO" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcFinContaByIdFinContaRecdes" class="br.com.gr.pojo.JrcFinConta" fetch="select">
+            <column name="ID_FIN_CONTA_RECDES" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcRecebimento" class="br.com.gr.pojo.JrcRecebimento" fetch="select">
+            <column name="ID_RECEBIMENTO" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcBairroByEmIdBairro" class="br.com.gr.pojo.JrcBairro" fetch="select">
+            <column name="EM_ID_BAIRRO" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcBairroByDrIdBairro" class="br.com.gr.pojo.JrcBairro" fetch="select">
+            <column name="DR_ID_BAIRRO" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcBairroByTrIdBairro" class="br.com.gr.pojo.JrcBairro" fetch="select">
+            <column name="TR_ID_BAIRRO" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcCfop" class="br.com.gr.pojo.JrcCfop" fetch="select">
+            <column name="ID_CFOP" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcDevolucaoVenda" class="br.com.gr.pojo.JrcDevolucaoVenda" fetch="select">
+            <column name="ID_DEVOLUCAO_VENDA" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcEmpresa" class="br.com.gr.pojo.JrcEmpresa" fetch="select">
+            <column name="ID_EMPRESA" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcFornecedor" class="br.com.gr.pojo.JrcFornecedor" fetch="select">
+            <column name="ID_FORNECEDOR" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcLancamentoEcfCf" class="br.com.gr.pojo.JrcLancamentoEcfCf" fetch="select">
+            <column name="ID_LANCAMENTO_ECF_CF" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcLocalidadeByEmIdLocalidade" class="br.com.gr.pojo.JrcLocalidade" fetch="select">
+            <column name="EM_ID_LOCALIDADE" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcLocalidadeByDrIdLocalidade" class="br.com.gr.pojo.JrcLocalidade" fetch="select">
+            <column name="DR_ID_LOCALIDADE" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcLocalidadeByTrIdLocalidade" class="br.com.gr.pojo.JrcLocalidade" fetch="select">
+            <column name="TR_ID_LOCALIDADE" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcLogradouroByTrIdLogradouro" class="br.com.gr.pojo.JrcLogradouro" fetch="select">
+            <column name="TR_ID_LOGRADOURO" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcLogradouroByEmIdLogradouro" class="br.com.gr.pojo.JrcLogradouro" fetch="select">
+            <column name="EM_ID_LOGRADOURO" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcLogradouroByDrIdLogradouro" class="br.com.gr.pojo.JrcLogradouro" fetch="select">
+            <column name="DR_ID_LOGRADOURO" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcLojaByIdLojaDestino" class="br.com.gr.pojo.JrcLoja" fetch="select">
+            <column name="ID_LOJA_DESTINO" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcLojaByIdLojaMontagem" class="br.com.gr.pojo.JrcLoja" fetch="select">
+            <column name="ID_LOJA_MONTAGEM" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcLojaByIdLojaEntrega" class="br.com.gr.pojo.JrcLoja" fetch="select">
+            <column name="ID_LOJA_ENTREGA" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcLojaByIdLoja" class="br.com.gr.pojo.JrcLoja" fetch="select">
+            <column name="ID_LOJA" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcNaturezaOperacao" class="br.com.gr.pojo.JrcNaturezaOperacao" fetch="select">
+            <column name="ID_NATUREZA_OPERACAO" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcNotaFiscal" class="br.com.gr.pojo.JrcNotaFiscal" fetch="select">
+            <column name="ID_NOTA_FISCAL_REF" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcPedidoVenda" class="br.com.gr.pojo.JrcPedidoVenda" fetch="select">
+            <column name="ID_PEDIDO_VENDA" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcPessoaByDrIdPessoa" class="br.com.gr.pojo.JrcPessoa" fetch="select">
+            <column name="DR_ID_PESSOA" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcPessoaByEmIdPessoa" class="br.com.gr.pojo.JrcPessoa" fetch="select">
+            <column name="EM_ID_PESSOA" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcTipoNota" class="br.com.gr.pojo.JrcTipoNota" fetch="select">
+            <column name="ID_TIPO_NOTA" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcTransportador" class="br.com.gr.pojo.JrcTransportador" fetch="select">
+            <column name="ID_TRANSPORTADOR" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcUsuarioByIdUsuarioDetpagto" class="br.com.gr.pojo.JrcUsuario" fetch="select">
+            <column name="ID_USUARIO_DETPAGTO" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcUsuarioByIdUsuario" class="br.com.gr.pojo.JrcUsuario" fetch="select">
+            <column name="ID_USUARIO" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcUsuarioByIdUsuarioMontagem" class="br.com.gr.pojo.JrcUsuario" fetch="select">
+            <column name="ID_USUARIO_MONTAGEM" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcUsuarioByIdUsuarioEntrega" class="br.com.gr.pojo.JrcUsuario" fetch="select">
+            <column name="ID_USUARIO_ENTREGA" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcVeiculo" class="br.com.gr.pojo.JrcVeiculo" fetch="select">
+            <column name="ID_VEICULO" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcMotorista" class="br.com.gr.pojo.JrcMotorista" fetch="select">
+            <column name="ID_MOTORISTA" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcRotaFaturamentoByIdRotaMontagem" class="br.com.gr.pojo.JrcRotaFaturamento" fetch="select">
+            <column name="ID_ROTA_MONTAGEM" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcRotaFaturamentoByIdRotaFaturamento" class="br.com.gr.pojo.JrcRotaFaturamento" fetch="select">
+            <column name="ID_ROTA_FATURAMENTO" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcMontador" class="br.com.gr.pojo.JrcMontador" fetch="select">
+            <column name="ID_MONTADOR" precision="15" scale="0" />
+        </many-to-one>
+        <property name="flagOperacaoEs" type="string">
+            <column name="FLAG_OPERACAO_ES" length="1" not-null="true" />
+        </property>
+        <property name="flagNotaEs" type="string">
+            <column name="FLAG_NOTA_ES" length="1" not-null="true" />
+        </property>
+        <property name="modeloNota" type="string">
+            <column name="MODELO_NOTA" length="2" not-null="true" />
+        </property>
+        <property name="serieNota" type="string">
+            <column name="SERIE_NOTA" length="3" />
+        </property>
+        <property name="numeroNota" type="int">
+            <column name="NUMERO_NOTA" precision="9" scale="0" not-null="true" />
+        </property>
+        <property name="naturezaOperacao" type="string">
+            <column name="NATUREZA_OPERACAO" length="20" not-null="true" />
+        </property>
+        <property name="cfop" type="string">
+            <column name="CFOP" length="4" not-null="true" />
+        </property>
+        <property name="flagEmitente" type="string">
+            <column name="FLAG_EMITENTE" length="1" not-null="true" />
+        </property>
+        <property name="emCnpj" type="long">
+            <column name="EM_CNPJ" precision="14" scale="0" not-null="true" />
+        </property>
+        <property name="emIe" type="string">
+            <column name="EM_IE" length="20" />
+        </property>
+        <property name="emUf" type="string">
+            <column name="EM_UF" length="2" not-null="true" />
+        </property>
+        <property name="emIeSubstituto" type="string">
+            <column name="EM_IE_SUBSTITUTO" length="20" />
+        </property>
+        <property name="drNomeRazaosocial" type="string">
+            <column name="DR_NOME_RAZAOSOCIAL" length="100" not-null="true" />
+        </property>
+        <property name="drCpfCnpj" type="java.lang.Long">
+            <column name="DR_CPF_CNPJ" precision="14" scale="0" />
+        </property>
+        <property name="drIe" type="string">
+            <column name="DR_IE" length="20" />
+        </property>
+        <property name="drEndereco" type="string">
+            <column name="DR_ENDERECO" length="80" />
+        </property>
+        <property name="drBairro" type="string">
+            <column name="DR_BAIRRO" length="40" />
+        </property>
+        <property name="drLocalidade" type="string">
+            <column name="DR_LOCALIDADE" length="40" />
+        </property>
+        <property name="drUf" type="string">
+            <column name="DR_UF" length="2" not-null="true" />
+        </property>
+        <property name="drCep" type="java.lang.Integer">
+            <column name="DR_CEP" precision="8" scale="0" />
+        </property>
+        <property name="drDdd" type="java.lang.Short">
+            <column name="DR_DDD" precision="4" scale="0" />
+        </property>
+        <property name="drFone" type="java.lang.Long">
+            <column name="DR_FONE" precision="10" scale="0" />
+        </property>
+        <property name="dtEmissao" type="date">
+            <column name="DT_EMISSAO" length="7" />
+        </property>
+        <property name="dtEntradaSaida" type="date">
+            <column name="DT_ENTRADA_SAIDA" length="7" />
+        </property>
+        <property name="baseIcms" type="big_decimal">
+            <column name="BASE_ICMS" precision="15" />
+        </property>
+        <property name="icms" type="big_decimal">
+            <column name="ICMS" precision="15" />
+        </property>
+        <property name="baseIcmsSt" type="big_decimal">
+            <column name="BASE_ICMS_ST" precision="15" />
+        </property>
+        <property name="icmsSt" type="big_decimal">
+            <column name="ICMS_ST" precision="15" />
+        </property>
+        <property name="totalItens" type="big_decimal">
+            <column name="TOTAL_ITENS" precision="15" not-null="true" />
+        </property>
+        <property name="frete" type="big_decimal">
+            <column name="FRETE" precision="15" />
+        </property>
+        <property name="seguro" type="big_decimal">
+            <column name="SEGURO" precision="15" />
+        </property>
+        <property name="outrasDespesas" type="big_decimal">
+            <column name="OUTRAS_DESPESAS" precision="15" />
+        </property>
+        <property name="baseIpi" type="big_decimal">
+            <column name="BASE_IPI" precision="15" />
+        </property>
+        <property name="ipi" type="big_decimal">
+            <column name="IPI" precision="15" />
+        </property>
+        <property name="totalNota" type="big_decimal">
+            <column name="TOTAL_NOTA" precision="15" not-null="true" />
+        </property>
+        <property name="trNomeRazaosocial" type="string">
+            <column name="TR_NOME_RAZAOSOCIAL" length="100" />
+        </property>
+        <property name="trCpfCnpj" type="java.lang.Long">
+            <column name="TR_CPF_CNPJ" precision="14" scale="0" />
+        </property>
+        <property name="trIe" type="string">
+            <column name="TR_IE" length="20" />
+        </property>
+        <property name="trEndereco" type="string">
+            <column name="TR_ENDERECO" length="80" />
+        </property>
+        <property name="trLocalidade" type="string">
+            <column name="TR_LOCALIDADE" length="40" />
+        </property>
+        <property name="trUf" type="string">
+            <column name="TR_UF" length="2" />
+        </property>
+        <property name="vePlaca" type="string">
+            <column name="VE_PLACA" length="10" />
+        </property>
+        <property name="veUf" type="string">
+            <column name="VE_UF" length="2" />
+        </property>
+        <property name="quantidade" type="java.lang.Long">
+            <column name="QUANTIDADE" precision="15" scale="0" />
+        </property>
+        <property name="especie" type="string">
+            <column name="ESPECIE" length="20" />
+        </property>
+        <property name="marca" type="string">
+            <column name="MARCA" length="20" />
+        </property>
+        <property name="numero" type="string">
+            <column name="NUMERO" length="20" />
+        </property>
+        <property name="pesoBruto" type="big_decimal">
+            <column name="PESO_BRUTO" precision="9" scale="3" />
+        </property>
+        <property name="pesoLiquido" type="big_decimal">
+            <column name="PESO_LIQUIDO" precision="9" scale="3" />
+        </property>
+        <property name="dadosAdicionais" type="string">
+            <column name="DADOS_ADICIONAIS" length="4000" />
+        </property>
+        <property name="dtInclusao" type="date">
+            <column name="DT_INCLUSAO" length="7" not-null="true" />
+        </property>
+        <property name="dtAlteracao" type="date">
+            <column name="DT_ALTERACAO" length="7" not-null="true" />
+        </property>
+        <property name="versaoSistema" type="long">
+            <column name="VERSAO_SISTEMA" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="versaoRegistro" type="long">
+            <column name="VERSAO_REGISTRO" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="codigoRef" type="string">
+            <column name="CODIGO_REF" length="20" />
+        </property>
+        <property name="emEndereco" type="string">
+            <column name="EM_ENDERECO" length="80" />
+        </property>
+        <property name="emBairro" type="string">
+            <column name="EM_BAIRRO" length="40" />
+        </property>
+        <property name="emLocalidade" type="string">
+            <column name="EM_LOCALIDADE" length="40" />
+        </property>
+        <property name="emCep" type="java.lang.Integer">
+            <column name="EM_CEP" precision="8" scale="0" />
+        </property>
+        <property name="flagTipoNota" type="string">
+            <column name="FLAG_TIPO_NOTA" length="5" not-null="true" />
+        </property>
+        <property name="dtEntrega" type="date">
+            <column name="DT_ENTREGA" length="7" />
+        </property>
+        <property name="hrEntrega" type="string">
+            <column name="HR_ENTREGA" length="4" />
+        </property>
+        <property name="indPagtoEntrega" type="java.lang.Boolean">
+            <column name="IND_PAGTO_ENTREGA" precision="1" scale="0" />
+        </property>
+        <property name="indReentrega" type="java.lang.Boolean">
+            <column name="IND_REENTREGA" precision="1" scale="0" />
+        </property>
+        <property name="dtMontagem" type="date">
+            <column name="DT_MONTAGEM" length="7" />
+        </property>
+        <property name="hrMontagem" type="string">
+            <column name="HR_MONTAGEM" length="4" />
+        </property>
+        <property name="indPagtoMontagem" type="java.lang.Boolean">
+            <column name="IND_PAGTO_MONTAGEM" precision="1" scale="0" />
+        </property>
+        <property name="dtEntregaPrev" type="date">
+            <column name="DT_ENTREGA_PREV" length="7" />
+        </property>
+        <property name="hrEntregaPrev" type="string">
+            <column name="HR_ENTREGA_PREV" length="4" />
+        </property>
+        <property name="flagConfirmadoEntrega" type="string">
+            <column name="FLAG_CONFIRMADO_ENTREGA" length="1" />
+        </property>
+        <property name="flagConfirmadoMontagem" type="string">
+            <column name="FLAG_CONFIRMADO_MONTAGEM" length="1" />
+        </property>
+        <property name="emLocalidadeIbge" type="java.lang.Integer">
+            <column name="EM_LOCALIDADE_IBGE" precision="7" scale="0" />
+        </property>
+        <property name="emUfIbge" type="java.lang.Byte">
+            <column name="EM_UF_IBGE" precision="2" scale="0" />
+        </property>
+        <property name="drLocalidadeIbge" type="java.lang.Integer">
+            <column name="DR_LOCALIDADE_IBGE" precision="7" scale="0" />
+        </property>
+        <property name="drUfIbge" type="java.lang.Byte">
+            <column name="DR_UF_IBGE" precision="2" scale="0" />
+        </property>
+        <property name="trLocalidadeIbge" type="java.lang.Integer">
+            <column name="TR_LOCALIDADE_IBGE" precision="7" scale="0" />
+        </property>
+        <property name="trUfIbge" type="java.lang.Byte">
+            <column name="TR_UF_IBGE" precision="2" scale="0" />
+        </property>
+        <property name="emTipoLogradouro" type="string">
+            <column name="EM_TIPO_LOGRADOURO" length="80" />
+        </property>
+        <property name="emLogradouro" type="string">
+            <column name="EM_LOGRADOURO" length="80" />
+        </property>
+        <property name="emNumero" type="string">
+            <column name="EM_NUMERO" length="11" />
+        </property>
+        <property name="emComplemento" type="string">
+            <column name="EM_COMPLEMENTO" length="50" />
+        </property>
+        <property name="drTipoLogradouro" type="string">
+            <column name="DR_TIPO_LOGRADOURO" length="80" />
+        </property>
+        <property name="drLogradouro" type="string">
+            <column name="DR_LOGRADOURO" length="80" />
+        </property>
+        <property name="drNumero" type="string">
+            <column name="DR_NUMERO" length="11" />
+        </property>
+        <property name="drComplemento" type="string">
+            <column name="DR_COMPLEMENTO" length="50" />
+        </property>
+        <property name="trTipoLogradouro" type="string">
+            <column name="TR_TIPO_LOGRADOURO" length="80" />
+        </property>
+        <property name="trLogradouro" type="string">
+            <column name="TR_LOGRADOURO" length="80" />
+        </property>
+        <property name="trNumero" type="string">
+            <column name="TR_NUMERO" length="11" />
+        </property>
+        <property name="trComplemento" type="string">
+            <column name="TR_COMPLEMENTO" length="50" />
+        </property>
+        <property name="drIndPessoaFisica" type="java.lang.Boolean">
+            <column name="DR_IND_PESSOA_FISICA" precision="1" scale="0" />
+        </property>
+        <property name="drEmail" type="string">
+            <column name="DR_EMAIL" length="100" />
+        </property>
+        <property name="desconto" type="big_decimal">
+            <column name="DESCONTO" precision="15" />
+        </property>
+        <property name="flagStatus" type="string">
+            <column name="FLAG_STATUS" length="3" not-null="true" />
+        </property>
+        <property name="codStatus" type="java.lang.Short">
+            <column name="COD_STATUS" precision="3" scale="0" />
+        </property>
+        <property name="descStatus" type="string">
+            <column name="DESC_STATUS" />
+        </property>
+        <property name="veRntc" type="string">
+            <column name="VE_RNTC" length="20" />
+        </property>
+        <property name="versaoLayout" type="string">
+            <column name="VERSAO_LAYOUT" length="4" />
+        </property>
+        <property name="flagTipoAmbiente" type="string">
+            <column name="FLAG_TIPO_AMBIENTE" length="1" />
+        </property>
+        <property name="versaoAplicacao" type="string">
+            <column name="VERSAO_APLICACAO" length="20" />
+        </property>
+        <property name="flagTipoEmissao" type="string">
+            <column name="FLAG_TIPO_EMISSAO" length="6" />
+        </property>
+        <property name="chaveNfe" type="string">
+            <column name="CHAVE_NFE" length="44" />
+        </property>
+        <property name="dtRecbtoNfe" type="date">
+            <column name="DT_RECBTO_NFE" length="7" />
+        </property>
+        <property name="nroProtocoloNfe" type="java.lang.Long">
+            <column name="NRO_PROTOCOLO_NFE" precision="15" scale="0" />
+        </property>
+        <property name="codNumChaveNfe" type="java.lang.Integer">
+            <column name="COD_NUM_CHAVE_NFE" precision="8" scale="0" />
+        </property>
+        <property name="digChaveNfe" type="java.lang.Boolean">
+            <column name="DIG_CHAVE_NFE" precision="1" scale="0" />
+        </property>
+        <property name="trBairro" type="string">
+            <column name="TR_BAIRRO" length="40" />
+        </property>
+        <property name="basePis" type="big_decimal">
+            <column name="BASE_PIS" precision="15" />
+        </property>
+        <property name="pis" type="big_decimal">
+            <column name="PIS" precision="15" />
+        </property>
+        <property name="baseCofins" type="big_decimal">
+            <column name="BASE_COFINS" precision="15" />
+        </property>
+        <property name="cofins" type="big_decimal">
+            <column name="COFINS" precision="15" />
+        </property>
+        <property name="canVersaoLayout" type="string">
+            <column name="CAN_VERSAO_LAYOUT" length="4" />
+        </property>
+        <property name="canFlagTipoAmbiente" type="string">
+            <column name="CAN_FLAG_TIPO_AMBIENTE" length="1" />
+        </property>
+        <property name="canVersaoAplicacao" type="string">
+            <column name="CAN_VERSAO_APLICACAO" length="20" />
+        </property>
+        <property name="canDtRecbtoNfe" type="date">
+            <column name="CAN_DT_RECBTO_NFE" length="7" />
+        </property>
+        <property name="canNroProtocoloNfe" type="java.lang.Long">
+            <column name="CAN_NRO_PROTOCOLO_NFE" precision="15" scale="0" />
+        </property>
+        <property name="canJustificativa" type="string">
+            <column name="CAN_JUSTIFICATIVA" />
+        </property>
+        <property name="drDddCel" type="java.lang.Short">
+            <column name="DR_DDD_CEL" precision="4" scale="0" />
+        </property>
+        <property name="drFoneCel" type="java.lang.Long">
+            <column name="DR_FONE_CEL" precision="10" scale="0" />
+        </property>
+        <property name="emNomeRazaosocial" type="string">
+            <column name="EM_NOME_RAZAOSOCIAL" length="100" />
+        </property>
+        <property name="crt" type="string">
+            <column name="CRT" length="1" />
+        </property>
+        <property name="cfopDr" type="string">
+            <column name="CFOP_DR" length="4" />
+        </property>
+        <property name="totalNotaRetencao" type="big_decimal">
+            <column name="TOTAL_NOTA_RETENCAO" precision="15" />
+        </property>
+        <property name="inuVersaoLayout" type="string">
+            <column name="INU_VERSAO_LAYOUT" length="4" />
+        </property>
+        <property name="inuFlagTipoAmbiente" type="string">
+            <column name="INU_FLAG_TIPO_AMBIENTE" length="1" />
+        </property>
+        <property name="inuVersaoAplicacao" type="string">
+            <column name="INU_VERSAO_APLICACAO" length="20" />
+        </property>
+        <property name="inuDtRecbtoNfe" type="date">
+            <column name="INU_DT_RECBTO_NFE" length="7" />
+        </property>
+        <property name="inuNroProtocoloNfe" type="java.lang.Long">
+            <column name="INU_NRO_PROTOCOLO_NFE" precision="15" scale="0" />
+        </property>
+        <property name="inuJustificativa" type="string">
+            <column name="INU_JUSTIFICATIVA" />
+        </property>
+        <property name="despesasExtras" type="big_decimal">
+            <column name="DESPESAS_EXTRAS" precision="15" />
+        </property>
+        <property name="dtDetpagto" type="date">
+            <column name="DT_DETPAGTO" length="7" />
+        </property>
+        <property name="flagConfirmadoDetpagto" type="string">
+            <column name="FLAG_CONFIRMADO_DETPAGTO" length="1" />
+        </property>
+        <property name="freteValorExtra" type="big_decimal">
+            <column name="FRETE_VALOR_EXTRA" precision="15" />
+        </property>
+        <property name="fretePesoExtra" type="big_decimal">
+            <column name="FRETE_PESO_EXTRA" precision="15" />
+        </property>
+        <property name="aliquotaIcms" type="big_decimal">
+            <column name="ALIQUOTA_ICMS" precision="7" scale="4" />
+        </property>
+        <property name="observacao" type="string">
+            <column name="OBSERVACAO" />
+        </property>
+        <property name="cstPis" type="string">
+            <column name="CST_PIS" length="4" />
+        </property>
+        <property name="aliquotaPis" type="big_decimal">
+            <column name="ALIQUOTA_PIS" precision="7" scale="4" />
+        </property>
+        <property name="cstCofins" type="string">
+            <column name="CST_COFINS" length="4" />
+        </property>
+        <property name="aliquotaCofins" type="big_decimal">
+            <column name="ALIQUOTA_COFINS" precision="7" scale="4" />
+        </property>
+        <property name="indCredPisCofins" type="java.lang.Boolean">
+            <column name="IND_CRED_PIS_COFINS" precision="1" scale="0" />
+        </property>
+        <property name="codTpCredPisCofins" type="string">
+            <column name="COD_TP_CRED_PIS_COFINS" length="3" />
+        </property>
+        <property name="codBaseCredPisCofins" type="string">
+            <column name="COD_BASE_CRED_PIS_COFINS" length="2" />
+        </property>
+        <property name="stExtra" type="big_decimal">
+            <column name="ST_EXTRA" precision="15" />
+        </property>
+        <property name="outrosExtra" type="big_decimal">
+            <column name="OUTROS_EXTRA" precision="15" />
+        </property>
+        <property name="emLocalidadeMmaq" type="string">
+            <column name="EM_LOCALIDADE_MMAQ" length="6" />
+        </property>
+        <property name="drLocalidadeMmaq" type="string">
+            <column name="DR_LOCALIDADE_MMAQ" length="6" />
+        </property>
+        <property name="trLocalidadeMmaq" type="string">
+            <column name="TR_LOCALIDADE_MMAQ" length="6" />
+        </property>
+        <property name="idPedidoCompra" type="java.lang.Long">
+            <column name="ID_PEDIDO_COMPRA" precision="15" scale="0" />
+        </property>
+        <property name="pisRetido" type="big_decimal">
+            <column name="PIS_RETIDO" precision="15" />
+        </property>
+        <property name="cofinsRetido" type="big_decimal">
+            <column name="COFINS_RETIDO" precision="15" />
+        </property>
+        <property name="iss" type="big_decimal">
+            <column name="ISS" precision="15" />
+        </property>
+        <property name="dpecFlagStatus" type="string">
+            <column name="DPEC_FLAG_STATUS" length="3" />
+        </property>
+        <property name="dpecCodStatus" type="java.lang.Short">
+            <column name="DPEC_COD_STATUS" precision="3" scale="0" />
+        </property>
+        <property name="dpecDescStatus" type="string">
+            <column name="DPEC_DESC_STATUS" />
+        </property>
+        <property name="dpecVersaoLayout" type="string">
+            <column name="DPEC_VERSAO_LAYOUT" length="4" />
+        </property>
+        <property name="dpecVersaoAplicacao" type="string">
+            <column name="DPEC_VERSAO_APLICACAO" length="20" />
+        </property>
+        <property name="dpecChaveNfe" type="string">
+            <column name="DPEC_CHAVE_NFE" length="44" />
+        </property>
+        <property name="dpecDtRecbtoNfe" type="date">
+            <column name="DPEC_DT_RECBTO_NFE" length="7" />
+        </property>
+        <property name="dpecNroProtocoloNfe" type="java.lang.Long">
+            <column name="DPEC_NRO_PROTOCOLO_NFE" precision="15" scale="0" />
+        </property>
+        <property name="dpecDtInicio" type="date">
+            <column name="DPEC_DT_INICIO" length="7" />
+        </property>
+        <property name="dpecMotivo" type="string">
+            <column name="DPEC_MOTIVO" />
+        </property>
+        <property name="flagFrete" type="java.lang.Boolean">
+            <column name="FLAG_FRETE" precision="1" scale="0" />
+        </property>
+        <property name="trCep" type="java.lang.Integer">
+            <column name="TR_CEP" precision="8" scale="0" />
+        </property>
+        <property name="ccFlagStatus" type="string">
+            <column name="CC_FLAG_STATUS" length="3" />
+        </property>
+        <property name="ccCodStatus" type="java.lang.Short">
+            <column name="CC_COD_STATUS" precision="3" scale="0" />
+        </property>
+        <property name="ccDescStatus" type="string">
+            <column name="CC_DESC_STATUS" />
+        </property>
+        <property name="ccVersaoLayout" type="string">
+            <column name="CC_VERSAO_LAYOUT" length="4" />
+        </property>
+        <property name="ccVersaoAplicacao" type="string">
+            <column name="CC_VERSAO_APLICACAO" length="20" />
+        </property>
+        <property name="ccDtRecbtoNfe" type="date">
+            <column name="CC_DT_RECBTO_NFE" length="7" />
+        </property>
+        <property name="ccNroProtocoloNfe" type="java.lang.Long">
+            <column name="CC_NRO_PROTOCOLO_NFE" precision="15" scale="0" />
+        </property>
+        <property name="ccSequencial" type="java.lang.Byte">
+            <column name="CC_SEQUENCIAL" precision="2" scale="0" />
+        </property>
+        <property name="ccObservacao" type="string">
+            <column name="CC_OBSERVACAO" />
+        </property>
+        <property name="penNumeroNota" type="java.lang.Integer">
+            <column name="PEN_NUMERO_NOTA" precision="9" scale="0" />
+        </property>
+        <property name="penFlagStatus" type="string">
+            <column name="PEN_FLAG_STATUS" length="3" />
+        </property>
+        <property name="penChaveNfe" type="string">
+            <column name="PEN_CHAVE_NFE" length="44" />
+        </property>
+        <property name="penCodNumChaveNfe" type="java.lang.Integer">
+            <column name="PEN_COD_NUM_CHAVE_NFE" precision="8" scale="0" />
+        </property>
+        <property name="penDigChaveNfe" type="java.lang.Boolean">
+            <column name="PEN_DIG_CHAVE_NFE" precision="1" scale="0" />
+        </property>
+        <property name="custoContabil" type="big_decimal">
+            <column name="CUSTO_CONTABIL" precision="15" />
+        </property>
+        <property name="baseIcmsStDev" type="big_decimal">
+            <column name="BASE_ICMS_ST_DEV" precision="15" />
+        </property>
+        <property name="icmsStDev" type="big_decimal">
+            <column name="ICMS_ST_DEV" precision="15" />
+        </property>
+        <property name="precoPartidaDin" type="big_decimal">
+            <column name="PRECO_PARTIDA_DIN" precision="15" />
+        </property>
+        <property name="baseIcmsUfDr" type="big_decimal">
+            <column name="BASE_ICMS_UF_DR" precision="15" />
+        </property>
+        <property name="icmsUfEm" type="big_decimal">
+            <column name="ICMS_UF_EM" precision="15" />
+        </property>
+        <property name="icmsUfDr" type="big_decimal">
+            <column name="ICMS_UF_DR" precision="15" />
+        </property>
+        <property name="icmsFcpUfDr" type="big_decimal">
+            <column name="ICMS_FCP_UF_DR" precision="15" />
+        </property>
+        <property name="icmsFcp" type="big_decimal">
+            <column name="ICMS_FCP" precision="15" />
+        </property>
+        <property name="md5Paf" type="string">
+            <column name="MD5_PAF" length="100" />
+        </property>
+        <property name="digestValue" type="string">
+            <column name="DIGEST_VALUE" length="100" />
+        </property>
+        <property name="versaoQrcodeNfc" type="java.lang.Short">
+            <column name="VERSAO_QRCODE_NFC" precision="3" scale="0" />
+        </property>
+        <property name="urlQrcodeNfc" type="string">
+            <column name="URL_QRCODE_NFC" length="200" />
+        </property>
+        <property name="idCscNfc" type="string">
+            <column name="ID_CSC_NFC" length="6" />
+        </property>
+        <property name="cscNfc" type="string">
+            <column name="CSC_NFC" length="36" />
+        </property>
+        <property name="hashQrCode" type="string">
+            <column name="HASH_QR_CODE" length="100" />
+        </property>
+        <property name="qrCode" type="string">
+            <column name="QR_CODE" length="1000" />
+        </property>
+        <property name="dadosFisco" type="string">
+            <column name="DADOS_FISCO" length="4000" />
+        </property>
+        <property name="urlWebNfc" type="string">
+            <column name="URL_WEB_NFC" length="200" />
+        </property>
+        <property name="flagFinalidade" type="string">
+            <column name="FLAG_FINALIDADE" length="3" />
+        </property>
+        <set name="jrcNotaFiscals" table="JRC_NOTA_FISCAL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_NOTA_FISCAL_REF" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcNotaFiscal" />
+        </set>
+        <set name="jrcFinLancamentos" table="JRC_FIN_LANCAMENTO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="NF_ID_NOTA_FISCAL" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcFinLancamento" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<!--
+DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright (c) 2008, 2016 Oracle and/or its affiliates. All rights reserved.
+
+Oracle and Java are registered trademarks of Oracle and/or its affiliates.
+Other names may be trademarks of their respective owners.
+
+The contents of this file are subject to the terms of either the GNU
+General Public License Version 2 only ("GPL") or the Common
+Development and Distribution License("CDDL") (collectively, the
+"License"). You may not use this file except in compliance with the
+License. You can obtain a copy of the License at
+http://www.netbeans.org/cddl-gplv2.html
+or nbbuild/licenses/CDDL-GPL-2-CP. See the License for the
+specific language governing permissions and limitations under the
+License.  When distributing the software, include this License Header
+Notice in each file and include the License file at
+nbbuild/licenses/CDDL-GPL-2-CP.  Oracle designates this
+particular file as subject to the "Classpath" exception as provided
+by Oracle in the GPL Version 2 section of the License file that
+accompanied this code. If applicable, add the following below the
+License Header, with the fields enclosed by brackets [] replaced by
+your own identifying information:
+"Portions Copyrighted [year] [name of copyright owner]"
+
+If you wish your version of this file to be governed by only the CDDL
+or only the GPL Version 2, indicate your decision by adding
+"[Contributor] elects to include this software in this distribution
+under the [CDDL or GPL Version 2] license." If you do not indicate a
+single choice of license, a recipient has the option to distribute
+your version of this file under either the CDDL, the GPL Version 2 or
+to extend the choice of license to its licensees as provided above.
+However, if you add GPL Version 2 code and therefore, elected the GPL
+Version 2 license, then the option applies only if the new code is
+made subject to such option by the copyright holder.
+
+Contributor(s):
+-->
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.OracleDialect</property>
+    <property name="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</property>
+    <property name="hibernate.connection.url">jdbc:oracle:thin:@189.39.53.93:1522:rsprd</property>
+    <property name="hibernate.connection.username">dione_hom</property>
+    <property name="hibernate.connection.password">hom_dione</property>
+    <property name="hibernate.show_sql">true</property>
+    <property name="hibernate.format_sql">true</property>
+    <mapping resource="br/com/gr/pojo/JrcGrupoImpostoProduto.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcOperadoraTelefonia.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcEcf.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcTransportador.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcLoteNfe.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrxHostRetorno.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcGrupoImpostoServico.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcBorderoProposta.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcPessoa.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcPais.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrxHostFinanceira.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcStatusEqualizacao.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcTransacaoOffline.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcDesenvolvedora.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcMotorista.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcMovimentoTesouraria.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcOperacaoTef.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcUf.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcPessoaBanco.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrxHostProduto.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcStatusPedidoVenda.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcPdv.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcClassificacaoProduto.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcFinanceira.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcServicoPreco.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcEmissorCartao.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcFinBancoTipolancto.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcKit.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcTipoRenda.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcTipoObservacao.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcTipoVenda.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcMensagemAnalise.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcMontador.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcProdutoPai.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcVeiculo.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcFinBanco.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcStatusDevolucaoVenda.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcPrivilegio.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcStatusServico.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcMovimentoPdv.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcStatusPromocao.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcStatusProduto.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcPlanoFinanciamento.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcTipoCadastro.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcLogradouro.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcCargo.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcObservacao.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcRecebimento.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcPedidoVenda.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcEqualizacaoItem.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcAutorizadorNfe.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcTipoFormaPagamento.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcFabricante.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcPromocaoGeral.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcSeguroCobertura.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcTipoConta.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcEmpresa.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcEcfXPdv.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcNotaFiscal.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcCest.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcMarca.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcTipoPessoa.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcDevolucaoVenda.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcFinLancamento.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcCfop.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcTipoLogradouro.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcRotaFaturamento.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcPromocaoItem.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcCorretora.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcPromocao.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcTipoPassaporte.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcProcessoPdv.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcAcaoAnalise.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcSubestipulante.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcPaf.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcTipoEqualizacao.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcTipoNotaEstoque.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcSeguradora.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcLocalidade.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcTipoEcf.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcTipoPromocao.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcTipoLoja.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcTesouraria.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcSeguroConfig.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcMontadora.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcLoja.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcGrupoEstoque.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcTipoServico.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcImpressora.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcTipoVeiculo.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcOrganizacao.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcMeioPagamento.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcLancamentoEcfCf.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcUsuario.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcClassificacaoFiscal.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcHistoricoPadrao.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcVoltagem.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcTipoEstoque.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcPromocaoItemDetalhe.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcModeloImpressora.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcUnidade.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcEqualizacao.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcHorarioSemanal.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcFinCartao.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcCor.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcBeneficiario.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcFornecedor.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcBandeiraCartao.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcBox.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcFinBordero.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcTipoTelefone.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcEstipulante.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcPedidoVendaItem.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrxHostTransacao.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcModeloEcf.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcFormaPagamento.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcTipoCliente.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcOrgao.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcConvenio.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcCapitalizacao.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcTef.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcProduto.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcCarneConfig.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcGrupoComissao.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcMovimentoEcf.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcServico.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcTipoOperacao.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcSequencia.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcConveniada.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcTipoDivulgacao.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcTipoGrupo.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcBanco.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcTipoNota.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcTransacaoTef.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcPessoaTelefone.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcNaturezaOperacao.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcModeloNota.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcBairro.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcPedvdaitemApuracao.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcFinConfigFormapagto.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcApuracaoComissao.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcFinConta.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcGrupoCustoAdicional.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcStatusConferencia.hbm.xml"/>
+    <mapping resource="br/com/gr/pojo/JrcTabelaFinanciamento.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

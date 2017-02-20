@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19/02/2017 12:54:03 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="br.com.gr.pojo.JrcPromocao" table="JRC_PROMOCAO" schema="DIONE_HOM" optimistic-lock="version">
+        <id name="idPromocao" type="long">
+            <column name="ID_PROMOCAO" precision="15" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="jrcTipoPromocao" class="br.com.gr.pojo.JrcTipoPromocao" fetch="select">
+            <column name="ID_TIPO_PROMOCAO" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcEmpresa" class="br.com.gr.pojo.JrcEmpresa" fetch="select">
+            <column name="ID_EMPRESA" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcLoja" class="br.com.gr.pojo.JrcLoja" fetch="select">
+            <column name="ID_LOJA_BASE" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcStatusPromocao" class="br.com.gr.pojo.JrcStatusPromocao" fetch="select">
+            <column name="ID_STATUS_PROMOCAO" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcUsuarioByIdUsuarioAprovou" class="br.com.gr.pojo.JrcUsuario" fetch="select">
+            <column name="ID_USUARIO_APROVOU" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcUsuarioByIdUsuarioCriou" class="br.com.gr.pojo.JrcUsuario" fetch="select">
+            <column name="ID_USUARIO_CRIOU" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="descBreve" type="string">
+            <column name="DESC_BREVE" length="20" not-null="true" />
+        </property>
+        <property name="descLonga" type="string">
+            <column name="DESC_LONGA" length="50" />
+        </property>
+        <property name="indGrupoLoja" type="boolean">
+            <column name="IND_GRUPO_LOJA" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="indTipoCliente" type="boolean">
+            <column name="IND_TIPO_CLIENTE" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="dtInicioPeriodo" type="date">
+            <column name="DT_INICIO_PERIODO" length="7" not-null="true" />
+        </property>
+        <property name="dtFimPeriodo" type="date">
+            <column name="DT_FIM_PERIODO" length="7" not-null="true" />
+        </property>
+        <property name="dtInclusao" type="date">
+            <column name="DT_INCLUSAO" length="7" not-null="true" />
+        </property>
+        <property name="dtAlteracao" type="date">
+            <column name="DT_ALTERACAO" length="7" not-null="true" />
+        </property>
+        <property name="versaoSistema" type="long">
+            <column name="VERSAO_SISTEMA" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="versaoRegistro" type="long">
+            <column name="VERSAO_REGISTRO" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="indOrganizacao" type="boolean">
+            <column name="IND_ORGANIZACAO" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="indClassificacaoLoja" type="boolean">
+            <column name="IND_CLASSIFICACAO_LOJA" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="indLoja" type="boolean">
+            <column name="IND_LOJA" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="indTipoVenda" type="boolean">
+            <column name="IND_TIPO_VENDA" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="indTabfin" type="boolean">
+            <column name="IND_TABFIN" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="flagEstoquePromocao" type="string">
+            <column name="FLAG_ESTOQUE_PROMOCAO" length="6" />
+        </property>
+        <set name="jrcPedidoVendaItems" table="JRC_PEDIDO_VENDA_ITEM" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_PROMOCAO" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcPedidoVendaItem" />
+        </set>
+        <set name="jrcPromocaoItems" table="JRC_PROMOCAO_ITEM" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_PROMOCAO" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcPromocaoItem" />
+        </set>
+        <set name="jrcPromocaoGerals" table="JRC_PROMOCAO_GERAL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_PROMOCAO" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcPromocaoGeral" />
+        </set>
+    </class>
+</hibernate-mapping>

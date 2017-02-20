@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19/02/2017 12:54:03 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="br.com.gr.pojo.JrcMovimentoPdv" table="JRC_MOVIMENTO_PDV" schema="DIONE_HOM" optimistic-lock="version">
+        <id name="idMovimentoPdv" type="long">
+            <column name="ID_MOVIMENTO_PDV" precision="15" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="jrcEmpresa" class="br.com.gr.pojo.JrcEmpresa" fetch="select">
+            <column name="ID_EMPRESA" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcMovimentoTesouraria" class="br.com.gr.pojo.JrcMovimentoTesouraria" fetch="select">
+            <column name="ID_MOVIMENTO_TESOURARIA" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcPdv" class="br.com.gr.pojo.JrcPdv" fetch="select">
+            <column name="ID_PDV" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcUsuarioByIdUsuarioOperador" class="br.com.gr.pojo.JrcUsuario" fetch="select">
+            <column name="ID_USUARIO_OPERADOR" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcUsuarioByIdUsuarioAbertura" class="br.com.gr.pojo.JrcUsuario" fetch="select">
+            <column name="ID_USUARIO_ABERTURA" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcUsuarioByIdUsuarioFechamento" class="br.com.gr.pojo.JrcUsuario" fetch="select">
+            <column name="ID_USUARIO_FECHAMENTO" precision="15" scale="0" />
+        </many-to-one>
+        <property name="dtMovimento" type="date">
+            <column name="DT_MOVIMENTO" length="7" not-null="true" />
+        </property>
+        <property name="dtAbertura" type="date">
+            <column name="DT_ABERTURA" length="7" not-null="true" />
+        </property>
+        <property name="dtFechamento" type="date">
+            <column name="DT_FECHAMENTO" length="7" />
+        </property>
+        <property name="dtInclusao" type="date">
+            <column name="DT_INCLUSAO" length="7" not-null="true" />
+        </property>
+        <property name="dtAlteracao" type="date">
+            <column name="DT_ALTERACAO" length="7" not-null="true" />
+        </property>
+        <property name="versaoSistema" type="long">
+            <column name="VERSAO_SISTEMA" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="versaoRegistro" type="long">
+            <column name="VERSAO_REGISTRO" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="indEcfInoperante" type="boolean">
+            <column name="IND_ECF_INOPERANTE" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="hash1" type="string">
+            <column name="HASH_1" length="256" />
+        </property>
+        <set name="jrcMovimentoEcfs" table="JRC_MOVIMENTO_ECF" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_MOVIMENTO_PDV" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcMovimentoEcf" />
+        </set>
+    </class>
+</hibernate-mapping>

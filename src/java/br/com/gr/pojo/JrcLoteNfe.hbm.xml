@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19/02/2017 12:54:03 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="br.com.gr.pojo.JrcLoteNfe" table="JRC_LOTE_NFE" schema="DIONE_HOM" optimistic-lock="version">
+        <id name="idLoteNfe" type="long">
+            <column name="ID_LOTE_NFE" precision="15" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="jrcEmpresa" class="br.com.gr.pojo.JrcEmpresa" fetch="select">
+            <column name="ID_EMPRESA" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcLoja" class="br.com.gr.pojo.JrcLoja" fetch="select">
+            <column name="ID_LOJA_REF" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcUf" class="br.com.gr.pojo.JrcUf" fetch="select">
+            <column name="ID_UF_AUTORIZADOR" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcUsuario" class="br.com.gr.pojo.JrcUsuario" fetch="select">
+            <column name="ID_USUARIO_REF" precision="15" scale="0" />
+        </many-to-one>
+        <property name="versaoLayout" type="string">
+            <column name="VERSAO_LAYOUT" length="4" not-null="true" />
+        </property>
+        <property name="flagTipoAmbiente" type="string">
+            <column name="FLAG_TIPO_AMBIENTE" length="1" not-null="true" />
+        </property>
+        <property name="versaoAplicacao" type="string">
+            <column name="VERSAO_APLICACAO" length="20" />
+        </property>
+        <property name="flagStatus" type="string">
+            <column name="FLAG_STATUS" length="3" not-null="true" />
+        </property>
+        <property name="codStatus" type="java.lang.Short">
+            <column name="COD_STATUS" precision="3" scale="0" />
+        </property>
+        <property name="descStatus" type="string">
+            <column name="DESC_STATUS" />
+        </property>
+        <property name="dtRecbto" type="date">
+            <column name="DT_RECBTO" length="7" />
+        </property>
+        <property name="nroRecibo" type="java.lang.Long">
+            <column name="NRO_RECIBO" precision="15" scale="0" />
+        </property>
+        <property name="codMsg" type="java.lang.Short">
+            <column name="COD_MSG" precision="4" scale="0" />
+        </property>
+        <property name="descMsg" type="string">
+            <column name="DESC_MSG" length="200" />
+        </property>
+        <property name="dtInclusao" type="date">
+            <column name="DT_INCLUSAO" length="7" not-null="true" />
+        </property>
+        <property name="dtAlteracao" type="date">
+            <column name="DT_ALTERACAO" length="7" not-null="true" />
+        </property>
+        <property name="versaoSistema" type="long">
+            <column name="VERSAO_SISTEMA" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="versaoRegistro" type="long">
+            <column name="VERSAO_REGISTRO" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="flagAppRef" type="string">
+            <column name="FLAG_APP_REF" length="3" />
+        </property>
+        <property name="codigoRef" type="string">
+            <column name="CODIGO_REF" length="20" />
+        </property>
+        <property name="descricaoRef" type="string">
+            <column name="DESCRICAO_REF" length="20" />
+        </property>
+        <property name="dpecVersaoLayout" type="string">
+            <column name="DPEC_VERSAO_LAYOUT" length="4" />
+        </property>
+        <property name="dpecVersaoAplicacao" type="string">
+            <column name="DPEC_VERSAO_APLICACAO" length="20" />
+        </property>
+        <property name="dpecFlagStatus" type="string">
+            <column name="DPEC_FLAG_STATUS" length="3" />
+        </property>
+        <property name="dpecCodStatus" type="java.lang.Short">
+            <column name="DPEC_COD_STATUS" precision="3" scale="0" />
+        </property>
+        <property name="dpecDescStatus" type="string">
+            <column name="DPEC_DESC_STATUS" />
+        </property>
+        <property name="dpecDtRecbto" type="date">
+            <column name="DPEC_DT_RECBTO" length="7" />
+        </property>
+        <property name="dpecNroRecibo" type="java.lang.Long">
+            <column name="DPEC_NRO_RECIBO" precision="15" scale="0" />
+        </property>
+        <property name="indNfc" type="java.lang.Boolean">
+            <column name="IND_NFC" precision="1" scale="0" />
+        </property>
+        <set name="jrcNotaFiscals" table="JRC_NOTA_FISCAL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_LOTE_NFE" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcNotaFiscal" />
+        </set>
+    </class>
+</hibernate-mapping>

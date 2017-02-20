@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19/02/2017 12:54:03 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="br.com.gr.pojo.JrcProcessoPdv" table="JRC_PROCESSO_PDV" schema="DIONE_HOM" optimistic-lock="version">
+        <id name="idProcessoPdv" type="long">
+            <column name="ID_PROCESSO_PDV" precision="15" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="jrcEmpresa" class="br.com.gr.pojo.JrcEmpresa" fetch="select">
+            <column name="ID_EMPRESA" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcPdv" class="br.com.gr.pojo.JrcPdv" fetch="select">
+            <column name="ID_PDV" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcProcessoPdv" class="br.com.gr.pojo.JrcProcessoPdv" fetch="select">
+            <column name="ID_PROCESSO_PDV_ORIGINAL" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcTesouraria" class="br.com.gr.pojo.JrcTesouraria" fetch="select">
+            <column name="ID_TESOURARIA" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcTransacaoOffline" class="br.com.gr.pojo.JrcTransacaoOffline" fetch="select">
+            <column name="ID_TRANSACAO_OFFLINE" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcUsuario" class="br.com.gr.pojo.JrcUsuario" fetch="select">
+            <column name="ID_USUARIO_AUTENTICOU" precision="15" scale="0" />
+        </many-to-one>
+        <property name="flagProcesso" type="string">
+            <column name="FLAG_PROCESSO" length="10" not-null="true" />
+        </property>
+        <property name="flagStatus" type="string">
+            <column name="FLAG_STATUS" length="1" not-null="true" />
+        </property>
+        <property name="dtInclusao" type="date">
+            <column name="DT_INCLUSAO" length="7" not-null="true" />
+        </property>
+        <property name="dtAlteracao" type="date">
+            <column name="DT_ALTERACAO" length="7" not-null="true" />
+        </property>
+        <property name="versaoSistema" type="long">
+            <column name="VERSAO_SISTEMA" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="dtInicioProcessamento" type="date">
+            <column name="DT_INICIO_PROCESSAMENTO" length="7" />
+        </property>
+        <property name="dtFinalProcessamento" type="date">
+            <column name="DT_FINAL_PROCESSAMENTO" length="7" />
+        </property>
+        <property name="dtCancelamento" type="date">
+            <column name="DT_CANCELAMENTO" length="7" />
+        </property>
+        <property name="versaoRegistro" type="long">
+            <column name="VERSAO_REGISTRO" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="auto" type="java.lang.Long">
+            <column name="AUTO" precision="15" scale="0" />
+        </property>
+        <set name="jrcPedidoVendasForIdProcessoPdv" table="JRC_PEDIDO_VENDA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_PROCESSO_PDV" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcPedidoVenda" />
+        </set>
+        <set name="jrcDevolucaoVendas" table="JRC_DEVOLUCAO_VENDA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_PROCESSO_PDV" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcDevolucaoVenda" />
+        </set>
+        <set name="jrcPedidoVendasForIdProcessoPdvDav" table="JRC_PEDIDO_VENDA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_PROCESSO_PDV_DAV" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcPedidoVenda" />
+        </set>
+        <set name="jrcProcessoPdvs" table="JRC_PROCESSO_PDV" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_PROCESSO_PDV_ORIGINAL" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcProcessoPdv" />
+        </set>
+    </class>
+</hibernate-mapping>

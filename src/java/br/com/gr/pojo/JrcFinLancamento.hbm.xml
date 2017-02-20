@@ -1,0 +1,533 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19/02/2017 12:54:03 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="br.com.gr.pojo.JrcFinLancamento" table="JRC_FIN_LANCAMENTO" schema="DIONE_HOM" optimistic-lock="version">
+        <id name="idFinLancto" type="long">
+            <column name="ID_FIN_LANCTO" precision="15" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="jrcFinBancoByDebIdFinBanco" class="br.com.gr.pojo.JrcFinBanco" fetch="select">
+            <column name="DEB_ID_FIN_BANCO" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcFinBancoByCheIdFinBanco" class="br.com.gr.pojo.JrcFinBanco" fetch="select">
+            <column name="CHE_ID_FIN_BANCO" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcFinBancoByIdFinBanco" class="br.com.gr.pojo.JrcFinBanco" fetch="select">
+            <column name="ID_FIN_BANCO" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcFinBancoTipolancto" class="br.com.gr.pojo.JrcFinBancoTipolancto" fetch="select">
+            <column name="ID_FIN_BANCO_TIPOLANCTO" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcFinCartao" class="br.com.gr.pojo.JrcFinCartao" fetch="select">
+            <column name="CAR_ID_FIN_CARTAO" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcFinConta" class="br.com.gr.pojo.JrcFinConta" fetch="select">
+            <column name="ID_FIN_CONTA" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcFinLancamentoByIdFinLanctoBanco" class="br.com.gr.pojo.JrcFinLancamento" fetch="select">
+            <column name="ID_FIN_LANCTO_BANCO" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcFinLancamentoByIdFinLanctoBancoDev" class="br.com.gr.pojo.JrcFinLancamento" fetch="select">
+            <column name="ID_FIN_LANCTO_BANCO_DEV" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcFinLancamentoByIdFinLanctoDev" class="br.com.gr.pojo.JrcFinLancamento" fetch="select">
+            <column name="ID_FIN_LANCTO_DEV" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcFinLancamentoByIdFinLanctoRecdev" class="br.com.gr.pojo.JrcFinLancamento" fetch="select">
+            <column name="ID_FIN_LANCTO_RECDEV" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcFinLancamentoByIdFinLanctoTransf" class="br.com.gr.pojo.JrcFinLancamento" fetch="select">
+            <column name="ID_FIN_LANCTO_TRANSF" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcFinBordero" class="br.com.gr.pojo.JrcFinBordero" fetch="select">
+            <column name="ID_FIN_BORDERO" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcHistoricoPadrao" class="br.com.gr.pojo.JrcHistoricoPadrao" fetch="select">
+            <column name="ID_HISTORICO_PADRAO" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcPedvdaitemApuracao" class="br.com.gr.pojo.JrcPedvdaitemApuracao" fetch="select">
+            <column name="CB_ID_PEDIDO_VENDA" precision="15" scale="0" />
+            <column name="CB_SEQ_PEDIDO_VENDA_ITEM" precision="5" scale="0" />
+            <column name="CB_SEQ_PEDVDAITEM_APURACAO" precision="5" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcCfop" class="br.com.gr.pojo.JrcCfop" fetch="select">
+            <column name="NF_ID_CFOP" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcEmpresa" class="br.com.gr.pojo.JrcEmpresa" fetch="select">
+            <column name="ID_EMPRESA" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcNotaFiscal" class="br.com.gr.pojo.JrcNotaFiscal" fetch="select">
+            <column name="NF_ID_NOTA_FISCAL" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcTipoNota" class="br.com.gr.pojo.JrcTipoNota" fetch="select">
+            <column name="NF_ID_TIPO_NOTA" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcUsuario" class="br.com.gr.pojo.JrcUsuario" fetch="select">
+            <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="flagTipoLancto" type="string">
+            <column name="FLAG_TIPO_LANCTO" length="1" not-null="true" />
+        </property>
+        <property name="idLoja" type="long">
+            <column name="ID_LOJA" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="idPessoa" type="java.lang.Long">
+            <column name="ID_PESSOA" precision="15" scale="0" />
+        </property>
+        <property name="peNomeRazaosocial" type="string">
+            <column name="PE_NOME_RAZAOSOCIAL" length="100" />
+        </property>
+        <property name="peIndPessoaFisica" type="java.lang.Boolean">
+            <column name="PE_IND_PESSOA_FISICA" precision="1" scale="0" />
+        </property>
+        <property name="peCpfCnpj" type="java.lang.Long">
+            <column name="PE_CPF_CNPJ" precision="14" scale="0" />
+        </property>
+        <property name="flagLanctoEs" type="string">
+            <column name="FLAG_LANCTO_ES" length="1" />
+        </property>
+        <property name="codLancto" type="string">
+            <column name="COD_LANCTO" length="20" />
+        </property>
+        <property name="vrLancto" type="big_decimal">
+            <column name="VR_LANCTO" precision="15" not-null="true" />
+        </property>
+        <property name="dtLancto" type="date">
+            <column name="DT_LANCTO" length="7" not-null="true" />
+        </property>
+        <property name="dtVencto" type="date">
+            <column name="DT_VENCTO" length="7" />
+        </property>
+        <property name="dtPagto" type="date">
+            <column name="DT_PAGTO" length="7" />
+        </property>
+        <property name="desconto" type="big_decimal">
+            <column name="DESCONTO" precision="15" />
+        </property>
+        <property name="descontoOtr" type="big_decimal">
+            <column name="DESCONTO_OTR" precision="15" />
+        </property>
+        <property name="acrescimoJuros" type="big_decimal">
+            <column name="ACRESCIMO_JUROS" precision="15" />
+        </property>
+        <property name="acrescimoMulta" type="big_decimal">
+            <column name="ACRESCIMO_MULTA" precision="15" />
+        </property>
+        <property name="acrescimoOtr" type="big_decimal">
+            <column name="ACRESCIMO_OTR" precision="15" />
+        </property>
+        <property name="vrPagto" type="big_decimal">
+            <column name="VR_PAGTO" precision="15" />
+        </property>
+        <property name="idLojaPagto" type="java.lang.Long">
+            <column name="ID_LOJA_PAGTO" precision="15" scale="0" />
+        </property>
+        <property name="idFormaPagamento" type="long">
+            <column name="ID_FORMA_PAGAMENTO" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="formaPagamento" type="string">
+            <column name="FORMA_PAGAMENTO" length="20" not-null="true" />
+        </property>
+        <property name="flagTipoPagto" type="string">
+            <column name="FLAG_TIPO_PAGTO" length="3" not-null="true" />
+        </property>
+        <property name="indAvista" type="boolean">
+            <column name="IND_AVISTA" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="flagTefCartao" type="string">
+            <column name="FLAG_TEF_CARTAO" length="1" />
+        </property>
+        <property name="flagTipoPagtoTef" type="string">
+            <column name="FLAG_TIPO_PAGTO_TEF" length="3" />
+        </property>
+        <property name="cheIdBanco" type="java.lang.Long">
+            <column name="CHE_ID_BANCO" precision="15" scale="0" />
+        </property>
+        <property name="cheCodigoBanco" type="java.lang.Integer">
+            <column name="CHE_CODIGO_BANCO" precision="5" scale="0" />
+        </property>
+        <property name="cheBanco" type="string">
+            <column name="CHE_BANCO" length="20" />
+        </property>
+        <property name="cheAgencia" type="java.lang.Long">
+            <column name="CHE_AGENCIA" precision="12" scale="0" />
+        </property>
+        <property name="cheAgenciaDigito" type="string">
+            <column name="CHE_AGENCIA_DIGITO" length="2" />
+        </property>
+        <property name="cheConta" type="java.lang.Long">
+            <column name="CHE_CONTA" precision="12" scale="0" />
+        </property>
+        <property name="cheContaDigito" type="string">
+            <column name="CHE_CONTA_DIGITO" length="2" />
+        </property>
+        <property name="cheC2" type="java.lang.Boolean">
+            <column name="CHE_C2" precision="1" scale="0" />
+        </property>
+        <property name="cheC3" type="java.lang.Boolean">
+            <column name="CHE_C3" precision="1" scale="0" />
+        </property>
+        <property name="cheMesConta" type="java.lang.Byte">
+            <column name="CHE_MES_CONTA" precision="2" scale="0" />
+        </property>
+        <property name="cheAnoConta" type="java.lang.Short">
+            <column name="CHE_ANO_CONTA" precision="4" scale="0" />
+        </property>
+        <property name="cheNumero" type="java.lang.Long">
+            <column name="CHE_NUMERO" precision="12" scale="0" />
+        </property>
+        <property name="cheCmc7" type="string">
+            <column name="CHE_CMC7" length="40" />
+        </property>
+        <property name="carIdEmissorCartao" type="java.lang.Long">
+            <column name="CAR_ID_EMISSOR_CARTAO" precision="15" scale="0" />
+        </property>
+        <property name="carEmissorCartao" type="string">
+            <column name="CAR_EMISSOR_CARTAO" length="20" />
+        </property>
+        <property name="carIdBandeiraCartao" type="java.lang.Long">
+            <column name="CAR_ID_BANDEIRA_CARTAO" precision="15" scale="0" />
+        </property>
+        <property name="carBandeiraCartao" type="string">
+            <column name="CAR_BANDEIRA_CARTAO" length="20" />
+        </property>
+        <property name="carNome" type="string">
+            <column name="CAR_NOME" length="50" />
+        </property>
+        <property name="carNumero" type="string">
+            <column name="CAR_NUMERO" length="16" />
+        </property>
+        <property name="carCodigoSeguranca" type="string">
+            <column name="CAR_CODIGO_SEGURANCA" length="4" />
+        </property>
+        <property name="carMesValidade" type="java.lang.Byte">
+            <column name="CAR_MES_VALIDADE" precision="2" scale="0" />
+        </property>
+        <property name="carAnoValidade" type="java.lang.Short">
+            <column name="CAR_ANO_VALIDADE" precision="4" scale="0" />
+        </property>
+        <property name="carTefIdTransacao" type="string">
+            <column name="CAR_TEF_ID_TRANSACAO" length="20" />
+        </property>
+        <property name="carTefDtTransacao" type="date">
+            <column name="CAR_TEF_DT_TRANSACAO" length="7" />
+        </property>
+        <property name="carTefRedeAutorizadora" type="string">
+            <column name="CAR_TEF_REDE_AUTORIZADORA" length="20" />
+        </property>
+        <property name="carTefDescricaoBandeira" type="string">
+            <column name="CAR_TEF_DESCRICAO_BANDEIRA" length="20" />
+        </property>
+        <property name="carTefBandeira" type="string">
+            <column name="CAR_TEF_BANDEIRA" length="20" />
+        </property>
+        <property name="carTefBin" type="string">
+            <column name="CAR_TEF_BIN" length="20" />
+        </property>
+        <property name="carTefMeioPagamento" type="string">
+            <column name="CAR_TEF_MEIO_PAGAMENTO" length="20" />
+        </property>
+        <property name="carTefNsuTef" type="string">
+            <column name="CAR_TEF_NSU_TEF" length="20" />
+        </property>
+        <property name="carTefDtTef" type="date">
+            <column name="CAR_TEF_DT_TEF" length="7" />
+        </property>
+        <property name="carTefNsuAutorizadora" type="string">
+            <column name="CAR_TEF_NSU_AUTORIZADORA" length="20" />
+        </property>
+        <property name="carTefCodigoAutorizadora" type="string">
+            <column name="CAR_TEF_CODIGO_AUTORIZADORA" length="20" />
+        </property>
+        <property name="carTefInstituicao" type="string">
+            <column name="CAR_TEF_INSTITUICAO" length="20" />
+        </property>
+        <property name="carLibcarManualNsu" type="string">
+            <column name="CAR_LIBCAR_MANUAL_NSU" length="20" />
+        </property>
+        <property name="carLibcarManualAutorizacao" type="string">
+            <column name="CAR_LIBCAR_MANUAL_AUTORIZACAO" length="20" />
+        </property>
+        <property name="debIdTipoConta" type="java.lang.Long">
+            <column name="DEB_ID_TIPO_CONTA" precision="15" scale="0" />
+        </property>
+        <property name="debTipoConta" type="string">
+            <column name="DEB_TIPO_CONTA" length="20" />
+        </property>
+        <property name="debIdBanco" type="java.lang.Long">
+            <column name="DEB_ID_BANCO" precision="15" scale="0" />
+        </property>
+        <property name="debCodigoBanco" type="java.lang.Integer">
+            <column name="DEB_CODIGO_BANCO" precision="5" scale="0" />
+        </property>
+        <property name="debBanco" type="string">
+            <column name="DEB_BANCO" length="20" />
+        </property>
+        <property name="debAgencia" type="java.lang.Long">
+            <column name="DEB_AGENCIA" precision="12" scale="0" />
+        </property>
+        <property name="debAgenciaDigito" type="string">
+            <column name="DEB_AGENCIA_DIGITO" length="2" />
+        </property>
+        <property name="debConta" type="java.lang.Long">
+            <column name="DEB_CONTA" precision="12" scale="0" />
+        </property>
+        <property name="debContaDigito" type="string">
+            <column name="DEB_CONTA_DIGITO" length="2" />
+        </property>
+        <property name="debDtAbertura" type="date">
+            <column name="DEB_DT_ABERTURA" length="7" />
+        </property>
+        <property name="bolFlagTipo" type="string">
+            <column name="BOL_FLAG_TIPO" length="1" />
+        </property>
+        <property name="bolLinhaDigitavel" type="string">
+            <column name="BOL_LINHA_DIGITAVEL" length="50" />
+        </property>
+        <property name="bolCodigoBarra" type="string">
+            <column name="BOL_CODIGO_BARRA" length="50" />
+        </property>
+        <property name="observacao" type="string">
+            <column name="OBSERVACAO" />
+        </property>
+        <property name="idContrato" type="java.lang.Long">
+            <column name="ID_CONTRATO" precision="15" scale="0" />
+        </property>
+        <property name="idContratoPrestacao" type="java.lang.Long">
+            <column name="ID_CONTRATO_PRESTACAO" precision="15" scale="0" />
+        </property>
+        <property name="codContrato" type="string">
+            <column name="COD_CONTRATO" length="20" />
+        </property>
+        <property name="idTipoVenda" type="java.lang.Long">
+            <column name="ID_TIPO_VENDA" precision="15" scale="0" />
+        </property>
+        <property name="tipoVenda" type="string">
+            <column name="TIPO_VENDA" length="30" />
+        </property>
+        <property name="idFinanceira" type="java.lang.Long">
+            <column name="ID_FINANCEIRA" precision="15" scale="0" />
+        </property>
+        <property name="financeira" type="string">
+            <column name="FINANCEIRA" length="100" />
+        </property>
+        <property name="parcela" type="java.lang.Short">
+            <column name="PARCELA" precision="3" scale="0" />
+        </property>
+        <property name="plano" type="java.lang.Short">
+            <column name="PLANO" precision="3" scale="0" />
+        </property>
+        <property name="percJuros" type="big_decimal">
+            <column name="PERC_JUROS" precision="5" />
+        </property>
+        <property name="percMulta" type="big_decimal">
+            <column name="PERC_MULTA" precision="5" />
+        </property>
+        <property name="taxa" type="big_decimal">
+            <column name="TAXA" precision="8" scale="5" />
+        </property>
+        <property name="idBordero" type="java.lang.Long">
+            <column name="ID_BORDERO" precision="15" scale="0" />
+        </property>
+        <property name="dtInclusao" type="date">
+            <column name="DT_INCLUSAO" length="7" not-null="true" />
+        </property>
+        <property name="dtAlteracao" type="date">
+            <column name="DT_ALTERACAO" length="7" not-null="true" />
+        </property>
+        <property name="versaoSistema" type="long">
+            <column name="VERSAO_SISTEMA" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="versaoRegistro" type="long">
+            <column name="VERSAO_REGISTRO" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="flagStatus" type="string">
+            <column name="FLAG_STATUS" length="3" not-null="true" />
+        </property>
+        <property name="nfFlagTipoNota" type="string">
+            <column name="NF_FLAG_TIPO_NOTA" length="5" />
+        </property>
+        <property name="nfSerieNota" type="string">
+            <column name="NF_SERIE_NOTA" length="3" />
+        </property>
+        <property name="nfNumeroNota" type="java.lang.Integer">
+            <column name="NF_NUMERO_NOTA" precision="9" scale="0" />
+        </property>
+        <property name="nfCfop" type="string">
+            <column name="NF_CFOP" length="4" />
+        </property>
+        <property name="nfAliquotaIcms" type="big_decimal">
+            <column name="NF_ALIQUOTA_ICMS" precision="7" scale="4" />
+        </property>
+        <property name="nfBaseIcms" type="big_decimal">
+            <column name="NF_BASE_ICMS" precision="15" />
+        </property>
+        <property name="nfIcms" type="big_decimal">
+            <column name="NF_ICMS" precision="15" />
+        </property>
+        <property name="nfPis" type="big_decimal">
+            <column name="NF_PIS" precision="15" />
+        </property>
+        <property name="nfCofins" type="big_decimal">
+            <column name="NF_COFINS" precision="15" />
+        </property>
+        <property name="idLojaOrigem" type="java.lang.Long">
+            <column name="ID_LOJA_ORIGEM" precision="15" scale="0" />
+        </property>
+        <property name="taxaAdm" type="big_decimal">
+            <column name="TAXA_ADM" precision="5" />
+        </property>
+        <property name="indIntbco" type="java.lang.Boolean">
+            <column name="IND_INTBCO" precision="1" scale="0" />
+        </property>
+        <property name="dtIntbco" type="date">
+            <column name="DT_INTBCO" length="7" />
+        </property>
+        <property name="tecIntbco" type="big_decimal">
+            <column name="TEC_INTBCO" precision="15" />
+        </property>
+        <property name="historicoPadrao" type="string">
+            <column name="HISTORICO_PADRAO" length="200" />
+        </property>
+        <property name="bolNossoNumero" type="string">
+            <column name="BOL_NOSSO_NUMERO" length="20" />
+        </property>
+        <property name="iof" type="big_decimal">
+            <column name="IOF" precision="15" />
+        </property>
+        <property name="iofComplementar" type="big_decimal">
+            <column name="IOF_COMPLEMENTAR" precision="15" />
+        </property>
+        <property name="iofTotal" type="big_decimal">
+            <column name="IOF_TOTAL" precision="15" />
+        </property>
+        <property name="iofAlq" type="big_decimal">
+            <column name="IOF_ALQ" precision="7" scale="4" />
+        </property>
+        <property name="iofAlqComplementar" type="big_decimal">
+            <column name="IOF_ALQ_COMPLEMENTAR" precision="7" scale="4" />
+        </property>
+        <property name="receitaFin" type="big_decimal">
+            <column name="RECEITA_FIN" precision="15" />
+        </property>
+        <property name="indDesconsideraCtb" type="java.lang.Boolean">
+            <column name="IND_DESCONSIDERA_CTB" precision="1" scale="0" />
+        </property>
+        <property name="vrTaxaAdm" type="big_decimal">
+            <column name="VR_TAXA_ADM" precision="15" />
+        </property>
+        <property name="dtCanEst" type="date">
+            <column name="DT_CAN_EST" length="7" />
+        </property>
+        <property name="idPedidoVenda" type="java.lang.Long">
+            <column name="ID_PEDIDO_VENDA" precision="15" scale="0" />
+        </property>
+        <property name="debTrnDestinatario" type="string">
+            <column name="DEB_TRN_DESTINATARIO" length="100" />
+        </property>
+        <property name="debTrnIndPessoaFisica" type="java.lang.Boolean">
+            <column name="DEB_TRN_IND_PESSOA_FISICA" precision="1" scale="0" />
+        </property>
+        <property name="debTrnCpfCnpj" type="java.lang.Long">
+            <column name="DEB_TRN_CPF_CNPJ" precision="14" scale="0" />
+        </property>
+        <property name="debTrnIdTipoConta" type="java.lang.Long">
+            <column name="DEB_TRN_ID_TIPO_CONTA" precision="15" scale="0" />
+        </property>
+        <property name="debTrnTipoConta" type="string">
+            <column name="DEB_TRN_TIPO_CONTA" length="20" />
+        </property>
+        <property name="debTrnIdBanco" type="java.lang.Long">
+            <column name="DEB_TRN_ID_BANCO" precision="15" scale="0" />
+        </property>
+        <property name="debTrnCodigoBanco" type="java.lang.Integer">
+            <column name="DEB_TRN_CODIGO_BANCO" precision="5" scale="0" />
+        </property>
+        <property name="debTrnBanco" type="string">
+            <column name="DEB_TRN_BANCO" length="20" />
+        </property>
+        <property name="debTrnAgencia" type="java.lang.Long">
+            <column name="DEB_TRN_AGENCIA" precision="12" scale="0" />
+        </property>
+        <property name="debTrnAgenciaDigito" type="string">
+            <column name="DEB_TRN_AGENCIA_DIGITO" length="2" />
+        </property>
+        <property name="debTrnConta" type="java.lang.Long">
+            <column name="DEB_TRN_CONTA" precision="12" scale="0" />
+        </property>
+        <property name="debTrnContaDigito" type="string">
+            <column name="DEB_TRN_CONTA_DIGITO" length="2" />
+        </property>
+        <property name="debTrnDtAbertura" type="date">
+            <column name="DEB_TRN_DT_ABERTURA" length="7" />
+        </property>
+        <property name="dtCompromisso" type="date">
+            <column name="DT_COMPROMISSO" length="7" />
+        </property>
+        <property name="vrCompromisso" type="big_decimal">
+            <column name="VR_COMPROMISSO" precision="15" />
+        </property>
+        <property name="vrAcrescComp" type="big_decimal">
+            <column name="VR_ACRESC_COMP" precision="15" />
+        </property>
+        <property name="descLancto" type="string">
+            <column name="DESC_LANCTO" />
+        </property>
+        <property name="flagOrigemPagto" type="string">
+            <column name="FLAG_ORIGEM_PAGTO" length="5" />
+        </property>
+        <property name="cbFlagTipoComissao" type="string">
+            <column name="CB_FLAG_TIPO_COMISSAO" length="2" />
+        </property>
+        <set name="jrcApuracaoComissaos" table="JRC_APURACAO_COMISSAO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_FIN_LANCTO" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcApuracaoComissao" />
+        </set>
+        <set name="jrcFinBorderosForIdFinLanctoBanco" table="JRC_FIN_BORDERO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_FIN_LANCTO_BANCO" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcFinBordero" />
+        </set>
+        <set name="jrcFinBorderosForIdFinLanctoBancoDev" table="JRC_FIN_BORDERO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_FIN_LANCTO_BANCO_DEV" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcFinBordero" />
+        </set>
+        <set name="jrcFinLancamentosForIdFinLanctoBanco" table="JRC_FIN_LANCAMENTO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_FIN_LANCTO_BANCO" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcFinLancamento" />
+        </set>
+        <set name="jrcFinLancamentosForIdFinLanctoBancoDev" table="JRC_FIN_LANCAMENTO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_FIN_LANCTO_BANCO_DEV" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcFinLancamento" />
+        </set>
+        <set name="jrcFinLancamentosForIdFinLanctoDev" table="JRC_FIN_LANCAMENTO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_FIN_LANCTO_DEV" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcFinLancamento" />
+        </set>
+        <set name="jrcFinLancamentosForIdFinLanctoRecdev" table="JRC_FIN_LANCAMENTO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_FIN_LANCTO_RECDEV" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcFinLancamento" />
+        </set>
+        <set name="jrcFinLancamentosForIdFinLanctoTransf" table="JRC_FIN_LANCAMENTO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_FIN_LANCTO_TRANSF" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcFinLancamento" />
+        </set>
+    </class>
+</hibernate-mapping>

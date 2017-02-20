@@ -1,0 +1,237 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19/02/2017 12:54:03 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="br.com.gr.pojo.JrcFinConta" table="JRC_FIN_CONTA" schema="DIONE_HOM" optimistic-lock="version">
+        <id name="idFinConta" type="long">
+            <column name="ID_FIN_CONTA" precision="15" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="jrcFinConta" class="br.com.gr.pojo.JrcFinConta" fetch="select">
+            <column name="ID_FIN_CONTA_PAI" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcEmpresa" class="br.com.gr.pojo.JrcEmpresa" fetch="select">
+            <column name="ID_EMPRESA" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcUsuario" class="br.com.gr.pojo.JrcUsuario" fetch="select">
+            <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="codigo" type="string">
+            <column name="CODIGO" length="4" not-null="true" />
+        </property>
+        <property name="hierarquia" type="string">
+            <column name="HIERARQUIA" length="50" not-null="true" />
+        </property>
+        <property name="descBreve" type="string">
+            <column name="DESC_BREVE" length="20" not-null="true" />
+        </property>
+        <property name="descLonga" type="string">
+            <column name="DESC_LONGA" length="50" />
+        </property>
+        <property name="flagTipoConta" type="string">
+            <column name="FLAG_TIPO_CONTA" length="1" not-null="true" />
+        </property>
+        <property name="idFinContaN1" type="java.lang.Long">
+            <column name="ID_FIN_CONTA_N1" precision="15" scale="0" />
+        </property>
+        <property name="codigoN1" type="string">
+            <column name="CODIGO_N1" length="4" />
+        </property>
+        <property name="hierarquiaN1" type="string">
+            <column name="HIERARQUIA_N1" length="50" />
+        </property>
+        <property name="descBreveN1" type="string">
+            <column name="DESC_BREVE_N1" length="20" />
+        </property>
+        <property name="idFinContaN2" type="java.lang.Long">
+            <column name="ID_FIN_CONTA_N2" precision="15" scale="0" />
+        </property>
+        <property name="codigoN2" type="string">
+            <column name="CODIGO_N2" length="4" />
+        </property>
+        <property name="hierarquiaN2" type="string">
+            <column name="HIERARQUIA_N2" length="50" />
+        </property>
+        <property name="descBreveN2" type="string">
+            <column name="DESC_BREVE_N2" length="20" />
+        </property>
+        <property name="idFinContaN3" type="java.lang.Long">
+            <column name="ID_FIN_CONTA_N3" precision="15" scale="0" />
+        </property>
+        <property name="codigoN3" type="string">
+            <column name="CODIGO_N3" length="4" />
+        </property>
+        <property name="hierarquiaN3" type="string">
+            <column name="HIERARQUIA_N3" length="50" />
+        </property>
+        <property name="descBreveN3" type="string">
+            <column name="DESC_BREVE_N3" length="20" />
+        </property>
+        <property name="idFinContaN4" type="java.lang.Long">
+            <column name="ID_FIN_CONTA_N4" precision="15" scale="0" />
+        </property>
+        <property name="codigoN4" type="string">
+            <column name="CODIGO_N4" length="4" />
+        </property>
+        <property name="hierarquiaN4" type="string">
+            <column name="HIERARQUIA_N4" length="50" />
+        </property>
+        <property name="descBreveN4" type="string">
+            <column name="DESC_BREVE_N4" length="20" />
+        </property>
+        <property name="idFinContaN5" type="java.lang.Long">
+            <column name="ID_FIN_CONTA_N5" precision="15" scale="0" />
+        </property>
+        <property name="codigoN5" type="string">
+            <column name="CODIGO_N5" length="4" />
+        </property>
+        <property name="hierarquiaN5" type="string">
+            <column name="HIERARQUIA_N5" length="50" />
+        </property>
+        <property name="descBreveN5" type="string">
+            <column name="DESC_BREVE_N5" length="20" />
+        </property>
+        <property name="idFinContaN6" type="java.lang.Long">
+            <column name="ID_FIN_CONTA_N6" precision="15" scale="0" />
+        </property>
+        <property name="codigoN6" type="string">
+            <column name="CODIGO_N6" length="4" />
+        </property>
+        <property name="hierarquiaN6" type="string">
+            <column name="HIERARQUIA_N6" length="50" />
+        </property>
+        <property name="descBreveN6" type="string">
+            <column name="DESC_BREVE_N6" length="20" />
+        </property>
+        <property name="idFinContaN7" type="java.lang.Long">
+            <column name="ID_FIN_CONTA_N7" precision="15" scale="0" />
+        </property>
+        <property name="codigoN7" type="string">
+            <column name="CODIGO_N7" length="4" />
+        </property>
+        <property name="hierarquiaN7" type="string">
+            <column name="HIERARQUIA_N7" length="50" />
+        </property>
+        <property name="descBreveN7" type="string">
+            <column name="DESC_BREVE_N7" length="20" />
+        </property>
+        <property name="idFinContaN8" type="java.lang.Long">
+            <column name="ID_FIN_CONTA_N8" precision="15" scale="0" />
+        </property>
+        <property name="codigoN8" type="string">
+            <column name="CODIGO_N8" length="4" />
+        </property>
+        <property name="hierarquiaN8" type="string">
+            <column name="HIERARQUIA_N8" length="50" />
+        </property>
+        <property name="descBreveN8" type="string">
+            <column name="DESC_BREVE_N8" length="20" />
+        </property>
+        <property name="idFinContaN9" type="java.lang.Long">
+            <column name="ID_FIN_CONTA_N9" precision="15" scale="0" />
+        </property>
+        <property name="codigoN9" type="string">
+            <column name="CODIGO_N9" length="4" />
+        </property>
+        <property name="hierarquiaN9" type="string">
+            <column name="HIERARQUIA_N9" length="50" />
+        </property>
+        <property name="descBreveN9" type="string">
+            <column name="DESC_BREVE_N9" length="20" />
+        </property>
+        <property name="idFinContaN10" type="java.lang.Long">
+            <column name="ID_FIN_CONTA_N10" precision="15" scale="0" />
+        </property>
+        <property name="codigoN10" type="string">
+            <column name="CODIGO_N10" length="4" />
+        </property>
+        <property name="hierarquiaN10" type="string">
+            <column name="HIERARQUIA_N10" length="50" />
+        </property>
+        <property name="descBreveN10" type="string">
+            <column name="DESC_BREVE_N10" length="20" />
+        </property>
+        <property name="dtInicioPeriodo" type="date">
+            <column name="DT_INICIO_PERIODO" length="7" not-null="true" />
+        </property>
+        <property name="dtFimPeriodo" type="date">
+            <column name="DT_FIM_PERIODO" length="7" not-null="true" />
+        </property>
+        <property name="dtInclusao" type="date">
+            <column name="DT_INCLUSAO" length="7" not-null="true" />
+        </property>
+        <property name="dtAlteracao" type="date">
+            <column name="DT_ALTERACAO" length="7" not-null="true" />
+        </property>
+        <property name="versaoSistema" type="long">
+            <column name="VERSAO_SISTEMA" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="versaoRegistro" type="long">
+            <column name="VERSAO_REGISTRO" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="indPermiteLancto" type="java.lang.Boolean">
+            <column name="IND_PERMITE_LANCTO" precision="1" scale="0" />
+        </property>
+        <property name="codigoRefDeb" type="string">
+            <column name="CODIGO_REF_DEB" length="20" />
+        </property>
+        <property name="codigoRefCre" type="string">
+            <column name="CODIGO_REF_CRE" length="20" />
+        </property>
+        <set name="jrcFinConfigFormapagtosForIdFinContaPedvda" table="JRC_FIN_CONFIG_FORMAPAGTO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_FIN_CONTA_PEDVDA" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcFinConfigFormapagto" />
+        </set>
+        <set name="jrcNotaFiscalsForIdFinContaPagto" table="JRC_NOTA_FISCAL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_FIN_CONTA_PAGTO" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcNotaFiscal" />
+        </set>
+        <set name="jrcFinContas" table="JRC_FIN_CONTA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_FIN_CONTA_PAI" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcFinConta" />
+        </set>
+        <set name="jrcTipoNotasForIdFinContaPagto" table="JRC_TIPO_NOTA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_FIN_CONTA_PAGTO" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcTipoNota" />
+        </set>
+        <set name="jrcTipoNotasForIdFinContaRecdes" table="JRC_TIPO_NOTA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_FIN_CONTA_RECDES" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcTipoNota" />
+        </set>
+        <set name="jrcFinConfigFormapagtosForIdFinContaComParc" table="JRC_FIN_CONFIG_FORMAPAGTO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_FIN_CONTA_COM_PARC" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcFinConfigFormapagto" />
+        </set>
+        <set name="jrcNotaFiscalsForIdFinContaRecdes" table="JRC_NOTA_FISCAL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_FIN_CONTA_RECDES" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcNotaFiscal" />
+        </set>
+        <set name="jrcFinConfigFormapagtosForIdFinContaBon" table="JRC_FIN_CONFIG_FORMAPAGTO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_FIN_CONTA_BON" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcFinConfigFormapagto" />
+        </set>
+        <set name="jrcFinLancamentos" table="JRC_FIN_LANCAMENTO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_FIN_CONTA" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcFinLancamento" />
+        </set>
+    </class>
+</hibernate-mapping>

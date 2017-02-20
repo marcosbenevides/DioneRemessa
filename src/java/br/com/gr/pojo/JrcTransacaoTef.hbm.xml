@@ -1,0 +1,183 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19/02/2017 12:54:03 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="br.com.gr.pojo.JrcTransacaoTef" table="JRC_TRANSACAO_TEF" schema="DIONE_HOM" optimistic-lock="version">
+        <id name="idTransacaoTef" type="long">
+            <column name="ID_TRANSACAO_TEF" precision="15" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="jrcEmpresa" class="br.com.gr.pojo.JrcEmpresa" fetch="select">
+            <column name="ID_EMPRESA" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcOperacaoTef" class="br.com.gr.pojo.JrcOperacaoTef" fetch="select">
+            <column name="ID_OPERACAO_TEF" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcTef" class="br.com.gr.pojo.JrcTef" fetch="select">
+            <column name="ID_TEF" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="flagTef" type="string">
+            <column name="FLAG_TEF" length="5" not-null="true" />
+        </property>
+        <property name="flagOperacaoTef" type="string">
+            <column name="FLAG_OPERACAO_TEF" length="5" not-null="true" />
+        </property>
+        <property name="flagComportamentoTef" type="string">
+            <column name="FLAG_COMPORTAMENTO_TEF" length="1" not-null="true" />
+        </property>
+        <property name="dtTransacao" type="date">
+            <column name="DT_TRANSACAO" length="7" />
+        </property>
+        <property name="operador" type="string">
+            <column name="OPERADOR" length="20" />
+        </property>
+        <property name="vrPagto" type="big_decimal">
+            <column name="VR_PAGTO" precision="15" />
+        </property>
+        <property name="flagTipoPagtoTef" type="string">
+            <column name="FLAG_TIPO_PAGTO_TEF" length="3" />
+        </property>
+        <property name="plano" type="java.lang.Short">
+            <column name="PLANO" precision="3" scale="0" />
+        </property>
+        <property name="indVenctoAniversario" type="java.lang.Boolean">
+            <column name="IND_VENCTO_ANIVERSARIO" precision="1" scale="0" />
+        </property>
+        <property name="venctoIntervalo" type="java.lang.Short">
+            <column name="VENCTO_INTERVALO" precision="3" scale="0" />
+        </property>
+        <property name="dtPredatado" type="date">
+            <column name="DT_PREDATADO" length="7" />
+        </property>
+        <property name="indCarDigitado" type="java.lang.Boolean">
+            <column name="IND_CAR_DIGITADO" precision="1" scale="0" />
+        </property>
+        <property name="carNumero" type="string">
+            <column name="CAR_NUMERO" length="16" />
+        </property>
+        <property name="carMesValidade" type="java.lang.Byte">
+            <column name="CAR_MES_VALIDADE" precision="2" scale="0" />
+        </property>
+        <property name="carAnoValidade" type="java.lang.Short">
+            <column name="CAR_ANO_VALIDADE" precision="4" scale="0" />
+        </property>
+        <property name="carCodigoSeguranca" type="string">
+            <column name="CAR_CODIGO_SEGURANCA" length="4" />
+        </property>
+        <property name="indChequeDigitado" type="java.lang.Boolean">
+            <column name="IND_CHEQUE_DIGITADO" precision="1" scale="0" />
+        </property>
+        <property name="cheCmc7" type="string">
+            <column name="CHE_CMC7" length="40" />
+        </property>
+        <property name="cheIndPessoaFisica" type="java.lang.Boolean">
+            <column name="CHE_IND_PESSOA_FISICA" precision="1" scale="0" />
+        </property>
+        <property name="cheCpfCnpj" type="java.lang.Long">
+            <column name="CHE_CPF_CNPJ" precision="14" scale="0" />
+        </property>
+        <property name="indAutorizada" type="java.lang.Boolean">
+            <column name="IND_AUTORIZADA" precision="1" scale="0" />
+        </property>
+        <property name="redeAutorizadora" type="string">
+            <column name="REDE_AUTORIZADORA" length="20" />
+        </property>
+        <property name="bandeira" type="string">
+            <column name="BANDEIRA" length="20" />
+        </property>
+        <property name="bin" type="string">
+            <column name="BIN" length="20" />
+        </property>
+        <property name="meioPagamento" type="string">
+            <column name="MEIO_PAGAMENTO" length="20" />
+        </property>
+        <property name="nsuTef" type="string">
+            <column name="NSU_TEF" length="20" />
+        </property>
+        <property name="dtTef" type="date">
+            <column name="DT_TEF" length="7" />
+        </property>
+        <property name="nsuAutorizadora" type="string">
+            <column name="NSU_AUTORIZADORA" length="20" />
+        </property>
+        <property name="codigoAutorizadora" type="string">
+            <column name="CODIGO_AUTORIZADORA" length="20" />
+        </property>
+        <property name="instituicao" type="string">
+            <column name="INSTITUICAO" length="20" />
+        </property>
+        <property name="estabelecimento" type="string">
+            <column name="ESTABELECIMENTO" length="20" />
+        </property>
+        <property name="flagStatus" type="string">
+            <column name="FLAG_STATUS" length="1" not-null="true" />
+        </property>
+        <property name="dtInclusao" type="date">
+            <column name="DT_INCLUSAO" length="7" not-null="true" />
+        </property>
+        <property name="dtAlteracao" type="date">
+            <column name="DT_ALTERACAO" length="7" not-null="true" />
+        </property>
+        <property name="versaoSistema" type="long">
+            <column name="VERSAO_SISTEMA" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="vrSaque" type="big_decimal">
+            <column name="VR_SAQUE" precision="15" />
+        </property>
+        <property name="idTransacao" type="string">
+            <column name="ID_TRANSACAO" length="20" />
+        </property>
+        <property name="indPermiteCartaoDigitado" type="java.lang.Boolean">
+            <column name="IND_PERMITE_CARTAO_DIGITADO" precision="1" scale="0" />
+        </property>
+        <property name="observacao" type="string">
+            <column name="OBSERVACAO" />
+        </property>
+        <property name="indPlanoComEntrada" type="java.lang.Boolean">
+            <column name="IND_PLANO_COM_ENTRADA" precision="1" scale="0" />
+        </property>
+        <property name="dtTefOriginal" type="date">
+            <column name="DT_TEF_ORIGINAL" length="7" />
+        </property>
+        <property name="nsuTefOriginal" type="string">
+            <column name="NSU_TEF_ORIGINAL" length="20" />
+        </property>
+        <property name="comprovante" type="clob">
+            <column name="COMPROVANTE" />
+        </property>
+        <property name="versaoRegistro" type="long">
+            <column name="VERSAO_REGISTRO" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="descricaoBandeira" type="string">
+            <column name="DESCRICAO_BANDEIRA" length="20" />
+        </property>
+        <property name="auto" type="java.lang.Long">
+            <column name="AUTO" precision="15" scale="0" />
+        </property>
+        <property name="operadora" type="string">
+            <column name="OPERADORA" length="20" />
+        </property>
+        <property name="ddd" type="string">
+            <column name="DDD" length="4" />
+        </property>
+        <property name="telefone" type="string">
+            <column name="TELEFONE" length="10" />
+        </property>
+        <property name="nsuTefRecarga" type="string">
+            <column name="NSU_TEF_RECARGA" length="20" />
+        </property>
+        <property name="dtTefRecarga" type="date">
+            <column name="DT_TEF_RECARGA" length="7" />
+        </property>
+        <property name="nsuAutorizadoraRecarga" type="string">
+            <column name="NSU_AUTORIZADORA_RECARGA" length="20" />
+        </property>
+        <set name="jrcPedidoVendaItems" table="JRC_PEDIDO_VENDA_ITEM" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_TRANSACAO_TEF" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcPedidoVendaItem" />
+        </set>
+    </class>
+</hibernate-mapping>

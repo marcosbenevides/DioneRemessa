@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<!--
+DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright (c) 2008, 2016 Oracle and/or its affiliates. All rights reserved.
+
+Oracle and Java are registered trademarks of Oracle and/or its affiliates.
+Other names may be trademarks of their respective owners.
+
+The contents of this file are subject to the terms of either the GNU
+General Public License Version 2 only ("GPL") or the Common
+Development and Distribution License("CDDL") (collectively, the
+"License"). You may not use this file except in compliance with the
+License. You can obtain a copy of the License at
+http://www.netbeans.org/cddl-gplv2.html
+or nbbuild/licenses/CDDL-GPL-2-CP. See the License for the
+specific language governing permissions and limitations under the
+License.  When distributing the software, include this License Header
+Notice in each file and include the License file at
+nbbuild/licenses/CDDL-GPL-2-CP.  Oracle designates this
+particular file as subject to the "Classpath" exception as provided
+by Oracle in the GPL Version 2 section of the License file that
+accompanied this code. If applicable, add the following below the
+License Header, with the fields enclosed by brackets [] replaced by
+your own identifying information:
+"Portions Copyrighted [year] [name of copyright owner]"
+
+If you wish your version of this file to be governed by only the CDDL
+or only the GPL Version 2, indicate your decision by adding
+"[Contributor] elects to include this software in this distribution
+under the [CDDL or GPL Version 2] license." If you do not indicate a
+single choice of license, a recipient has the option to distribute
+your version of this file under either the CDDL, the GPL Version 2 or
+to extend the choice of license to its licensees as provided above.
+However, if you add GPL Version 2 code and therefore, elected the GPL
+Version 2 license, then the option applies only if the new code is
+made subject to such option by the copyright holder.
+
+Contributor(s):
+-->
+<hibernate-reverse-engineering>
+  <schema-selection match-schema="DIONE_HOM"/>
+  <table-filter match-name="JRC_LOJA"/>
+  <table-filter match-name="JRC_TIPO_NOTA"/>
+  <table-filter match-name="JRC_SEGURO_CONFIG"/>
+  <table-filter match-name="JRC_MONTADOR"/>
+  <table-filter match-name="JRC_PRODUTO_PAI"/>
+  <table-filter match-name="JRC_OPERADORA_TELEFONIA"/>
+  <table-filter match-name="JRC_PROMOCAO_GERAL"/>
+  <table-filter match-name="JRC_PESSOA"/>
+  <table-filter match-name="JRC_GRUPO_IMPOSTO_SERVICO"/>
+  <table-filter match-name="JRC_FIN_CARTAO"/>
+  <table-filter match-name="JRC_GRUPO_CUSTO_ADICIONAL"/>
+  <table-filter match-name="JRC_TABELA_FINANCIAMENTO"/>
+  <table-filter match-name="JRX_HOST_RETORNO"/>
+  <table-filter match-name="JRC_PESSOA_TELEFONE"/>
+  <table-filter match-name="JRC_OBSERVACAO"/>
+  <table-filter match-name="JRC_CEST"/>
+  <table-filter match-name="JRC_TEF"/>
+  <table-filter match-name="JRC_TIPO_EQUALIZACAO"/>
+  <table-filter match-name="JRC_LOGRADOURO"/>
+  <table-filter match-name="JRC_UNIDADE"/>
+  <table-filter match-name="JRC_TIPO_NOTA_ESTOQUE"/>
+  <table-filter match-name="JRC_FINANCEIRA"/>
+  <table-filter match-name="JRC_TIPO_CONTA"/>
+  <table-filter match-name="JRC_LOTE_NFE"/>
+  <table-filter match-name="JRC_TIPO_OBSERVACAO"/>
+  <table-filter match-name="JRC_TRANSACAO_TEF"/>
+  <table-filter match-name="JRX_HOST_PRODUTO"/>
+  <table-filter match-name="JRC_PROMOCAO_ITEM"/>
+  <table-filter match-name="JRC_FIN_LANCAMENTO"/>
+  <table-filter match-name="JRC_IMPRESSORA"/>
+  <table-filter match-name="JRC_BOX"/>
+  <table-filter match-name="JRC_PAIS"/>
+  <table-filter match-name="JRC_MODELO_NOTA"/>
+  <table-filter match-name="JRC_TIPO_CLIENTE"/>
+  <table-filter match-name="JRC_PESSOA_BANCO"/>
+  <table-filter match-name="JRC_PEDVDAITEM_APURACAO"/>
+  <table-filter match-name="JRC_CARNE_CONFIG"/>
+  <table-filter match-name="JRC_FIN_BANCO"/>
+  <table-filter match-name="JRC_UF"/>
+  <table-filter match-name="JRC_FORMA_PAGAMENTO"/>
+  <table-filter match-name="JRC_ORGANIZACAO"/>
+  <table-filter match-name="JRC_MODELO_IMPRESSORA"/>
+  <table-filter match-name="JRC_STATUS_PRODUTO"/>
+  <table-filter match-name="JRC_CLASSIFICACAO_FISCAL"/>
+  <table-filter match-name="JRX_HOST_TRANSACAO"/>
+  <table-filter match-name="JRC_MOVIMENTO_ECF"/>
+  <table-filter match-name="JRC_TIPO_SERVICO"/>
+  <table-filter match-name="JRC_TIPO_LOJA"/>
+  <table-filter match-name="JRC_SUBESTIPULANTE"/>
+  <table-filter match-name="JRC_TIPO_VENDA"/>
+  <table-filter match-name="JRC_TIPO_PROMOCAO"/>
+  <table-filter match-name="JRC_PEDIDO_VENDA"/>
+  <table-filter match-name="JRC_HORARIO_SEMANAL"/>
+  <table-filter match-name="JRC_TIPO_ESTOQUE"/>
+  <table-filter match-name="JRC_PLANO_FINANCIAMENTO"/>
+  <table-filter match-name="JRC_MOTORISTA"/>
+  <table-filter match-name="JRC_GRUPO_ESTOQUE"/>
+  <table-filter match-name="JRC_TIPO_PASSAPORTE"/>
+  <table-filter match-name="JRC_AUTORIZADOR_NFE"/>
+  <table-filter match-name="JRC_ACAO_ANALISE"/>
+  <table-filter match-name="JRC_TRANSACAO_OFFLINE"/>
+  <table-filter match-name="JRC_FIN_CONTA"/>
+  <table-filter match-name="JRC_CORRETORA"/>
+  <table-filter match-name="JRC_STATUS_DEVOLUCAO_VENDA"/>
+  <table-filter match-name="JRC_FIN_CONFIG_FORMAPAGTO"/>
+  <table-filter match-name="JRC_BORDERO_PROPOSTA"/>
+  <table-filter match-name="JRC_STATUS_CONFERENCIA"/>
+  <table-filter match-name="JRC_SEQUENCIA"/>
+  <table-filter match-name="JRC_EMPRESA"/>
+  <table-filter match-name="JRC_SEGURADORA"/>
+  <table-filter match-name="JRC_TIPO_CADASTRO"/>
+  <table-filter match-name="JRC_APURACAO_COMISSAO"/>
+  <table-filter match-name="JRC_CFOP"/>
+  <table-filter match-name="JRC_TIPO_VEICULO"/>
+  <table-filter match-name="JRC_PAF"/>
+  <table-filter match-name="JRC_MONTADORA"/>
+  <table-filter match-name="JRC_PROMOCAO_ITEM_DETALHE"/>
+  <table-filter match-name="JRC_LOCALIDADE"/>
+  <table-filter match-name="JRC_OPERACAO_TEF"/>
+  <table-filter match-name="JRC_TIPO_ECF"/>
+  <table-filter match-name="JRC_RECEBIMENTO"/>
+  <table-filter match-name="JRC_CARGO"/>
+  <table-filter match-name="JRC_CLASSIFICACAO_PRODUTO"/>
+  <table-filter match-name="JRC_BAIRRO"/>
+  <table-filter match-name="JRC_TIPO_TELEFONE"/>
+  <table-filter match-name="JRC_EQUALIZACAO"/>
+  <table-filter match-name="JRC_CAPITALIZACAO"/>
+  <table-filter match-name="JRC_SEGURO_COBERTURA"/>
+  <table-filter match-name="JRC_FABRICANTE"/>
+  <table-filter match-name="JRC_KIT"/>
+  <table-filter match-name="JRC_VEICULO"/>
+  <table-filter match-name="JRC_GRUPO_COMISSAO"/>
+  <table-filter match-name="JRC_TESOURARIA"/>
+  <table-filter match-name="JRC_TIPO_FORMA_PAGAMENTO"/>
+  <table-filter match-name="JRC_PEDIDO_VENDA_ITEM"/>
+  <table-filter match-name="JRC_FIN_BORDERO"/>
+  <table-filter match-name="JRC_SERVICO_PRECO"/>
+  <table-filter match-name="JRC_STATUS_PROMOCAO"/>
+  <table-filter match-name="JRX_HOST_FINANCEIRA"/>
+  <table-filter match-name="JRC_PDV"/>
+  <table-filter match-name="JRC_TIPO_GRUPO"/>
+  <table-filter match-name="JRC_LANCAMENTO_ECF_CF"/>
+  <table-filter match-name="JRC_EMISSOR_CARTAO"/>
+  <table-filter match-name="JRC_PROCESSO_PDV"/>
+  <table-filter match-name="JRC_DEVOLUCAO_VENDA"/>
+  <table-filter match-name="JRC_TRANSPORTADOR"/>
+  <table-filter match-name="JRC_STATUS_SERVICO"/>
+  <table-filter match-name="JRC_DESENVOLVEDORA"/>
+  <table-filter match-name="JRC_STATUS_EQUALIZACAO"/>
+  <table-filter match-name="JRC_ROTA_FATURAMENTO"/>
+  <table-filter match-name="JRC_PRODUTO"/>
+  <table-filter match-name="JRC_PROMOCAO"/>
+  <table-filter match-name="JRC_TIPO_DIVULGACAO"/>
+  <table-filter match-name="JRC_BANCO"/>
+  <table-filter match-name="JRC_ECF"/>
+  <table-filter match-name="JRC_MARCA"/>
+  <table-filter match-name="JRC_MODELO_ECF"/>
+  <table-filter match-name="JRC_EQUALIZACAO_ITEM"/>
+  <table-filter match-name="JRC_NOTA_FISCAL"/>
+  <table-filter match-name="JRC_TIPO_OPERACAO"/>
+  <table-filter match-name="JRC_FIN_BANCO_TIPOLANCTO"/>
+  <table-filter match-name="JRC_ORGAO"/>
+  <table-filter match-name="JRC_CONVENIO"/>
+  <table-filter match-name="JRC_USUARIO"/>
+  <table-filter match-name="JRC_GRUPO_IMPOSTO_PRODUTO"/>
+  <table-filter match-name="JRC_TIPO_RENDA"/>
+  <table-filter match-name="JRC_HISTORICO_PADRAO"/>
+  <table-filter match-name="JRC_FORNECEDOR"/>
+  <table-filter match-name="JRC_TIPO_PESSOA"/>
+  <table-filter match-name="JRC_TIPO_LOGRADOURO"/>
+  <table-filter match-name="JRC_NATUREZA_OPERACAO"/>
+  <table-filter match-name="JRC_MOVIMENTO_PDV"/>
+  <table-filter match-name="JRC_CONVENIADA"/>
+  <table-filter match-name="JRC_PRIVILEGIO"/>
+  <table-filter match-name="JRC_MOVIMENTO_TESOURARIA"/>
+  <table-filter match-name="JRC_COR"/>
+  <table-filter match-name="JRC_BENEFICIARIO"/>
+  <table-filter match-name="JRC_STATUS_PEDIDO_VENDA"/>
+  <table-filter match-name="JRC_SERVICO"/>
+  <table-filter match-name="JRC_BANDEIRA_CARTAO"/>
+  <table-filter match-name="JRC_VOLTAGEM"/>
+  <table-filter match-name="JRC_ESTIPULANTE"/>
+  <table-filter match-name="JRC_MENSAGEM_ANALISE"/>
+  <table-filter match-name="JRC_MEIO_PAGAMENTO"/>
+  <table-filter match-name="JRC_ECF_X_PDV"/>
+</hibernate-reverse-engineering>

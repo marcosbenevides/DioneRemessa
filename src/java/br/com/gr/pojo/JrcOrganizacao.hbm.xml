@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19/02/2017 12:54:03 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="br.com.gr.pojo.JrcOrganizacao" table="JRC_ORGANIZACAO" schema="DIONE_HOM" optimistic-lock="version">
+        <id name="idOrganizacao" type="long">
+            <column name="ID_ORGANIZACAO" precision="15" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="jrcEmpresa" class="br.com.gr.pojo.JrcEmpresa" fetch="select">
+            <column name="ID_EMPRESA" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcPessoa" class="br.com.gr.pojo.JrcPessoa" fetch="select">
+            <column name="ID_PESSOA" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcPessoaTelefone" class="br.com.gr.pojo.JrcPessoaTelefone" fetch="select">
+            <column name="ID_PESFONE_SAC" precision="15" scale="0" />
+            <column name="SEQ_PESFONE_SAC" precision="4" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcUsuario" class="br.com.gr.pojo.JrcUsuario" fetch="select">
+            <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="descBreve" type="string">
+            <column name="DESC_BREVE" length="30" not-null="true" />
+        </property>
+        <property name="descLonga" type="string">
+            <column name="DESC_LONGA" length="50" />
+        </property>
+        <property name="dtInicioPeriodo" type="date">
+            <column name="DT_INICIO_PERIODO" length="7" not-null="true" />
+        </property>
+        <property name="dtFimPeriodo" type="date">
+            <column name="DT_FIM_PERIODO" length="7" not-null="true" />
+        </property>
+        <property name="dtInclusao" type="date">
+            <column name="DT_INCLUSAO" length="7" not-null="true" />
+        </property>
+        <property name="dtAlteracao" type="date">
+            <column name="DT_ALTERACAO" length="7" not-null="true" />
+        </property>
+        <property name="versaoSistema" type="long">
+            <column name="VERSAO_SISTEMA" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="versaoRegistro" type="long">
+            <column name="VERSAO_REGISTRO" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="codigo" type="string">
+            <column name="CODIGO" length="10" not-null="true" />
+        </property>
+        <property name="codigoRef" type="string">
+            <column name="CODIGO_REF" length="20" />
+        </property>
+        <set name="jrcLojas" table="JRC_LOJA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_ORGANIZACAO" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcLoja" />
+        </set>
+        <set name="jrxHostTransacaos" table="JRX_HOST_TRANSACAO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_ORGANIZACAO" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrxHostTransacao" />
+        </set>
+        <set name="jrcPedidoVendas" table="JRC_PEDIDO_VENDA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_ORGANIZACAO" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcPedidoVenda" />
+        </set>
+    </class>
+</hibernate-mapping>

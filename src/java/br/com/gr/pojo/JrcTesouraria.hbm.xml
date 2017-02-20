@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19/02/2017 12:54:03 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="br.com.gr.pojo.JrcTesouraria" table="JRC_TESOURARIA" schema="DIONE_HOM" optimistic-lock="version">
+        <id name="idTesouraria" type="long">
+            <column name="ID_TESOURARIA" precision="15" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="jrcEmpresa" class="br.com.gr.pojo.JrcEmpresa" fetch="select">
+            <column name="ID_EMPRESA" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcLoja" class="br.com.gr.pojo.JrcLoja" fetch="select">
+            <column name="ID_LOJA" precision="15" scale="0" not-null="true" unique="true" />
+        </many-to-one>
+        <many-to-one name="jrcTesouraria" class="br.com.gr.pojo.JrcTesouraria" fetch="select">
+            <column name="ID_TESOURARIA_DESTINO" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcUsuario" class="br.com.gr.pojo.JrcUsuario" fetch="select">
+            <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="limiteDiasFech" type="java.lang.Byte">
+            <column name="LIMITE_DIAS_FECH" precision="2" scale="0" />
+        </property>
+        <property name="limiteDiasConf" type="java.lang.Byte">
+            <column name="LIMITE_DIAS_CONF" precision="2" scale="0" />
+        </property>
+        <property name="indAtivo" type="boolean">
+            <column name="IND_ATIVO" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="dtInclusao" type="date">
+            <column name="DT_INCLUSAO" length="7" not-null="true" />
+        </property>
+        <property name="dtAlteracao" type="date">
+            <column name="DT_ALTERACAO" length="7" not-null="true" />
+        </property>
+        <property name="versaoSistema" type="long">
+            <column name="VERSAO_SISTEMA" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="versaoRegistro" type="long">
+            <column name="VERSAO_REGISTRO" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="indExigeCancPedido" type="boolean">
+            <column name="IND_EXIGE_CANC_PEDIDO" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="saldoDinMax" type="big_decimal">
+            <column name="SALDO_DIN_MAX" precision="15" />
+        </property>
+        <property name="maxDiasCheAgDep" type="java.lang.Short">
+            <column name="MAX_DIAS_CHE_AG_DEP" precision="4" scale="0" />
+        </property>
+        <property name="indBorderoTransferencia" type="java.lang.Boolean">
+            <column name="IND_BORDERO_TRANSFERENCIA" precision="1" scale="0" />
+        </property>
+        <property name="indBorderoSaida" type="java.lang.Boolean">
+            <column name="IND_BORDERO_SAIDA" precision="1" scale="0" />
+        </property>
+        <property name="indBorderoEntrada" type="java.lang.Boolean">
+            <column name="IND_BORDERO_ENTRADA" precision="1" scale="0" />
+        </property>
+        <property name="indBorderoDepositoDin" type="java.lang.Boolean">
+            <column name="IND_BORDERO_DEPOSITO_DIN" precision="1" scale="0" />
+        </property>
+        <property name="indBorderoDepositoChe" type="java.lang.Boolean">
+            <column name="IND_BORDERO_DEPOSITO_CHE" precision="1" scale="0" />
+        </property>
+        <property name="diasCancPedidoCre" type="java.lang.Byte">
+            <column name="DIAS_CANC_PEDIDO_CRE" precision="2" scale="0" />
+        </property>
+        <set name="jrcPdvs" table="JRC_PDV" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_TESOURARIA" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcPdv" />
+        </set>
+        <set name="jrcProcessoPdvs" table="JRC_PROCESSO_PDV" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_TESOURARIA" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcProcessoPdv" />
+        </set>
+        <set name="jrcTesourarias" table="JRC_TESOURARIA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_TESOURARIA_DESTINO" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcTesouraria" />
+        </set>
+        <set name="jrcMovimentoTesourarias" table="JRC_MOVIMENTO_TESOURARIA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_TESOURARIA" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcMovimentoTesouraria" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19/02/2017 12:54:03 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="br.com.gr.pojo.JrcSeguroConfig" table="JRC_SEGURO_CONFIG" schema="DIONE_HOM" optimistic-lock="version">
+        <id name="idSeguroConfig" type="long">
+            <column name="ID_SEGURO_CONFIG" precision="15" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="jrcCapitalizacao" class="br.com.gr.pojo.JrcCapitalizacao" fetch="select">
+            <column name="ID_CAPITALIZACAO" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcBeneficiario" class="br.com.gr.pojo.JrcBeneficiario" fetch="select">
+            <column name="ID_BENEFICIARIO" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcEmpresa" class="br.com.gr.pojo.JrcEmpresa" fetch="select">
+            <column name="ID_EMPRESA" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcEstipulante" class="br.com.gr.pojo.JrcEstipulante" fetch="select">
+            <column name="ID_ESTIPULANTE" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcSeguradora" class="br.com.gr.pojo.JrcSeguradora" fetch="select">
+            <column name="ID_SEGURADORA" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcUsuario" class="br.com.gr.pojo.JrcUsuario" fetch="select">
+            <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcSubestipulante" class="br.com.gr.pojo.JrcSubestipulante" fetch="select">
+            <column name="ID_SUBESTIPULANTE" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcCorretora" class="br.com.gr.pojo.JrcCorretora" fetch="select">
+            <column name="ID_CORRETORA" precision="15" scale="0" />
+        </many-to-one>
+        <property name="foneSac" type="string">
+            <column name="FONE_SAC" length="20" />
+        </property>
+        <property name="apolice" type="string">
+            <column name="APOLICE" length="30" />
+        </property>
+        <property name="susep" type="string">
+            <column name="SUSEP" length="25" />
+        </property>
+        <property name="dtInicioPeriodo" type="date">
+            <column name="DT_INICIO_PERIODO" length="7" not-null="true" />
+        </property>
+        <property name="dtFimPeriodo" type="date">
+            <column name="DT_FIM_PERIODO" length="7" not-null="true" />
+        </property>
+        <property name="dtInclusao" type="date">
+            <column name="DT_INCLUSAO" length="7" not-null="true" />
+        </property>
+        <property name="dtAlteracao" type="date">
+            <column name="DT_ALTERACAO" length="7" not-null="true" />
+        </property>
+        <property name="versaoSistema" type="long">
+            <column name="VERSAO_SISTEMA" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="versaoRegistro" type="long">
+            <column name="VERSAO_REGISTRO" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="percComissao" type="big_decimal">
+            <column name="PERC_COMISSAO" precision="5" />
+        </property>
+        <property name="susepInscricao" type="string">
+            <column name="SUSEP_INSCRICAO" length="20" />
+        </property>
+        <property name="foneSinistro" type="string">
+            <column name="FONE_SINISTRO" length="20" />
+        </property>
+        <property name="indOrganizacao" type="java.lang.Boolean">
+            <column name="IND_ORGANIZACAO" precision="1" scale="0" />
+        </property>
+        <property name="urlAtivacao" type="string">
+            <column name="URL_ATIVACAO" length="100" />
+        </property>
+        <property name="foneSacEsp" type="string">
+            <column name="FONE_SAC_ESP" length="20" />
+        </property>
+        <property name="foneAssist24hr" type="string">
+            <column name="FONE_ASSIST_24HR" length="20" />
+        </property>
+        <property name="foneOuvidoria" type="string">
+            <column name="FONE_OUVIDORIA" length="20" />
+        </property>
+        <property name="foneSinistroLoc" type="string">
+            <column name="FONE_SINISTRO_LOC" length="20" />
+        </property>
+        <property name="foneOuvidoriaEsp" type="string">
+            <column name="FONE_OUVIDORIA_ESP" length="20" />
+        </property>
+        <property name="apolice2" type="string">
+            <column name="APOLICE2" length="30" />
+        </property>
+        <property name="susep2" type="string">
+            <column name="SUSEP2" length="25" />
+        </property>
+        <property name="foneSusep" type="string">
+            <column name="FONE_SUSEP" length="20" />
+        </property>
+        <property name="siteSusep" type="string">
+            <column name="SITE_SUSEP" length="100" />
+        </property>
+        <property name="emailSac" type="string">
+            <column name="EMAIL_SAC" length="100" />
+        </property>
+        <property name="emailOuvidoria" type="string">
+            <column name="EMAIL_OUVIDORIA" length="100" />
+        </property>
+        <property name="descricao" type="string">
+            <column name="DESCRICAO" length="100" not-null="true" />
+        </property>
+        <set name="jrcServicoPrecos" table="JRC_SERVICO_PRECO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_SEGURO_CONFIG" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcServicoPreco" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,150 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19/02/2017 12:54:03 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="br.com.gr.pojo.JrcServico" table="JRC_SERVICO" schema="DIONE_HOM" optimistic-lock="version">
+        <id name="idServico" type="long">
+            <column name="ID_SERVICO" precision="15" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="jrcOperadoraTelefonia" class="br.com.gr.pojo.JrcOperadoraTelefonia" fetch="select">
+            <column name="ID_OPERADORA_TELEFONIA" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcEmpresa" class="br.com.gr.pojo.JrcEmpresa" fetch="select">
+            <column name="ID_EMPRESA" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcGrupoImpostoServico" class="br.com.gr.pojo.JrcGrupoImpostoServico" fetch="select">
+            <column name="ID_GRUPO_IMPOSTO_SERVICO" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcPessoa" class="br.com.gr.pojo.JrcPessoa" fetch="select">
+            <column name="ID_PESSOA_AVERBADOR" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcPrivilegio" class="br.com.gr.pojo.JrcPrivilegio" fetch="select">
+            <column name="ID_PRIVILEGIO_OBRIGATORIO" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcStatusServico" class="br.com.gr.pojo.JrcStatusServico" fetch="select">
+            <column name="ID_STATUS_SERVICO" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcTipoServico" class="br.com.gr.pojo.JrcTipoServico" fetch="select">
+            <column name="ID_TIPO_SERVICO" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcUnidade" class="br.com.gr.pojo.JrcUnidade" fetch="select">
+            <column name="ID_UNIDADE" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcUsuarioByIdUsuarioAprovou" class="br.com.gr.pojo.JrcUsuario" fetch="select">
+            <column name="ID_USUARIO_APROVOU" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcUsuarioByIdUsuarioReg" class="br.com.gr.pojo.JrcUsuario" fetch="select">
+            <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="codigo" type="string">
+            <column name="CODIGO" length="14" not-null="true" />
+        </property>
+        <property name="descricao" type="string">
+            <column name="DESCRICAO" length="50" not-null="true" />
+        </property>
+        <property name="indObrigatorio" type="boolean">
+            <column name="IND_OBRIGATORIO" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="indPessoaFisica" type="java.lang.Boolean">
+            <column name="IND_PESSOA_FISICA" precision="1" scale="0" />
+        </property>
+        <property name="indAposentado" type="boolean">
+            <column name="IND_APOSENTADO" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="indQtde" type="boolean">
+            <column name="IND_QTDE" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="indUtilizaSerie" type="boolean">
+            <column name="IND_UTILIZA_SERIE" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="indAlteraPreco" type="boolean">
+            <column name="IND_ALTERA_PRECO" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="flagVinculado" type="string">
+            <column name="FLAG_VINCULADO" length="3" />
+        </property>
+        <property name="indDevolucao" type="boolean">
+            <column name="IND_DEVOLUCAO" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="dtInicioPeriodo" type="date">
+            <column name="DT_INICIO_PERIODO" length="7" not-null="true" />
+        </property>
+        <property name="dtFimPeriodo" type="date">
+            <column name="DT_FIM_PERIODO" length="7" not-null="true" />
+        </property>
+        <property name="dtInclusao" type="date">
+            <column name="DT_INCLUSAO" length="7" not-null="true" />
+        </property>
+        <property name="dtAlteracao" type="date">
+            <column name="DT_ALTERACAO" length="7" not-null="true" />
+        </property>
+        <property name="versaoSistema" type="long">
+            <column name="VERSAO_SISTEMA" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="versaoRegistro" type="long">
+            <column name="VERSAO_REGISTRO" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="indVendaAvulsa" type="java.lang.Boolean">
+            <column name="IND_VENDA_AVULSA" precision="1" scale="0" />
+        </property>
+        <property name="indOrganizacao" type="boolean">
+            <column name="IND_ORGANIZACAO" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="indClassificacaoLoja" type="boolean">
+            <column name="IND_CLASSIFICACAO_LOJA" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="indGrupoLoja" type="boolean">
+            <column name="IND_GRUPO_LOJA" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="indLoja" type="boolean">
+            <column name="IND_LOJA" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="maxQtde" type="java.lang.Short">
+            <column name="MAX_QTDE" precision="4" scale="0" />
+        </property>
+        <property name="estoque" type="java.lang.Integer">
+            <column name="ESTOQUE" precision="5" scale="0" />
+        </property>
+        <property name="flagIat" type="string">
+            <column name="FLAG_IAT" length="1" not-null="true" />
+        </property>
+        <property name="flagIppt" type="string">
+            <column name="FLAG_IPPT" length="1" not-null="true" />
+        </property>
+        <property name="hash1" type="string">
+            <column name="HASH_1" length="256" />
+        </property>
+        <property name="hash2" type="string">
+            <column name="HASH_2" length="256" />
+        </property>
+        <property name="indPermiteOtItem" type="java.lang.Boolean">
+            <column name="IND_PERMITE_OT_ITEM" precision="1" scale="0" />
+        </property>
+        <property name="maxDiasDevolucao" type="java.lang.Short">
+            <column name="MAX_DIAS_DEVOLUCAO" precision="3" scale="0" />
+        </property>
+        <property name="hashInc" type="string">
+            <column name="HASH_INC" length="256" />
+        </property>
+        <property name="qtdeSugerida" type="java.lang.Short">
+            <column name="QTDE_SUGERIDA" precision="4" scale="0" />
+        </property>
+        <property name="codigoRef" type="string">
+            <column name="CODIGO_REF" length="20" />
+        </property>
+        <set name="jrcPedidoVendaItems" table="JRC_PEDIDO_VENDA_ITEM" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_SERVICO" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcPedidoVendaItem" />
+        </set>
+        <set name="jrcServicoPrecos" table="JRC_SERVICO_PRECO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_SERVICO" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcServicoPreco" />
+        </set>
+    </class>
+</hibernate-mapping>

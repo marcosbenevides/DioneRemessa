@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19/02/2017 12:54:03 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="br.com.gr.pojo.JrcLocalidade" table="JRC_LOCALIDADE" schema="DIONE_HOM" optimistic-lock="version">
+        <id name="idLocalidade" type="long">
+            <column name="ID_LOCALIDADE" precision="15" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="jrcEmpresa" class="br.com.gr.pojo.JrcEmpresa" fetch="select">
+            <column name="ID_EMPRESA" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcUf" class="br.com.gr.pojo.JrcUf" fetch="select">
+            <column name="ID_UF" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcUsuario" class="br.com.gr.pojo.JrcUsuario" fetch="select">
+            <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="descBreve" type="string">
+            <column name="DESC_BREVE" length="40" />
+        </property>
+        <property name="descLonga" type="string">
+            <column name="DESC_LONGA" length="80" not-null="true" />
+        </property>
+        <property name="cep" type="java.lang.Integer">
+            <column name="CEP" precision="8" scale="0" />
+        </property>
+        <property name="indCepLocalidade" type="boolean">
+            <column name="IND_CEP_LOCALIDADE" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="chaveDne" type="java.lang.Integer">
+            <column name="CHAVE_DNE" precision="8" scale="0" />
+        </property>
+        <property name="dtInicioPeriodo" type="date">
+            <column name="DT_INICIO_PERIODO" length="7" not-null="true" />
+        </property>
+        <property name="dtFimPeriodo" type="date">
+            <column name="DT_FIM_PERIODO" length="7" not-null="true" />
+        </property>
+        <property name="dtInclusao" type="date">
+            <column name="DT_INCLUSAO" length="7" not-null="true" />
+        </property>
+        <property name="dtAlteracao" type="date">
+            <column name="DT_ALTERACAO" length="7" not-null="true" />
+        </property>
+        <property name="versaoSistema" type="long">
+            <column name="VERSAO_SISTEMA" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="versaoRegistro" type="long">
+            <column name="VERSAO_REGISTRO" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="flagTipoLocalidade" type="string">
+            <column name="FLAG_TIPO_LOCALIDADE" length="2" not-null="true" />
+        </property>
+        <property name="codIbge" type="java.lang.Integer">
+            <column name="COD_IBGE" precision="7" scale="0" />
+        </property>
+        <property name="codMmaq" type="string">
+            <column name="COD_MMAQ" length="6" />
+        </property>
+        <set name="jrcNotaFiscalsForEmIdLocalidade" table="JRC_NOTA_FISCAL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EM_ID_LOCALIDADE" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcNotaFiscal" />
+        </set>
+        <set name="jrcVeiculos" table="JRC_VEICULO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_LOCALIDADE_PLACA" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcVeiculo" />
+        </set>
+        <set name="jrcNotaFiscalsForDrIdLocalidade" table="JRC_NOTA_FISCAL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="DR_ID_LOCALIDADE" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcNotaFiscal" />
+        </set>
+        <set name="jrcNotaFiscalsForTrIdLocalidade" table="JRC_NOTA_FISCAL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="TR_ID_LOCALIDADE" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcNotaFiscal" />
+        </set>
+        <set name="jrcBairros" table="JRC_BAIRRO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_LOCALIDADE" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcBairro" />
+        </set>
+        <set name="jrcLogradouros" table="JRC_LOGRADOURO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_LOCALIDADE" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcLogradouro" />
+        </set>
+        <set name="jrcPedidoVendas" table="JRC_PEDIDO_VENDA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="PE_ID_LOCALIDADE" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcPedidoVenda" />
+        </set>
+    </class>
+</hibernate-mapping>

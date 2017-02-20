@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19/02/2017 12:54:03 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="br.com.gr.pojo.JrcMeioPagamento" table="JRC_MEIO_PAGAMENTO" schema="DIONE_HOM" optimistic-lock="version">
+        <id name="idMeioPagamento" type="long">
+            <column name="ID_MEIO_PAGAMENTO" precision="15" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="jrcEmpresa" class="br.com.gr.pojo.JrcEmpresa" fetch="select">
+            <column name="ID_EMPRESA" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcUsuario" class="br.com.gr.pojo.JrcUsuario" fetch="select">
+            <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="flagMp" type="string">
+            <column name="FLAG_MP" length="10" not-null="true" />
+        </property>
+        <property name="flagEs" type="string">
+            <column name="FLAG_ES" length="1" not-null="true" />
+        </property>
+        <property name="nome" type="string">
+            <column name="NOME" length="20" not-null="true" />
+        </property>
+        <property name="indAtivo" type="boolean">
+            <column name="IND_ATIVO" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="dtInclusao" type="date">
+            <column name="DT_INCLUSAO" length="7" not-null="true" />
+        </property>
+        <property name="dtAlteracao" type="date">
+            <column name="DT_ALTERACAO" length="7" not-null="true" />
+        </property>
+        <property name="versaoSistema" type="long">
+            <column name="VERSAO_SISTEMA" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="versaoRegistro" type="long">
+            <column name="VERSAO_REGISTRO" precision="15" scale="0" not-null="true" />
+        </property>
+        <set name="jrcFormaPagamentosForIdMeiopagtoS" table="JRC_FORMA_PAGAMENTO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_MEIOPAGTO_S" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcFormaPagamento" />
+        </set>
+        <set name="jrcFormaPagamentosForIdMeiopagtoE" table="JRC_FORMA_PAGAMENTO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_MEIOPAGTO_E" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcFormaPagamento" />
+        </set>
+    </class>
+</hibernate-mapping>

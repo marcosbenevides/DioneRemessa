@@ -1,0 +1,182 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19/02/2017 12:54:03 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="br.com.gr.pojo.JrcLoja" table="JRC_LOJA" schema="DIONE_HOM" optimistic-lock="version">
+        <id name="idLoja" type="long">
+            <column name="ID_LOJA" precision="15" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="jrcEmpresa" class="br.com.gr.pojo.JrcEmpresa" fetch="select">
+            <column name="ID_EMPRESA" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcOrganizacao" class="br.com.gr.pojo.JrcOrganizacao" fetch="select">
+            <column name="ID_ORGANIZACAO" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcPessoa" class="br.com.gr.pojo.JrcPessoa" fetch="select">
+            <column name="ID_PESSOA" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcPessoaTelefoneByFkJrcLoja06" class="br.com.gr.pojo.JrcPessoaTelefone" fetch="select">
+            <column name="ID_PESFONE_ENTREGA" precision="15" scale="0" />
+            <column name="SEQ_PESFONE_ENTREGA" precision="4" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcPessoaTelefoneByFkJrcLoja07" class="br.com.gr.pojo.JrcPessoaTelefone" fetch="select">
+            <column name="ID_PESFONE_MONTAGEM" precision="15" scale="0" />
+            <column name="SEQ_PESFONE_MONTAGEM" precision="4" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcTipoLoja" class="br.com.gr.pojo.JrcTipoLoja" fetch="select">
+            <column name="ID_TIPO_LOJA" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcUsuario" class="br.com.gr.pojo.JrcUsuario" fetch="select">
+            <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="codigo" type="string">
+            <column name="CODIGO" length="10" not-null="true" />
+        </property>
+        <property name="descBreve" type="string">
+            <column name="DESC_BREVE" length="30" not-null="true" />
+        </property>
+        <property name="descLonga" type="string">
+            <column name="DESC_LONGA" length="50" />
+        </property>
+        <property name="dtInicioPeriodo" type="date">
+            <column name="DT_INICIO_PERIODO" length="7" not-null="true" />
+        </property>
+        <property name="dtFimPeriodo" type="date">
+            <column name="DT_FIM_PERIODO" length="7" not-null="true" />
+        </property>
+        <property name="dtInclusao" type="date">
+            <column name="DT_INCLUSAO" length="7" not-null="true" />
+        </property>
+        <property name="dtAlteracao" type="date">
+            <column name="DT_ALTERACAO" length="7" not-null="true" />
+        </property>
+        <property name="versaoSistema" type="long">
+            <column name="VERSAO_SISTEMA" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="versaoRegistro" type="long">
+            <column name="VERSAO_REGISTRO" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="codigoRef" type="string">
+            <column name="CODIGO_REF" length="20" />
+        </property>
+        <property name="cpRef" type="string">
+            <column name="CP_REF" length="2" />
+        </property>
+        <set name="jrcBorderoPropostas" table="JRC_BORDERO_PROPOSTA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_LOJA" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcBorderoProposta" />
+        </set>
+        <set name="jrcEqualizacaos" table="JRC_EQUALIZACAO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_LOJA_BASE" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcEqualizacao" />
+        </set>
+        <set name="jrxHostTransacaos" table="JRX_HOST_TRANSACAO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_LOJA" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrxHostTransacao" />
+        </set>
+        <set name="jrcTesourarias" table="JRC_TESOURARIA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_LOJA" precision="15" scale="0" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcTesouraria" />
+        </set>
+        <set name="jrcTipoVendas" table="JRC_TIPO_VENDA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_LOJA_CR_FINANCEIRA" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcTipoVenda" />
+        </set>
+        <set name="jrcPedidoVendas" table="JRC_PEDIDO_VENDA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_LOJA" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcPedidoVenda" />
+        </set>
+        <set name="jrcFinBancos" table="JRC_FIN_BANCO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_LOJA" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcFinBanco" />
+        </set>
+        <set name="jrcImpressoras" table="JRC_IMPRESSORA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_LOJA" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcImpressora" />
+        </set>
+        <set name="jrcPromocaos" table="JRC_PROMOCAO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_LOJA_BASE" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcPromocao" />
+        </set>
+        <set name="jrcNotaFiscalsForIdLojaDestino" table="JRC_NOTA_FISCAL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_LOJA_DESTINO" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcNotaFiscal" />
+        </set>
+        <set name="jrcNotaFiscalsForIdLojaMontagem" table="JRC_NOTA_FISCAL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_LOJA_MONTAGEM" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcNotaFiscal" />
+        </set>
+        <set name="jrcNotaFiscalsForIdLojaEntrega" table="JRC_NOTA_FISCAL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_LOJA_ENTREGA" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcNotaFiscal" />
+        </set>
+        <set name="jrcBoxes" table="JRC_BOX" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_LOJA" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcBox" />
+        </set>
+        <set name="jrcLoteNfes" table="JRC_LOTE_NFE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_LOJA_REF" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcLoteNfe" />
+        </set>
+        <set name="jrcNotaFiscalsForIdLoja" table="JRC_NOTA_FISCAL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_LOJA" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcNotaFiscal" />
+        </set>
+        <set name="jrcApuracaoComissaos" table="JRC_APURACAO_COMISSAO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_LOJA_LANCTO" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcApuracaoComissao" />
+        </set>
+        <set name="jrcRecebimentos" table="JRC_RECEBIMENTO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_LOJA" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcRecebimento" />
+        </set>
+        <set name="jrcDevolucaoVendasForIdLojaDevolucao" table="JRC_DEVOLUCAO_VENDA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_LOJA_DEVOLUCAO" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcDevolucaoVenda" />
+        </set>
+        <set name="jrcDevolucaoVendasForIdLojaVenda" table="JRC_DEVOLUCAO_VENDA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_LOJA_VENDA" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcDevolucaoVenda" />
+        </set>
+    </class>
+</hibernate-mapping>

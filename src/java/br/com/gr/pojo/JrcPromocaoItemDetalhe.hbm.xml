@@ -1,0 +1,143 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19/02/2017 12:54:03 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="br.com.gr.pojo.JrcPromocaoItemDetalhe" table="JRC_PROMOCAO_ITEM_DETALHE" schema="DIONE_HOM" optimistic-lock="version">
+        <composite-id name="id" class="br.com.gr.pojo.JrcPromocaoItemDetalheId">
+            <key-property name="idPromocaoItem" type="long">
+                <column name="ID_PROMOCAO_ITEM" precision="15" scale="0" />
+            </key-property>
+            <key-property name="sequencial" type="int">
+                <column name="SEQUENCIAL" precision="5" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="jrcEmpresa" class="br.com.gr.pojo.JrcEmpresa" fetch="select">
+            <column name="ID_EMPRESA" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcEqualizacaoItem" class="br.com.gr.pojo.JrcEqualizacaoItem" fetch="select">
+            <column name="ID_EQUALIZACAO_ITEM" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcKit" class="br.com.gr.pojo.JrcKit" fetch="select">
+            <column name="ID_KIT" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcProduto" class="br.com.gr.pojo.JrcProduto" fetch="select">
+            <column name="ID_PRODUTO" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcPromocaoItem" class="br.com.gr.pojo.JrcPromocaoItem" update="false" insert="false" fetch="select">
+            <column name="ID_PROMOCAO_ITEM" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcServicoPreco" class="br.com.gr.pojo.JrcServicoPreco" fetch="select">
+            <column name="ID_SERVICO_PRECO" precision="15" scale="0" />
+        </many-to-one>
+        <property name="flagTipoItem" type="string">
+            <column name="FLAG_TIPO_ITEM" length="1" not-null="true" />
+        </property>
+        <property name="ctKit" type="java.lang.Integer">
+            <column name="CT_KIT" precision="5" scale="0" />
+        </property>
+        <property name="qtde" type="big_decimal">
+            <column name="QTDE" precision="7" scale="3" not-null="true" />
+        </property>
+        <property name="precoPartida" type="big_decimal">
+            <column name="PRECO_PARTIDA" precision="15" not-null="true" />
+        </property>
+        <property name="custoLiquido" type="big_decimal">
+            <column name="CUSTO_LIQUIDO" precision="15" />
+        </property>
+        <property name="custoBruto" type="big_decimal">
+            <column name="CUSTO_BRUTO" precision="15" />
+        </property>
+        <property name="equalizacao" type="big_decimal">
+            <column name="EQUALIZACAO" precision="15" />
+        </property>
+        <property name="impostosEqEpd" type="big_decimal">
+            <column name="IMPOSTOS_EQ_EPD" precision="5" />
+        </property>
+        <property name="impostosEqSpf" type="big_decimal">
+            <column name="IMPOSTOS_EQ_SPF" precision="5" />
+        </property>
+        <property name="impostosEqSpd" type="big_decimal">
+            <column name="IMPOSTOS_EQ_SPD" precision="5" />
+        </property>
+        <property name="custoLiquidoEqualizado" type="big_decimal">
+            <column name="CUSTO_LIQUIDO_EQUALIZADO" precision="15" />
+        </property>
+        <property name="custoBrutoEqualizado" type="big_decimal">
+            <column name="CUSTO_BRUTO_EQUALIZADO" precision="15" />
+        </property>
+        <property name="precoMinimo" type="big_decimal">
+            <column name="PRECO_MINIMO" precision="15" />
+        </property>
+        <property name="margemMinimaLiquida" type="big_decimal">
+            <column name="MARGEM_MINIMA_LIQUIDA" precision="5" />
+        </property>
+        <property name="margemMinimaBruta" type="big_decimal">
+            <column name="MARGEM_MINIMA_BRUTA" precision="5" />
+        </property>
+        <property name="impostosSpf" type="big_decimal">
+            <column name="IMPOSTOS_SPF" precision="5" />
+        </property>
+        <property name="impostosSpd" type="big_decimal">
+            <column name="IMPOSTOS_SPD" precision="5" />
+        </property>
+        <property name="margemLiquida" type="big_decimal">
+            <column name="MARGEM_LIQUIDA" precision="5" />
+        </property>
+        <property name="margemBruta" type="big_decimal">
+            <column name="MARGEM_BRUTA" precision="5" />
+        </property>
+        <property name="indObrigaEqualizacao" type="java.lang.Boolean">
+            <column name="IND_OBRIGA_EQUALIZACAO" precision="1" scale="0" />
+        </property>
+        <property name="dtInclusao" type="date">
+            <column name="DT_INCLUSAO" length="7" not-null="true" />
+        </property>
+        <property name="dtAlteracao" type="date">
+            <column name="DT_ALTERACAO" length="7" not-null="true" />
+        </property>
+        <property name="versaoSistema" type="long">
+            <column name="VERSAO_SISTEMA" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="versaoRegistro" type="long">
+            <column name="VERSAO_REGISTRO" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="precoLista" type="big_decimal">
+            <column name="PRECO_LISTA" precision="15" not-null="true" />
+        </property>
+        <property name="itDescricao" type="string">
+            <column name="IT_DESCRICAO" length="50" not-null="true" />
+        </property>
+        <property name="custo" type="big_decimal">
+            <column name="CUSTO" precision="15" />
+        </property>
+        <property name="custoEqualizado" type="big_decimal">
+            <column name="CUSTO_EQUALIZADO" precision="15" />
+        </property>
+        <property name="margemMinima" type="big_decimal">
+            <column name="MARGEM_MINIMA" precision="5" />
+        </property>
+        <property name="margem" type="big_decimal">
+            <column name="MARGEM" precision="5" />
+        </property>
+        <property name="precoRetencao" type="big_decimal">
+            <column name="PRECO_RETENCAO" precision="15" not-null="true" />
+        </property>
+        <property name="itCodigo" type="string">
+            <column name="IT_CODIGO" length="14" not-null="true" />
+        </property>
+        <property name="qtdeEstoqueDisponivel" type="big_decimal">
+            <column name="QTDE_ESTOQUE_DISPONIVEL" precision="7" scale="3" />
+        </property>
+        <property name="qtdeEstoqueConsumida" type="big_decimal">
+            <column name="QTDE_ESTOQUE_CONSUMIDA" precision="7" scale="3" />
+        </property>
+        <set name="jrcPedidoVendaItems" table="JRC_PEDIDO_VENDA_ITEM" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_PROMOCAO_ITEM" precision="15" scale="0" />
+                <column name="SEQ_PROMOCAO_ITEM" precision="5" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcPedidoVendaItem" />
+        </set>
+    </class>
+</hibernate-mapping>

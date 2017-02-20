@@ -1,0 +1,144 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19/02/2017 12:54:03 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="br.com.gr.pojo.JrcPromocaoItem" table="JRC_PROMOCAO_ITEM" schema="DIONE_HOM" optimistic-lock="version">
+        <id name="idPromocaoItem" type="long">
+            <column name="ID_PROMOCAO_ITEM" precision="15" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="jrcEmpresa" class="br.com.gr.pojo.JrcEmpresa" fetch="select">
+            <column name="ID_EMPRESA" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcPlanoFinanciamento" class="br.com.gr.pojo.JrcPlanoFinanciamento" fetch="select">
+            <column name="ID_PLANO_FINANCIAMENTO" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcPromocao" class="br.com.gr.pojo.JrcPromocao" fetch="select">
+            <column name="ID_PROMOCAO" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcTabelaFinanciamento" class="br.com.gr.pojo.JrcTabelaFinanciamento" fetch="select">
+            <column name="ID_TABELA_FINANCIAMENTO" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcTipoVenda" class="br.com.gr.pojo.JrcTipoVenda" fetch="select">
+            <column name="ID_TIPO_VENDA" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="promocao" type="string">
+            <column name="PROMOCAO" length="20" not-null="true" />
+        </property>
+        <property name="descricao" type="string">
+            <column name="DESCRICAO" length="50" not-null="true" />
+        </property>
+        <property name="tipoVenda" type="string">
+            <column name="TIPO_VENDA" length="30" not-null="true" />
+        </property>
+        <property name="indAvista" type="boolean">
+            <column name="IND_AVISTA" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="tabelaFinanciamento" type="string">
+            <column name="TABELA_FINANCIAMENTO" length="30" />
+        </property>
+        <property name="indTcAvista" type="java.lang.Boolean">
+            <column name="IND_TC_AVISTA" precision="1" scale="0" />
+        </property>
+        <property name="indPlanoComEntrada" type="java.lang.Boolean">
+            <column name="IND_PLANO_COM_ENTRADA" precision="1" scale="0" />
+        </property>
+        <property name="plano" type="java.lang.Short">
+            <column name="PLANO" precision="3" scale="0" />
+        </property>
+        <property name="carencia" type="java.lang.Short">
+            <column name="CARENCIA" precision="3" scale="0" />
+        </property>
+        <property name="dtVencto1" type="date">
+            <column name="DT_VENCTO_1" length="7" />
+        </property>
+        <property name="entrada" type="big_decimal">
+            <column name="ENTRADA" precision="15" />
+        </property>
+        <property name="prestacao" type="big_decimal">
+            <column name="PRESTACAO" precision="15" />
+        </property>
+        <property name="tc" type="big_decimal">
+            <column name="TC" precision="15" />
+        </property>
+        <property name="precoPartida" type="big_decimal">
+            <column name="PRECO_PARTIDA" precision="15" not-null="true" />
+        </property>
+        <property name="dtInclusao" type="date">
+            <column name="DT_INCLUSAO" length="7" not-null="true" />
+        </property>
+        <property name="dtAlteracao" type="date">
+            <column name="DT_ALTERACAO" length="7" not-null="true" />
+        </property>
+        <property name="versaoSistema" type="long">
+            <column name="VERSAO_SISTEMA" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="versaoRegistro" type="long">
+            <column name="VERSAO_REGISTRO" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="taxaNominal" type="big_decimal">
+            <column name="TAXA_NOMINAL" precision="8" scale="5" />
+        </property>
+        <property name="taxaEfetiva" type="big_decimal">
+            <column name="TAXA_EFETIVA" precision="8" scale="5" />
+        </property>
+        <property name="indRetencao" type="java.lang.Boolean">
+            <column name="IND_RETENCAO" precision="1" scale="0" />
+        </property>
+        <property name="ot" type="big_decimal">
+            <column name="OT" precision="15" />
+        </property>
+        <property name="flagStatus" type="string">
+            <column name="FLAG_STATUS" length="1" />
+        </property>
+        <property name="indTecAvista" type="java.lang.Boolean">
+            <column name="IND_TEC_AVISTA" precision="1" scale="0" />
+        </property>
+        <property name="tec" type="big_decimal">
+            <column name="TEC" precision="15" />
+        </property>
+        <property name="taxaRetencao" type="big_decimal">
+            <column name="TAXA_RETENCAO" precision="8" scale="5" />
+        </property>
+        <property name="precoRetencao" type="big_decimal">
+            <column name="PRECO_RETENCAO" precision="15" not-null="true" />
+        </property>
+        <property name="flagExclusivo" type="string">
+            <column name="FLAG_EXCLUSIVO" length="3" />
+        </property>
+        <property name="flagTipoCalculo" type="string">
+            <column name="FLAG_TIPO_CALCULO" length="3" />
+        </property>
+        <property name="indCalculaIof" type="java.lang.Boolean">
+            <column name="IND_CALCULA_IOF" precision="1" scale="0" />
+        </property>
+        <property name="flagPagtoIof" type="string">
+            <column name="FLAG_PAGTO_IOF" length="1" />
+        </property>
+        <property name="iof" type="big_decimal">
+            <column name="IOF" precision="15" />
+        </property>
+        <property name="iofComplementar" type="big_decimal">
+            <column name="IOF_COMPLEMENTAR" precision="15" />
+        </property>
+        <property name="iofTotal" type="big_decimal">
+            <column name="IOF_TOTAL" precision="15" />
+        </property>
+        <property name="iofAlq" type="big_decimal">
+            <column name="IOF_ALQ" precision="7" scale="4" />
+        </property>
+        <property name="iofAlqComplementar" type="big_decimal">
+            <column name="IOF_ALQ_COMPLEMENTAR" precision="7" scale="4" />
+        </property>
+        <property name="flagPagtoOt" type="string">
+            <column name="FLAG_PAGTO_OT" length="1" />
+        </property>
+        <set name="jrcPromocaoItemDetalhes" table="JRC_PROMOCAO_ITEM_DETALHE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_PROMOCAO_ITEM" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcPromocaoItemDetalhe" />
+        </set>
+    </class>
+</hibernate-mapping>

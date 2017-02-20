@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19/02/2017 12:54:03 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="br.com.gr.pojo.JrcDevolucaoVenda" table="JRC_DEVOLUCAO_VENDA" schema="DIONE_HOM" optimistic-lock="version">
+        <id name="idDevolucaoVenda" type="long">
+            <column name="ID_DEVOLUCAO_VENDA" precision="15" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="jrcEmpresa" class="br.com.gr.pojo.JrcEmpresa" fetch="select">
+            <column name="ID_EMPRESA" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcLojaByIdLojaDevolucao" class="br.com.gr.pojo.JrcLoja" fetch="select">
+            <column name="ID_LOJA_DEVOLUCAO" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcLojaByIdLojaVenda" class="br.com.gr.pojo.JrcLoja" fetch="select">
+            <column name="ID_LOJA_VENDA" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcObservacao" class="br.com.gr.pojo.JrcObservacao" fetch="select">
+            <column name="ID_OBSERVACAO" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcPedidoVenda" class="br.com.gr.pojo.JrcPedidoVenda" fetch="select">
+            <column name="ID_PEDIDO_VENDA" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcPessoaByIdPessoa" class="br.com.gr.pojo.JrcPessoa" fetch="select">
+            <column name="ID_PESSOA" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcPessoaByIdPessoaDev" class="br.com.gr.pojo.JrcPessoa" fetch="select">
+            <column name="ID_PESSOA_DEV" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcProcessoPdv" class="br.com.gr.pojo.JrcProcessoPdv" fetch="select">
+            <column name="ID_PROCESSO_PDV" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcStatusDevolucaoVenda" class="br.com.gr.pojo.JrcStatusDevolucaoVenda" fetch="select">
+            <column name="ID_STATUS_DEVOLUCAO_VENDA" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcUsuarioByIdUsuarioPdv" class="br.com.gr.pojo.JrcUsuario" fetch="select">
+            <column name="ID_USUARIO_PDV" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcUsuarioByIdUsuarioAprovacao" class="br.com.gr.pojo.JrcUsuario" fetch="select">
+            <column name="ID_USUARIO_APROVACAO" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcUsuarioByIdUsuarioDevolucao" class="br.com.gr.pojo.JrcUsuario" fetch="select">
+            <column name="ID_USUARIO_DEVOLUCAO" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="peNomeRazaosocial" type="string">
+            <column name="PE_NOME_RAZAOSOCIAL" length="100" />
+        </property>
+        <property name="peIndPessoaFisica" type="java.lang.Boolean">
+            <column name="PE_IND_PESSOA_FISICA" precision="1" scale="0" />
+        </property>
+        <property name="peCpfCnpj" type="java.lang.Long">
+            <column name="PE_CPF_CNPJ" precision="14" scale="0" />
+        </property>
+        <property name="peIe" type="string">
+            <column name="PE_IE" length="20" />
+        </property>
+        <property name="peBairro" type="string">
+            <column name="PE_BAIRRO" length="40" />
+        </property>
+        <property name="peLocalidade" type="string">
+            <column name="PE_LOCALIDADE" length="40" />
+        </property>
+        <property name="peUf" type="string">
+            <column name="PE_UF" length="2" />
+        </property>
+        <property name="peCep" type="java.lang.Integer">
+            <column name="PE_CEP" precision="8" scale="0" />
+        </property>
+        <property name="peDdd" type="java.lang.Short">
+            <column name="PE_DDD" precision="4" scale="0" />
+        </property>
+        <property name="peFone" type="java.lang.Long">
+            <column name="PE_FONE" precision="10" scale="0" />
+        </property>
+        <property name="dtAprovacao" type="date">
+            <column name="DT_APROVACAO" length="7" />
+        </property>
+        <property name="dtPdv" type="date">
+            <column name="DT_PDV" length="7" />
+        </property>
+        <property name="vrTrocaDisponivel" type="big_decimal">
+            <column name="VR_TROCA_DISPONIVEL" precision="15" />
+        </property>
+        <property name="vrTrocaUtilizado" type="big_decimal">
+            <column name="VR_TROCA_UTILIZADO" precision="15" />
+        </property>
+        <property name="dtInclusao" type="date">
+            <column name="DT_INCLUSAO" length="7" not-null="true" />
+        </property>
+        <property name="dtAlteracao" type="date">
+            <column name="DT_ALTERACAO" length="7" not-null="true" />
+        </property>
+        <property name="versaoSistema" type="long">
+            <column name="VERSAO_SISTEMA" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="versaoRegistro" type="long">
+            <column name="VERSAO_REGISTRO" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="peTipoLogradouro" type="string">
+            <column name="PE_TIPO_LOGRADOURO" length="80" />
+        </property>
+        <property name="peLogradouro" type="string">
+            <column name="PE_LOGRADOURO" length="80" />
+        </property>
+        <property name="peNumero" type="string">
+            <column name="PE_NUMERO" length="11" />
+        </property>
+        <property name="peComplemento" type="string">
+            <column name="PE_COMPLEMENTO" length="50" />
+        </property>
+        <property name="indDevolucaoTotal" type="boolean">
+            <column name="IND_DEVOLUCAO_TOTAL" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="observacao" type="string">
+            <column name="OBSERVACAO" length="50" not-null="true" />
+        </property>
+        <property name="descObservacao" type="string">
+            <column name="DESC_OBSERVACAO" />
+        </property>
+        <property name="indTroca" type="boolean">
+            <column name="IND_TROCA" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="dav" type="java.lang.Long">
+            <column name="DAV" precision="15" scale="0" />
+        </property>
+        <property name="pv" type="java.lang.Long">
+            <column name="PV" precision="15" scale="0" />
+        </property>
+        <property name="indGeraOfRecolher" type="java.lang.Boolean">
+            <column name="IND_GERA_OF_RECOLHER" precision="1" scale="0" />
+        </property>
+        <set name="jrcNotaFiscals" table="JRC_NOTA_FISCAL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_DEVOLUCAO_VENDA" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcNotaFiscal" />
+        </set>
+    </class>
+</hibernate-mapping>

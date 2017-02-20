@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19/02/2017 12:54:03 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="br.com.gr.pojo.JrxHostTransacao" table="JRX_HOST_TRANSACAO" schema="DIONE_HOM" optimistic-lock="version">
+        <id name="idHostTransacao" type="long">
+            <column name="ID_HOST_TRANSACAO" precision="15" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="jrcEmpresa" class="br.com.gr.pojo.JrcEmpresa" fetch="select">
+            <column name="ID_EMPRESA" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcLoja" class="br.com.gr.pojo.JrcLoja" fetch="select">
+            <column name="ID_LOJA" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcOrganizacao" class="br.com.gr.pojo.JrcOrganizacao" fetch="select">
+            <column name="ID_ORGANIZACAO" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcUsuario" class="br.com.gr.pojo.JrcUsuario" fetch="select">
+            <column name="ID_USUARIO" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrxHostFinanceira" class="br.com.gr.pojo.JrxHostFinanceira" fetch="select">
+            <column name="ID_HOST_FINANCEIRA" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrxHostProduto" class="br.com.gr.pojo.JrxHostProduto" fetch="select">
+            <column name="ID_HOST_PRODUTO" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrxHostRetorno" class="br.com.gr.pojo.JrxHostRetorno" fetch="select">
+            <column name="ID_HOST_RETORNO" precision="15" scale="0" />
+        </many-to-one>
+        <property name="flagStatus" type="string">
+            <column name="FLAG_STATUS" length="3" />
+        </property>
+        <property name="dtEnvio1" type="date">
+            <column name="DT_ENVIO_1" length="7" />
+        </property>
+        <property name="dtReenvio1" type="date">
+            <column name="DT_REENVIO_1" length="7" />
+        </property>
+        <property name="qtdeReenvio" type="java.lang.Byte">
+            <column name="QTDE_REENVIO" precision="2" scale="0" />
+        </property>
+        <property name="dtLiberacao" type="date">
+            <column name="DT_LIBERACAO" length="7" />
+        </property>
+        <property name="dtNaoLiberacao" type="date">
+            <column name="DT_NAO_LIBERACAO" length="7" />
+        </property>
+        <property name="dtCancelamento" type="date">
+            <column name="DT_CANCELAMENTO" length="7" />
+        </property>
+        <property name="flagHostVersao" type="string">
+            <column name="FLAG_HOST_VERSAO" length="10" />
+        </property>
+        <property name="codigoRef" type="string">
+            <column name="CODIGO_REF" length="20" />
+        </property>
+        <property name="dtInclusao" type="date">
+            <column name="DT_INCLUSAO" length="7" not-null="true" />
+        </property>
+        <property name="dtAlteracao" type="date">
+            <column name="DT_ALTERACAO" length="7" not-null="true" />
+        </property>
+        <property name="versaoSistema" type="long">
+            <column name="VERSAO_SISTEMA" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="versaoRegistro" type="long">
+            <column name="VERSAO_REGISTRO" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="codTransacao" type="string">
+            <column name="COD_TRANSACAO" length="20" />
+        </property>
+        <property name="codAutorizacao" type="string">
+            <column name="COD_AUTORIZACAO" length="20" />
+        </property>
+        <property name="codContrato" type="string">
+            <column name="COD_CONTRATO" length="20" />
+        </property>
+        <property name="codProposta" type="string">
+            <column name="COD_PROPOSTA" length="20" />
+        </property>
+        <property name="codCancelamento" type="string">
+            <column name="COD_CANCELAMENTO" length="20" />
+        </property>
+        <property name="indErro" type="boolean">
+            <column name="IND_ERRO" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="indAutomatico" type="java.lang.Boolean">
+            <column name="IND_AUTOMATICO" precision="1" scale="0" />
+        </property>
+        <property name="tempoAnalise" type="java.lang.Integer">
+            <column name="TEMPO_ANALISE" precision="7" scale="0" />
+        </property>
+        <property name="organizacao" type="string">
+            <column name="ORGANIZACAO" length="30" not-null="true" />
+        </property>
+        <property name="loja" type="string">
+            <column name="LOJA" length="30" not-null="true" />
+        </property>
+        <property name="usuario" type="string">
+            <column name="USUARIO" length="50" not-null="true" />
+        </property>
+        <property name="dtEnvioReenvio" type="date">
+            <column name="DT_ENVIO_REENVIO" length="7" />
+        </property>
+        <property name="codigoLoja" type="string">
+            <column name="CODIGO_LOJA" length="10" not-null="true" />
+        </property>
+        <set name="jrcPedidoVendas" table="JRC_PEDIDO_VENDA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_HOST_TRANSACAO" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcPedidoVenda" />
+        </set>
+    </class>
+</hibernate-mapping>

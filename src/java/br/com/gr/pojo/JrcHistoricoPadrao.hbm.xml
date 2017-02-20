@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19/02/2017 12:54:03 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="br.com.gr.pojo.JrcHistoricoPadrao" table="JRC_HISTORICO_PADRAO" schema="DIONE_HOM" optimistic-lock="version">
+        <id name="idHistoricoPadrao" type="long">
+            <column name="ID_HISTORICO_PADRAO" precision="15" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="jrcEmpresa" class="br.com.gr.pojo.JrcEmpresa" fetch="select">
+            <column name="ID_EMPRESA" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcUsuario" class="br.com.gr.pojo.JrcUsuario" fetch="select">
+            <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="codigo" type="string">
+            <column name="CODIGO" length="8" not-null="true" />
+        </property>
+        <property name="descricao" type="string">
+            <column name="DESCRICAO" length="200" not-null="true" />
+        </property>
+        <property name="dtInicioPeriodo" type="date">
+            <column name="DT_INICIO_PERIODO" length="7" not-null="true" />
+        </property>
+        <property name="dtFimPeriodo" type="date">
+            <column name="DT_FIM_PERIODO" length="7" not-null="true" />
+        </property>
+        <property name="dtInclusao" type="date">
+            <column name="DT_INCLUSAO" length="7" not-null="true" />
+        </property>
+        <property name="dtAlteracao" type="date">
+            <column name="DT_ALTERACAO" length="7" not-null="true" />
+        </property>
+        <property name="versaoSistema" type="long">
+            <column name="VERSAO_SISTEMA" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="versaoRegistro" type="long">
+            <column name="VERSAO_REGISTRO" precision="15" scale="0" not-null="true" />
+        </property>
+        <set name="jrcFinBancos" table="JRC_FIN_BANCO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_HISTORICO_PADRAO_TRANSF" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcFinBanco" />
+        </set>
+        <set name="jrcTipoServicos" table="JRC_TIPO_SERVICO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_HISTORICO_PADRAO" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcTipoServico" />
+        </set>
+        <set name="jrcTipoNotasForIdHstpadNfPis" table="JRC_TIPO_NOTA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_HSTPAD_NF_PIS" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcTipoNota" />
+        </set>
+        <set name="jrcTipoNotasForIdHstpadNfCofins" table="JRC_TIPO_NOTA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_HSTPAD_NF_COFINS" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcTipoNota" />
+        </set>
+        <set name="jrcTipoNotasForIdHstpadNfEstoque" table="JRC_TIPO_NOTA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_HSTPAD_NF_ESTOQUE" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcTipoNota" />
+        </set>
+        <set name="jrcTipoNotasForIdHstpadNfIcmsDr" table="JRC_TIPO_NOTA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_HSTPAD_NF_ICMS_DR" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcTipoNota" />
+        </set>
+        <set name="jrcTipoNotasForIdHstpadNfEstoqueDr" table="JRC_TIPO_NOTA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_HSTPAD_NF_ESTOQUE_DR" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcTipoNota" />
+        </set>
+        <set name="jrcFinLancamentos" table="JRC_FIN_LANCAMENTO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_HISTORICO_PADRAO" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcFinLancamento" />
+        </set>
+        <set name="jrcTipoNotasForIdHstpadNf" table="JRC_TIPO_NOTA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_HSTPAD_NF" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcTipoNota" />
+        </set>
+        <set name="jrcTipoNotasForIdHstpadNfIcms" table="JRC_TIPO_NOTA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_HSTPAD_NF_ICMS" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcTipoNota" />
+        </set>
+        <set name="jrcFinConfigFormapagtos" table="JRC_FIN_CONFIG_FORMAPAGTO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_HSTPAD_RECAUT_PEDVDA" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcFinConfigFormapagto" />
+        </set>
+    </class>
+</hibernate-mapping>

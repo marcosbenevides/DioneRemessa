@@ -1,0 +1,556 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19/02/2017 12:54:03 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="br.com.gr.pojo.JrcPedidoVendaItem" table="JRC_PEDIDO_VENDA_ITEM" schema="DIONE_HOM" optimistic-lock="version">
+        <composite-id name="id" class="br.com.gr.pojo.JrcPedidoVendaItemId">
+            <key-property name="idPedidoVenda" type="long">
+                <column name="ID_PEDIDO_VENDA" precision="15" scale="0" />
+            </key-property>
+            <key-property name="sequencial" type="int">
+                <column name="SEQUENCIAL" precision="5" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="jrcOperadoraTelefonia" class="br.com.gr.pojo.JrcOperadoraTelefonia" fetch="select">
+            <column name="ID_OPERADORA_TELEFONIA" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcTipoOperacao" class="br.com.gr.pojo.JrcTipoOperacao" fetch="select">
+            <column name="ID_TIPO_OPERACAO" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcTipoDivulgacao" class="br.com.gr.pojo.JrcTipoDivulgacao" fetch="select">
+            <column name="ID_TIPO_DIVULGACAO" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcTransacaoTef" class="br.com.gr.pojo.JrcTransacaoTef" fetch="select">
+            <column name="ID_TRANSACAO_TEF" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcBancoByIdBancoFin" class="br.com.gr.pojo.JrcBanco" fetch="select">
+            <column name="ID_BANCO_FIN" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcBancoByIdBanco" class="br.com.gr.pojo.JrcBanco" fetch="select">
+            <column name="ID_BANCO" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcClassificacaoProduto" class="br.com.gr.pojo.JrcClassificacaoProduto" fetch="select">
+            <column name="ID_CLASSIFICACAO_PRODUTO" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcEmpresa" class="br.com.gr.pojo.JrcEmpresa" fetch="select">
+            <column name="ID_EMPRESA" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcEqualizacaoItem" class="br.com.gr.pojo.JrcEqualizacaoItem" fetch="select">
+            <column name="ID_EQUALIZACAO_ITEM" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcFinanceira" class="br.com.gr.pojo.JrcFinanceira" fetch="select">
+            <column name="ID_FINANCEIRA" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcKit" class="br.com.gr.pojo.JrcKit" fetch="select">
+            <column name="ID_KIT" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcMarca" class="br.com.gr.pojo.JrcMarca" fetch="select">
+            <column name="ID_MARCA" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcPessoaBanco" class="br.com.gr.pojo.JrcPessoaBanco" fetch="select">
+            <column name="ID_PESSOA" precision="15" scale="0" />
+            <column name="SEQ_PESSOA_BANCO" precision="4" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcProduto" class="br.com.gr.pojo.JrcProduto" fetch="select">
+            <column name="ID_PRODUTO" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcPromocao" class="br.com.gr.pojo.JrcPromocao" fetch="select">
+            <column name="ID_PROMOCAO" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcPromocaoGeral" class="br.com.gr.pojo.JrcPromocaoGeral" fetch="select">
+            <column name="ID_PROMOCAO_GERAL" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcPromocaoItemDetalhe" class="br.com.gr.pojo.JrcPromocaoItemDetalhe" fetch="select">
+            <column name="ID_PROMOCAO_ITEM" precision="15" scale="0" />
+            <column name="SEQ_PROMOCAO_ITEM" precision="5" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcServico" class="br.com.gr.pojo.JrcServico" fetch="select">
+            <column name="ID_SERVICO" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcServicoPreco" class="br.com.gr.pojo.JrcServicoPreco" fetch="select">
+            <column name="ID_SERVICO_PRECO" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcStatusProduto" class="br.com.gr.pojo.JrcStatusProduto" fetch="select">
+            <column name="ID_STATUS_PRODUTO" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcStatusServico" class="br.com.gr.pojo.JrcStatusServico" fetch="select">
+            <column name="ID_STATUS_SERVICO" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcTabelaFinanciamento" class="br.com.gr.pojo.JrcTabelaFinanciamento" fetch="select">
+            <column name="ID_TABFIN_PROMOCAO" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcTipoConta" class="br.com.gr.pojo.JrcTipoConta" fetch="select">
+            <column name="ID_TIPO_CONTA" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcTipoServico" class="br.com.gr.pojo.JrcTipoServico" fetch="select">
+            <column name="ID_TIPO_SERVICO" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcTipoVenda" class="br.com.gr.pojo.JrcTipoVenda" fetch="select">
+            <column name="ID_TIPOVENDA_PROMOCAO" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcUnidade" class="br.com.gr.pojo.JrcUnidade" fetch="select">
+            <column name="ID_UNIDADE" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcUsuario" class="br.com.gr.pojo.JrcUsuario" fetch="select">
+            <column name="ID_USUARIO_VENDA" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="flagTipoItem" type="string">
+            <column name="FLAG_TIPO_ITEM" length="1" not-null="true" />
+        </property>
+        <property name="ctKit" type="java.lang.Integer">
+            <column name="CT_KIT" precision="5" scale="0" />
+        </property>
+        <property name="itCodigo" type="string">
+            <column name="IT_CODIGO" length="14" not-null="true" />
+        </property>
+        <property name="itDescricao" type="string">
+            <column name="IT_DESCRICAO" length="50" not-null="true" />
+        </property>
+        <property name="itStatus" type="string">
+            <column name="IT_STATUS" length="2" not-null="true" />
+        </property>
+        <property name="itSitTributaria" type="string">
+            <column name="IT_SIT_TRIBUTARIA" length="2" />
+        </property>
+        <property name="itSitTributariaAliquota" type="big_decimal">
+            <column name="IT_SIT_TRIBUTARIA_ALIQUOTA" precision="5" />
+        </property>
+        <property name="itUnidade" type="string">
+            <column name="IT_UNIDADE" length="3" />
+        </property>
+        <property name="itTotal" type="big_decimal">
+            <column name="IT_TOTAL" precision="15" not-null="true" />
+        </property>
+        <property name="custoLiquido" type="big_decimal">
+            <column name="CUSTO_LIQUIDO" precision="15" />
+        </property>
+        <property name="custoBruto" type="big_decimal">
+            <column name="CUSTO_BRUTO" precision="15" />
+        </property>
+        <property name="custo" type="big_decimal">
+            <column name="CUSTO" precision="15" />
+        </property>
+        <property name="precoMinimo" type="big_decimal">
+            <column name="PRECO_MINIMO" precision="15" />
+        </property>
+        <property name="margemMinimaLiquida" type="big_decimal">
+            <column name="MARGEM_MINIMA_LIQUIDA" precision="5" />
+        </property>
+        <property name="margemMinimaBruta" type="big_decimal">
+            <column name="MARGEM_MINIMA_BRUTA" precision="5" />
+        </property>
+        <property name="margemMinima" type="big_decimal">
+            <column name="MARGEM_MINIMA" precision="5" />
+        </property>
+        <property name="precoLista" type="big_decimal">
+            <column name="PRECO_LISTA" precision="15" not-null="true" />
+        </property>
+        <property name="impostosSpf" type="big_decimal">
+            <column name="IMPOSTOS_SPF" precision="5" />
+        </property>
+        <property name="impostosSpd" type="big_decimal">
+            <column name="IMPOSTOS_SPD" precision="5" />
+        </property>
+        <property name="ctPromocao" type="java.lang.Integer">
+            <column name="CT_PROMOCAO" precision="5" scale="0" />
+        </property>
+        <property name="precoPromocao" type="big_decimal">
+            <column name="PRECO_PROMOCAO" precision="15" />
+        </property>
+        <property name="qtdeVenda" type="big_decimal">
+            <column name="QTDE_VENDA" precision="7" scale="3" not-null="true" />
+        </property>
+        <property name="precoPartida" type="big_decimal">
+            <column name="PRECO_PARTIDA" precision="15" not-null="true" />
+        </property>
+        <property name="precoReversao" type="big_decimal">
+            <column name="PRECO_REVERSAO" precision="15" not-null="true" />
+        </property>
+        <property name="precoFuturo" type="big_decimal">
+            <column name="PRECO_FUTURO" precision="15" not-null="true" />
+        </property>
+        <property name="precoNota" type="big_decimal">
+            <column name="PRECO_NOTA" precision="15" not-null="true" />
+        </property>
+        <property name="margemLiquida" type="big_decimal">
+            <column name="MARGEM_LIQUIDA" precision="5" />
+        </property>
+        <property name="margemBruta" type="big_decimal">
+            <column name="MARGEM_BRUTA" precision="5" />
+        </property>
+        <property name="margem" type="big_decimal">
+            <column name="MARGEM" precision="5" />
+        </property>
+        <property name="desconto" type="big_decimal">
+            <column name="DESCONTO" precision="5" not-null="true" />
+        </property>
+        <property name="dtInclusao" type="date">
+            <column name="DT_INCLUSAO" length="7" not-null="true" />
+        </property>
+        <property name="dtAlteracao" type="date">
+            <column name="DT_ALTERACAO" length="7" not-null="true" />
+        </property>
+        <property name="versaoSistema" type="long">
+            <column name="VERSAO_SISTEMA" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="versaoRegistro" type="long">
+            <column name="VERSAO_REGISTRO" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="ctItem" type="int">
+            <column name="CT_ITEM" precision="5" scale="0" not-null="true" />
+        </property>
+        <property name="ctItemRef" type="java.lang.Integer">
+            <column name="CT_ITEM_REF" precision="5" scale="0" />
+        </property>
+        <property name="precoEnquadramento" type="big_decimal">
+            <column name="PRECO_ENQUADRAMENTO" precision="15" />
+        </property>
+        <property name="precoVenda" type="big_decimal">
+            <column name="PRECO_VENDA" precision="15" not-null="true" />
+        </property>
+        <property name="qtdePromocao" type="big_decimal">
+            <column name="QTDE_PROMOCAO" precision="7" scale="3" />
+        </property>
+        <property name="indSaidaLoja" type="java.lang.Boolean">
+            <column name="IND_SAIDA_LOJA" precision="1" scale="0" />
+        </property>
+        <property name="flagVinculado" type="string">
+            <column name="FLAG_VINCULADO" length="3" />
+        </property>
+        <property name="indAlteraPreco" type="java.lang.Boolean">
+            <column name="IND_ALTERA_PRECO" precision="1" scale="0" />
+        </property>
+        <property name="itSaidaLoja" type="string">
+            <column name="IT_SAIDA_LOJA" length="1" />
+        </property>
+        <property name="indFracionada" type="java.lang.Boolean">
+            <column name="IND_FRACIONADA" precision="1" scale="0" />
+        </property>
+        <property name="indQtde" type="java.lang.Boolean">
+            <column name="IND_QTDE" precision="1" scale="0" />
+        </property>
+        <property name="flagSerial" type="string">
+            <column name="FLAG_SERIAL" length="2" />
+        </property>
+        <property name="promocao" type="string">
+            <column name="PROMOCAO" length="20" />
+        </property>
+        <property name="usuarioVenda" type="string">
+            <column name="USUARIO_VENDA" length="50" not-null="true" />
+        </property>
+        <property name="ctPagtoRef" type="java.lang.Integer">
+            <column name="CT_PAGTO_REF" precision="5" scale="0" />
+        </property>
+        <property name="qtdeCancelada" type="big_decimal">
+            <column name="QTDE_CANCELADA" precision="7" scale="3" />
+        </property>
+        <property name="flagTipoServico" type="string">
+            <column name="FLAG_TIPO_SERVICO" length="10" />
+        </property>
+        <property name="indEntrega" type="java.lang.Boolean">
+            <column name="IND_ENTREGA" precision="1" scale="0" />
+        </property>
+        <property name="nroCertificado" type="string">
+            <column name="NRO_CERTIFICADO" length="20" />
+        </property>
+        <property name="classificacaoProduto" type="string">
+            <column name="CLASSIFICACAO_PRODUTO" length="20" />
+        </property>
+        <property name="descricaoProduto" type="string">
+            <column name="DESCRICAO_PRODUTO" length="100" />
+        </property>
+        <property name="flagIat" type="string">
+            <column name="FLAG_IAT" length="1" not-null="true" />
+        </property>
+        <property name="flagIppt" type="string">
+            <column name="FLAG_IPPT" length="1" not-null="true" />
+        </property>
+        <property name="servico" type="string">
+            <column name="SERVICO" length="50" />
+        </property>
+        <property name="tipoServico" type="string">
+            <column name="TIPO_SERVICO" length="20" />
+        </property>
+        <property name="ot" type="big_decimal">
+            <column name="OT" precision="15" />
+        </property>
+        <property name="flagTipoPagto" type="string">
+            <column name="FLAG_TIPO_PAGTO" length="3" />
+        </property>
+        <property name="tipoConta" type="string">
+            <column name="TIPO_CONTA" length="20" />
+        </property>
+        <property name="banco" type="string">
+            <column name="BANCO" length="30" />
+        </property>
+        <property name="agencia" type="string">
+            <column name="AGENCIA" length="12" />
+        </property>
+        <property name="agenciaDigito" type="string">
+            <column name="AGENCIA_DIGITO" length="2" />
+        </property>
+        <property name="conta" type="string">
+            <column name="CONTA" length="12" />
+        </property>
+        <property name="contaDigito" type="string">
+            <column name="CONTA_DIGITO" length="2" />
+        </property>
+        <property name="c2" type="string">
+            <column name="C2" length="1" />
+        </property>
+        <property name="c3" type="string">
+            <column name="C3" length="1" />
+        </property>
+        <property name="indConfirmado" type="java.lang.Boolean">
+            <column name="IND_CONFIRMADO" precision="1" scale="0" />
+        </property>
+        <property name="linhaDigitavel" type="string">
+            <column name="LINHA_DIGITAVEL" length="50" />
+        </property>
+        <property name="codContrato" type="string">
+            <column name="COD_CONTRATO" length="20" />
+        </property>
+        <property name="vrMargem" type="big_decimal">
+            <column name="VR_MARGEM" precision="15" />
+        </property>
+        <property name="codServico" type="string">
+            <column name="COD_SERVICO" length="14" />
+        </property>
+        <property name="precoProduto" type="big_decimal">
+            <column name="PRECO_PRODUTO" precision="15" />
+        </property>
+        <property name="marca" type="string">
+            <column name="MARCA" length="20" />
+        </property>
+        <property name="descFlagTipoPagto" type="string">
+            <column name="DESC_FLAG_TIPO_PAGTO" length="20" />
+        </property>
+        <property name="modelo" type="string">
+            <column name="MODELO" length="20" />
+        </property>
+        <property name="flagDocAgPag" type="string">
+            <column name="FLAG_DOC_AG_PAG" length="2" />
+        </property>
+        <property name="dtDocAgPag" type="date">
+            <column name="DT_DOC_AG_PAG" length="7" />
+        </property>
+        <property name="flagDocAgAvb" type="string">
+            <column name="FLAG_DOC_AG_AVB" length="2" />
+        </property>
+        <property name="dtDocAgAvb" type="date">
+            <column name="DT_DOC_AG_AVB" length="7" />
+        </property>
+        <property name="codAverbacao" type="string">
+            <column name="COD_AVERBACAO" length="20" />
+        </property>
+        <property name="nroDocumento" type="string">
+            <column name="NRO_DOCUMENTO" length="20" />
+        </property>
+        <property name="garantiaFabricante" type="java.lang.Short">
+            <column name="GARANTIA_FABRICANTE" precision="3" scale="0" />
+        </property>
+        <property name="hash1" type="string">
+            <column name="HASH_1" length="256" />
+        </property>
+        <property name="hashInc" type="string">
+            <column name="HASH_INC" length="256" />
+        </property>
+        <property name="indCancelado" type="java.lang.Boolean">
+            <column name="IND_CANCELADO" precision="1" scale="0" />
+        </property>
+        <property name="flagCor" type="string">
+            <column name="FLAG_COR" length="2" />
+        </property>
+        <property name="indCompoeEnquadramento" type="java.lang.Boolean">
+            <column name="IND_COMPOE_ENQUADRAMENTO" precision="1" scale="0" />
+        </property>
+        <property name="precoRetencao" type="big_decimal">
+            <column name="PRECO_RETENCAO" precision="15" not-null="true" />
+        </property>
+        <property name="flagExclusivoPromocao" type="string">
+            <column name="FLAG_EXCLUSIVO_PROMOCAO" length="3" />
+        </property>
+        <property name="percComissao" type="big_decimal">
+            <column name="PERC_COMISSAO" precision="5" />
+        </property>
+        <property name="comissaoMin" type="big_decimal">
+            <column name="COMISSAO_MIN" precision="15" />
+        </property>
+        <property name="comissaoMax" type="big_decimal">
+            <column name="COMISSAO_MAX" precision="15" />
+        </property>
+        <property name="itGarantia" type="java.lang.Short">
+            <column name="IT_GARANTIA" precision="3" scale="0" />
+        </property>
+        <property name="itLojaReserva" type="string">
+            <column name="IT_LOJA_RESERVA" length="3" />
+        </property>
+        <property name="indPrecoVendaPerc" type="java.lang.Boolean">
+            <column name="IND_PRECO_VENDA_PERC" precision="1" scale="0" />
+        </property>
+        <property name="precoVendaPerc" type="big_decimal">
+            <column name="PRECO_VENDA_PERC" precision="5" />
+        </property>
+        <property name="precoVendaMin" type="big_decimal">
+            <column name="PRECO_VENDA_MIN" precision="15" />
+        </property>
+        <property name="precoVendaMax" type="big_decimal">
+            <column name="PRECO_VENDA_MAX" precision="15" />
+        </property>
+        <property name="precoCompra" type="big_decimal">
+            <column name="PRECO_COMPRA" precision="15" />
+        </property>
+        <property name="indRetiraSrvsegTc" type="java.lang.Boolean">
+            <column name="IND_RETIRA_SRVSEG_TC" precision="1" scale="0" />
+        </property>
+        <property name="dtInicioGarantia" type="date">
+            <column name="DT_INICIO_GARANTIA" length="7" />
+        </property>
+        <property name="dtFimGarantia" type="date">
+            <column name="DT_FIM_GARANTIA" length="7" />
+        </property>
+        <property name="dadosAdicionais" type="string">
+            <column name="DADOS_ADICIONAIS" />
+        </property>
+        <property name="flagRemuneracao" type="string">
+            <column name="FLAG_REMUNERACAO" length="2" />
+        </property>
+        <property name="codBancoFin" type="java.lang.Integer">
+            <column name="COD_BANCO_FIN" precision="5" scale="0" />
+        </property>
+        <property name="bancoFin" type="string">
+            <column name="BANCO_FIN" length="20" />
+        </property>
+        <property name="tipoOperacao" type="string">
+            <column name="TIPO_OPERACAO" length="20" />
+        </property>
+        <property name="flagTipoOperacao" type="string">
+            <column name="FLAG_TIPO_OPERACAO" length="3" />
+        </property>
+        <property name="plano" type="java.lang.Short">
+            <column name="PLANO" precision="3" scale="0" />
+        </property>
+        <property name="prestacao" type="big_decimal">
+            <column name="PRESTACAO" precision="15" />
+        </property>
+        <property name="dtVencto1" type="date">
+            <column name="DT_VENCTO_1" length="7" />
+        </property>
+        <property name="tc" type="big_decimal">
+            <column name="TC" precision="15" />
+        </property>
+        <property name="taxa" type="big_decimal">
+            <column name="TAXA" precision="8" scale="5" />
+        </property>
+        <property name="seguro" type="big_decimal">
+            <column name="SEGURO" precision="15" />
+        </property>
+        <property name="pmtPaga" type="big_decimal">
+            <column name="PMT_PAGA" precision="5" />
+        </property>
+        <property name="vrRefin" type="big_decimal">
+            <column name="VR_REFIN" precision="15" />
+        </property>
+        <property name="vrRecompra" type="big_decimal">
+            <column name="VR_RECOMPRA" precision="15" />
+        </property>
+        <property name="bonusPerc" type="big_decimal">
+            <column name="BONUS_PERC" precision="5" />
+        </property>
+        <property name="comissaoParcPerc" type="big_decimal">
+            <column name="COMISSAO_PARC_PERC" precision="5" />
+        </property>
+        <property name="bonusParcPerc" type="big_decimal">
+            <column name="BONUS_PARC_PERC" precision="5" />
+        </property>
+        <property name="vrComissao" type="big_decimal">
+            <column name="VR_COMISSAO" precision="15" />
+        </property>
+        <property name="vrBonus" type="big_decimal">
+            <column name="VR_BONUS" precision="15" />
+        </property>
+        <property name="vrComissaoParc" type="big_decimal">
+            <column name="VR_COMISSAO_PARC" precision="15" />
+        </property>
+        <property name="vrBonusParc" type="big_decimal">
+            <column name="VR_BONUS_PARC" precision="15" />
+        </property>
+        <property name="precoPartidaDin" type="big_decimal">
+            <column name="PRECO_PARTIDA_DIN" precision="15" />
+        </property>
+        <property name="carteiraPerc" type="big_decimal">
+            <column name="CARTEIRA_PERC" precision="5" />
+        </property>
+        <property name="vrCarteira" type="big_decimal">
+            <column name="VR_CARTEIRA" precision="15" />
+        </property>
+        <property name="vrComissaoParcAn" type="big_decimal">
+            <column name="VR_COMISSAO_PARC_AN" precision="15" />
+        </property>
+        <property name="vrBonusParcAn" type="big_decimal">
+            <column name="VR_BONUS_PARC_AN" precision="15" />
+        </property>
+        <property name="vrComissaoAg" type="big_decimal">
+            <column name="VR_COMISSAO_AG" precision="15" />
+        </property>
+        <property name="vrBonusAg" type="big_decimal">
+            <column name="VR_BONUS_AG" precision="15" />
+        </property>
+        <property name="vrComissaoParcAg" type="big_decimal">
+            <column name="VR_COMISSAO_PARC_AG" precision="15" />
+        </property>
+        <property name="vrBonusParcAg" type="big_decimal">
+            <column name="VR_BONUS_PARC_AG" precision="15" />
+        </property>
+        <property name="vrComissaoParcAgAn" type="big_decimal">
+            <column name="VR_COMISSAO_PARC_AG_AN" precision="15" />
+        </property>
+        <property name="vrBonusParcAgAn" type="big_decimal">
+            <column name="VR_BONUS_PARC_AG_AN" precision="15" />
+        </property>
+        <property name="vrBaseComissao" type="big_decimal">
+            <column name="VR_BASE_COMISSAO" precision="15" />
+        </property>
+        <property name="vrBaseBonus" type="big_decimal">
+            <column name="VR_BASE_BONUS" precision="15" />
+        </property>
+        <property name="vrBaseComissaoParc" type="big_decimal">
+            <column name="VR_BASE_COMISSAO_PARC" precision="15" />
+        </property>
+        <property name="flagEstoquePromocao" type="string">
+            <column name="FLAG_ESTOQUE_PROMOCAO" length="6" />
+        </property>
+        <property name="indReservadoPromocao" type="java.lang.Boolean">
+            <column name="IND_RESERVADO_PROMOCAO" precision="1" scale="0" />
+        </property>
+        <property name="qtdeReservadoPromocao" type="big_decimal">
+            <column name="QTDE_RESERVADO_PROMOCAO" precision="7" scale="3" />
+        </property>
+        <property name="flagStatusEnt" type="string">
+            <column name="FLAG_STATUS_ENT" length="4" />
+        </property>
+        <property name="dtStatusEnt" type="date">
+            <column name="DT_STATUS_ENT" length="7" />
+        </property>
+        <property name="mf" type="big_decimal">
+            <column name="MF" precision="5" />
+        </property>
+        <property name="mfc" type="big_decimal">
+            <column name="MFC" precision="5" />
+        </property>
+        <property name="vrComissaoExtraAg" type="big_decimal">
+            <column name="VR_COMISSAO_EXTRA_AG" precision="15" />
+        </property>
+        <property name="vrBonusExtraAg" type="big_decimal">
+            <column name="VR_BONUS_EXTRA_AG" precision="15" />
+        </property>
+        <set name="jrcPedvdaitemApuracaos" table="JRC_PEDVDAITEM_APURACAO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_PEDIDO_VENDA" precision="15" scale="0" not-null="true" />
+                <column name="SEQ_PEDIDO_VENDA_ITEM" precision="5" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcPedvdaitemApuracao" />
+        </set>
+    </class>
+</hibernate-mapping>

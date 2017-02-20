@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19/02/2017 12:54:03 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="br.com.gr.pojo.JrcAutorizadorNfe" table="JRC_AUTORIZADOR_NFE" schema="DIONE_HOM" optimistic-lock="version">
+        <id name="idAutorizadorNfe" type="long">
+            <column name="ID_AUTORIZADOR_NFE" precision="15" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="jrcEmpresa" class="br.com.gr.pojo.JrcEmpresa" fetch="select">
+            <column name="ID_EMPRESA" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcUsuario" class="br.com.gr.pojo.JrcUsuario" fetch="select">
+            <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="descBreve" type="string">
+            <column name="DESC_BREVE" length="20" not-null="true" />
+        </property>
+        <property name="descLonga" type="string">
+            <column name="DESC_LONGA" length="50" />
+        </property>
+        <property name="dtInclusao" type="date">
+            <column name="DT_INCLUSAO" length="7" not-null="true" />
+        </property>
+        <property name="dtAlteracao" type="date">
+            <column name="DT_ALTERACAO" length="7" not-null="true" />
+        </property>
+        <property name="versaoSistema" type="long">
+            <column name="VERSAO_SISTEMA" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="versaoRegistro" type="long">
+            <column name="VERSAO_REGISTRO" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="wsdlAutorizacaoNf" type="string">
+            <column name="WSDL_AUTORIZACAO_NF" length="200" />
+        </property>
+        <property name="wsdlRetAutorizacaoNf" type="string">
+            <column name="WSDL_RET_AUTORIZACAO_NF" length="200" />
+        </property>
+        <property name="wsdlConsultaNf" type="string">
+            <column name="WSDL_CONSULTA_NF" length="200" />
+        </property>
+        <property name="wsdlInutilizacaoNf" type="string">
+            <column name="WSDL_INUTILIZACAO_NF" length="200" />
+        </property>
+        <property name="wsdlCadastroNf" type="string">
+            <column name="WSDL_CADASTRO_NF" length="200" />
+        </property>
+        <property name="wsdlEventoNf" type="string">
+            <column name="WSDL_EVENTO_NF" length="200" />
+        </property>
+        <property name="wsdlEpecEnvioNf" type="string">
+            <column name="WSDL_EPEC_ENVIO_NF" length="200" />
+        </property>
+        <property name="wsdlEpecConsultaNf" type="string">
+            <column name="WSDL_EPEC_CONSULTA_NF" length="200" />
+        </property>
+        <property name="indEnvioSincrono" type="java.lang.Boolean">
+            <column name="IND_ENVIO_SINCRONO" precision="1" scale="0" />
+        </property>
+        <property name="wsdlAutorizacaoNfc" type="string">
+            <column name="WSDL_AUTORIZACAO_NFC" length="200" />
+        </property>
+        <property name="wsdlRetAutorizacaoNfc" type="string">
+            <column name="WSDL_RET_AUTORIZACAO_NFC" length="200" />
+        </property>
+        <property name="wsdlConsultaNfc" type="string">
+            <column name="WSDL_CONSULTA_NFC" length="200" />
+        </property>
+        <property name="wsdlInutilizacaoNfc" type="string">
+            <column name="WSDL_INUTILIZACAO_NFC" length="200" />
+        </property>
+        <property name="wsdlCadastroNfc" type="string">
+            <column name="WSDL_CADASTRO_NFC" length="200" />
+        </property>
+        <property name="wsdlEventoNfc" type="string">
+            <column name="WSDL_EVENTO_NFC" length="200" />
+        </property>
+        <property name="wsdlEpecEnvioNfc" type="string">
+            <column name="WSDL_EPEC_ENVIO_NFC" length="200" />
+        </property>
+        <property name="wsdlEpecConsultaNfc" type="string">
+            <column name="WSDL_EPEC_CONSULTA_NFC" length="200" />
+        </property>
+        <property name="indEnvioCompactado" type="java.lang.Boolean">
+            <column name="IND_ENVIO_COMPACTADO" precision="1" scale="0" />
+        </property>
+        <property name="indEnvioSincronoNfc" type="java.lang.Boolean">
+            <column name="IND_ENVIO_SINCRONO_NFC" precision="1" scale="0" />
+        </property>
+        <property name="indEnvioCompactadoNfc" type="java.lang.Boolean">
+            <column name="IND_ENVIO_COMPACTADO_NFC" precision="1" scale="0" />
+        </property>
+        <set name="jrcUfs" table="JRC_UF" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_AUTORIZADOR_NFE" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcUf" />
+        </set>
+    </class>
+</hibernate-mapping>

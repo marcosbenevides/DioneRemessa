@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19/02/2017 12:54:03 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="br.com.gr.pojo.JrcKit" table="JRC_KIT" schema="DIONE_HOM" optimistic-lock="version">
+        <id name="idKit" type="long">
+            <column name="ID_KIT" precision="15" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="jrcEmpresa" class="br.com.gr.pojo.JrcEmpresa" fetch="select">
+            <column name="ID_EMPRESA" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcStatusProduto" class="br.com.gr.pojo.JrcStatusProduto" fetch="select">
+            <column name="ID_STATUS_PRODUTO" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcUnidade" class="br.com.gr.pojo.JrcUnidade" fetch="select">
+            <column name="ID_UNIDADE" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcUsuarioByIdUsuarioAprovou" class="br.com.gr.pojo.JrcUsuario" fetch="select">
+            <column name="ID_USUARIO_APROVOU" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcUsuarioByIdUsuarioReg" class="br.com.gr.pojo.JrcUsuario" fetch="select">
+            <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="codigo" type="string">
+            <column name="CODIGO" length="14" not-null="true" />
+        </property>
+        <property name="descricao" type="string">
+            <column name="DESCRICAO" length="50" not-null="true" />
+        </property>
+        <property name="indSaidaLoja" type="boolean">
+            <column name="IND_SAIDA_LOJA" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="dtInicioPeriodo" type="date">
+            <column name="DT_INICIO_PERIODO" length="7" not-null="true" />
+        </property>
+        <property name="dtFimPeriodo" type="date">
+            <column name="DT_FIM_PERIODO" length="7" not-null="true" />
+        </property>
+        <property name="dtInclusao" type="date">
+            <column name="DT_INCLUSAO" length="7" not-null="true" />
+        </property>
+        <property name="dtAlteracao" type="date">
+            <column name="DT_ALTERACAO" length="7" not-null="true" />
+        </property>
+        <property name="versaoSistema" type="long">
+            <column name="VERSAO_SISTEMA" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="versaoRegistro" type="long">
+            <column name="VERSAO_REGISTRO" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="codigoRef" type="string">
+            <column name="CODIGO_REF" length="20" />
+        </property>
+        <property name="flagIat" type="string">
+            <column name="FLAG_IAT" length="1" not-null="true" />
+        </property>
+        <property name="flagIppt" type="string">
+            <column name="FLAG_IPPT" length="1" not-null="true" />
+        </property>
+        <set name="jrcPedidoVendaItems" table="JRC_PEDIDO_VENDA_ITEM" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_KIT" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcPedidoVendaItem" />
+        </set>
+        <set name="jrcPromocaoItemDetalhes" table="JRC_PROMOCAO_ITEM_DETALHE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_KIT" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcPromocaoItemDetalhe" />
+        </set>
+    </class>
+</hibernate-mapping>

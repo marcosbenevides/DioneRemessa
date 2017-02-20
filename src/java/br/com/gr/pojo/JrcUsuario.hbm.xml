@@ -1,0 +1,1074 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19/02/2017 12:54:03 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="br.com.gr.pojo.JrcUsuario" table="JRC_USUARIO" schema="DIONE_HOM" optimistic-lock="version">
+        <id name="idUsuario" type="long">
+            <column name="ID_USUARIO" precision="15" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="jrcHorarioSemanal" class="br.com.gr.pojo.JrcHorarioSemanal" fetch="select">
+            <column name="ID_HORARIO_SEMANAL" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcUsuario" class="br.com.gr.pojo.JrcUsuario" fetch="select">
+            <column name="ID_USUARIO_REG" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcCargo" class="br.com.gr.pojo.JrcCargo" fetch="select">
+            <column name="ID_CARGO" precision="15" scale="0" />
+        </many-to-one>
+        <property name="nome" type="string">
+            <column name="NOME" length="40" not-null="true" unique="true" />
+        </property>
+        <property name="senha" type="string">
+            <column name="SENHA" length="100" not-null="true" />
+        </property>
+        <property name="nomeCompleto" type="string">
+            <column name="NOME_COMPLETO" length="50" not-null="true" />
+        </property>
+        <property name="dtSenha" type="date">
+            <column name="DT_SENHA" length="7" not-null="true" />
+        </property>
+        <property name="descSenha" type="string">
+            <column name="DESC_SENHA" length="100" not-null="true" />
+        </property>
+        <property name="dtInicioPeriodo" type="date">
+            <column name="DT_INICIO_PERIODO" length="7" not-null="true" />
+        </property>
+        <property name="dtFimPeriodo" type="date">
+            <column name="DT_FIM_PERIODO" length="7" not-null="true" />
+        </property>
+        <property name="dtInclusao" type="date">
+            <column name="DT_INCLUSAO" length="7" not-null="true" />
+        </property>
+        <property name="dtAlteracao" type="date">
+            <column name="DT_ALTERACAO" length="7" not-null="true" />
+        </property>
+        <property name="versaoSistema" type="long">
+            <column name="VERSAO_SISTEMA" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="versaoRegistro" type="long">
+            <column name="VERSAO_REGISTRO" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="EMAIL" length="100" />
+        </property>
+        <property name="nomeBreve" type="string">
+            <column name="NOME_BREVE" length="20" not-null="true" />
+        </property>
+        <property name="codigoRef" type="string">
+            <column name="CODIGO_REF" length="20" />
+        </property>
+        <property name="dtAdmissao" type="date">
+            <column name="DT_ADMISSAO" length="7" />
+        </property>
+        <property name="dtDemissao" type="date">
+            <column name="DT_DEMISSAO" length="7" />
+        </property>
+        <property name="indPessoaFisica" type="boolean">
+            <column name="IND_PESSOA_FISICA" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="cpfCnpj" type="long">
+            <column name="CPF_CNPJ" precision="14" scale="0" not-null="true" />
+        </property>
+        <property name="indAlterarSenha" type="boolean">
+            <column name="IND_ALTERAR_SENHA" precision="1" scale="0" not-null="true" />
+        </property>
+        <set name="jrcMovimentoTesourariasForIdUsuarioConferencia" table="JRC_MOVIMENTO_TESOURARIA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_CONFERENCIA" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcMovimentoTesouraria" />
+        </set>
+        <set name="jrcVoltagems" table="JRC_VOLTAGEM" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcVoltagem" />
+        </set>
+        <set name="jrcCests" table="JRC_CEST" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcCest" />
+        </set>
+        <set name="jrcEmissorCartaos" table="JRC_EMISSOR_CARTAO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcEmissorCartao" />
+        </set>
+        <set name="jrcFabricantes" table="JRC_FABRICANTE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcFabricante" />
+        </set>
+        <set name="jrcImpressoras" table="JRC_IMPRESSORA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcImpressora" />
+        </set>
+        <set name="jrcServicosForIdUsuarioAprovou" table="JRC_SERVICO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_APROVOU" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcServico" />
+        </set>
+        <set name="jrcLogradouros" table="JRC_LOGRADOURO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcLogradouro" />
+        </set>
+        <set name="jrcServicosForIdUsuarioReg" table="JRC_SERVICO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcServico" />
+        </set>
+        <set name="jrcModeloImpressoras" table="JRC_MODELO_IMPRESSORA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcModeloImpressora" />
+        </set>
+        <set name="jrcMovimentoTesourariasForIdUsuarioFechamento" table="JRC_MOVIMENTO_TESOURARIA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_FECHAMENTO" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcMovimentoTesouraria" />
+        </set>
+        <set name="jrcNotaFiscalsForIdUsuarioDetpagto" table="JRC_NOTA_FISCAL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_DETPAGTO" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcNotaFiscal" />
+        </set>
+        <set name="jrcTipoDivulgacaos" table="JRC_TIPO_DIVULGACAO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcTipoDivulgacao" />
+        </set>
+        <set name="jrcMovimentoTesourariasForIdUsuarioAbertura" table="JRC_MOVIMENTO_TESOURARIA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_ABERTURA" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcMovimentoTesouraria" />
+        </set>
+        <set name="jrcFinLancamentos" table="JRC_FIN_LANCAMENTO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcFinLancamento" />
+        </set>
+        <set name="jrcGrupoComissaos" table="JRC_GRUPO_COMISSAO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcGrupoComissao" />
+        </set>
+        <set name="jrcFinBorderos" table="JRC_FIN_BORDERO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcFinBordero" />
+        </set>
+        <set name="jrcLoteNfes" table="JRC_LOTE_NFE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REF" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcLoteNfe" />
+        </set>
+        <set name="jrcFinBancoTipolanctos" table="JRC_FIN_BANCO_TIPOLANCTO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcFinBancoTipolancto" />
+        </set>
+        <set name="jrxHostRetornos" table="JRX_HOST_RETORNO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrxHostRetorno" />
+        </set>
+        <set name="jrcObservacaos" table="JRC_OBSERVACAO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcObservacao" />
+        </set>
+        <set name="jrcOperacaoTefs" table="JRC_OPERACAO_TEF" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcOperacaoTef" />
+        </set>
+        <set name="jrcClassificacaoFiscals" table="JRC_CLASSIFICACAO_FISCAL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcClassificacaoFiscal" />
+        </set>
+        <set name="jrcFinContas" table="JRC_FIN_CONTA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcFinConta" />
+        </set>
+        <set name="jrcDesenvolvedoras" table="JRC_DESENVOLVEDORA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcDesenvolvedora" />
+        </set>
+        <set name="jrcMeioPagamentos" table="JRC_MEIO_PAGAMENTO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcMeioPagamento" />
+        </set>
+        <set name="jrcBandeiraCartaos" table="JRC_BANDEIRA_CARTAO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcBandeiraCartao" />
+        </set>
+        <set name="jrcRotaFaturamentos" table="JRC_ROTA_FATURAMENTO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcRotaFaturamento" />
+        </set>
+        <set name="jrcTipoEqualizacaos" table="JRC_TIPO_EQUALIZACAO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcTipoEqualizacao" />
+        </set>
+        <set name="jrcFinConfigFormapagtos" table="JRC_FIN_CONFIG_FORMAPAGTO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcFinConfigFormapagto" />
+        </set>
+        <set name="jrcFormaPagamentos" table="JRC_FORMA_PAGAMENTO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcFormaPagamento" />
+        </set>
+        <set name="jrcEstipulantes" table="JRC_ESTIPULANTE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcEstipulante" />
+        </set>
+        <set name="jrcBeneficiarios" table="JRC_BENEFICIARIO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcBeneficiario" />
+        </set>
+        <set name="jrxHostTransacaos" table="JRX_HOST_TRANSACAO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrxHostTransacao" />
+        </set>
+        <set name="jrcPromocaosForIdUsuarioAprovou" table="JRC_PROMOCAO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_APROVOU" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcPromocao" />
+        </set>
+        <set name="jrcPromocaosForIdUsuarioCriou" table="JRC_PROMOCAO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_CRIOU" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcPromocao" />
+        </set>
+        <set name="jrcFinCartaos" table="JRC_FIN_CARTAO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcFinCartao" />
+        </set>
+        <set name="jrcPaises" table="JRC_PAIS" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcPais" />
+        </set>
+        <set name="jrcStatusServicos" table="JRC_STATUS_SERVICO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcStatusServico" />
+        </set>
+        <set name="jrcOperadoraTelefonias" table="JRC_OPERADORA_TELEFONIA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcOperadoraTelefonia" />
+        </set>
+        <set name="jrcBairros" table="JRC_BAIRRO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcBairro" />
+        </set>
+        <set name="jrcSeguroConfigs" table="JRC_SEGURO_CONFIG" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcSeguroConfig" />
+        </set>
+        <set name="jrcTipoClientes" table="JRC_TIPO_CLIENTE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcTipoCliente" />
+        </set>
+        <set name="jrcTipoPessoas" table="JRC_TIPO_PESSOA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcTipoPessoa" />
+        </set>
+        <set name="jrcTipoFormaPagamentos" table="JRC_TIPO_FORMA_PAGAMENTO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcTipoFormaPagamento" />
+        </set>
+        <set name="jrcPedidoVendasForIdUsuarioDocAnalisado" table="JRC_PEDIDO_VENDA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_DOC_ANALISADO" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcPedidoVenda" />
+        </set>
+        <set name="jrcPedidoVendasForIdUsuarioCancelamento" table="JRC_PEDIDO_VENDA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_CANCELAMENTO" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcPedidoVenda" />
+        </set>
+        <set name="jrcStatusProdutos" table="JRC_STATUS_PRODUTO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcStatusProduto" />
+        </set>
+        <set name="jrcLocalidades" table="JRC_LOCALIDADE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcLocalidade" />
+        </set>
+        <set name="jrcNaturezaOperacaos" table="JRC_NATUREZA_OPERACAO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcNaturezaOperacao" />
+        </set>
+        <set name="jrcPedidoVendasForIdUsuarioFaturamento" table="JRC_PEDIDO_VENDA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_FATURAMENTO" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcPedidoVenda" />
+        </set>
+        <set name="jrcGrupoImpostoServicos" table="JRC_GRUPO_IMPOSTO_SERVICO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcGrupoImpostoServico" />
+        </set>
+        <set name="jrcNotaFiscalsForIdUsuario" table="JRC_NOTA_FISCAL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcNotaFiscal" />
+        </set>
+        <set name="jrcMontadors" table="JRC_MONTADOR" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcMontador" />
+        </set>
+        <set name="jrcNotaFiscalsForIdUsuarioMontagem" table="JRC_NOTA_FISCAL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_MONTAGEM" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcNotaFiscal" />
+        </set>
+        <set name="jrcNotaFiscalsForIdUsuarioEntrega" table="JRC_NOTA_FISCAL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_ENTREGA" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcNotaFiscal" />
+        </set>
+        <set name="jrcPdvs" table="JRC_PDV" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcPdv" />
+        </set>
+        <set name="jrcModeloNotas" table="JRC_MODELO_NOTA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcModeloNota" />
+        </set>
+        <set name="jrcPedidoVendasForIdUsuarioCredito" table="JRC_PEDIDO_VENDA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_CREDITO" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcPedidoVenda" />
+        </set>
+        <set name="jrcTabelaFinanciamentos" table="JRC_TABELA_FINANCIAMENTO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcTabelaFinanciamento" />
+        </set>
+        <set name="jrcStatusEqualizacaos" table="JRC_STATUS_EQUALIZACAO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcStatusEqualizacao" />
+        </set>
+        <set name="jrcPedidoVendasForIdUsuarioReabertura" table="JRC_PEDIDO_VENDA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REABERTURA" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcPedidoVenda" />
+        </set>
+        <set name="jrcPedidoVendasForIdUsuarioEfetivacao" table="JRC_PEDIDO_VENDA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_EFETIVACAO" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcPedidoVenda" />
+        </set>
+        <set name="jrcServicoPrecos" table="JRC_SERVICO_PRECO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcServicoPreco" />
+        </set>
+        <set name="jrcPedidoVendasForIdUsuarioConferencia" table="JRC_PEDIDO_VENDA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_CONFERENCIA" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcPedidoVenda" />
+        </set>
+        <set name="jrcBorderoPropostas" table="JRC_BORDERO_PROPOSTA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcBorderoProposta" />
+        </set>
+        <set name="jrcBancos" table="JRC_BANCO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcBanco" />
+        </set>
+        <set name="jrcSeguroCoberturas" table="JRC_SEGURO_COBERTURA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcSeguroCobertura" />
+        </set>
+        <set name="jrcEcfs" table="JRC_ECF" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcEcf" />
+        </set>
+        <set name="jrcPlanoFinanciamentos" table="JRC_PLANO_FINANCIAMENTO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcPlanoFinanciamento" />
+        </set>
+        <set name="jrcTipoNotaEstoques" table="JRC_TIPO_NOTA_ESTOQUE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcTipoNotaEstoque" />
+        </set>
+        <set name="jrcCarneConfigs" table="JRC_CARNE_CONFIG" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcCarneConfig" />
+        </set>
+        <set name="jrcTipoPromocaos" table="JRC_TIPO_PROMOCAO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcTipoPromocao" />
+        </set>
+        <set name="jrcPessoas" table="JRC_PESSOA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcPessoa" />
+        </set>
+        <set name="jrcApuracaoComissaosForIdUsuarioApuracao" table="JRC_APURACAO_COMISSAO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_APURACAO" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcApuracaoComissao" />
+        </set>
+        <set name="jrcApuracaoComissaosForIdUsuarioLancto" table="JRC_APURACAO_COMISSAO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_LANCTO" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcApuracaoComissao" />
+        </set>
+        <set name="jrcPedidoVendaItems" table="JRC_PEDIDO_VENDA_ITEM" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_VENDA" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcPedidoVendaItem" />
+        </set>
+        <set name="jrcGrupoCustoAdicionals" table="JRC_GRUPO_CUSTO_ADICIONAL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcGrupoCustoAdicional" />
+        </set>
+        <set name="jrxHostProdutos" table="JRX_HOST_PRODUTO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrxHostProduto" />
+        </set>
+        <set name="jrcPedidoVendasForIdUsuarioDevolucao" table="JRC_PEDIDO_VENDA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_DEVOLUCAO" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcPedidoVenda" />
+        </set>
+        <set name="jrcTesourarias" table="JRC_TESOURARIA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcTesouraria" />
+        </set>
+        <set name="jrcApuracaoComissaosForIdUsuarioReg" table="JRC_APURACAO_COMISSAO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcApuracaoComissao" />
+        </set>
+        <set name="jrcPessoaBancos" table="JRC_PESSOA_BANCO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcPessoaBanco" />
+        </set>
+        <set name="jrcStatusConferencias" table="JRC_STATUS_CONFERENCIA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcStatusConferencia" />
+        </set>
+        <set name="jrcEqualizacaos" table="JRC_EQUALIZACAO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_APROVOU" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcEqualizacao" />
+        </set>
+        <set name="jrcOrgaos" table="JRC_ORGAO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcOrgao" />
+        </set>
+        <set name="jrcProcessoPdvs" table="JRC_PROCESSO_PDV" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_AUTENTICOU" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcProcessoPdv" />
+        </set>
+        <set name="jrcTipoContas" table="JRC_TIPO_CONTA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcTipoConta" />
+        </set>
+        <set name="jrcFinBancos" table="JRC_FIN_BANCO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcFinBanco" />
+        </set>
+        <set name="jrcTransportadors" table="JRC_TRANSPORTADOR" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcTransportador" />
+        </set>
+        <set name="jrcSubestipulantes" table="JRC_SUBESTIPULANTE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcSubestipulante" />
+        </set>
+        <set name="jrcRecebimentosForIdUsuarioAprovou" table="JRC_RECEBIMENTO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_APROVOU" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcRecebimento" />
+        </set>
+        <set name="jrcConvenios" table="JRC_CONVENIO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcConvenio" />
+        </set>
+        <set name="jrcTefs" table="JRC_TEF" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcTef" />
+        </set>
+        <set name="jrcAcaoAnalises" table="JRC_ACAO_ANALISE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcAcaoAnalise" />
+        </set>
+        <set name="jrcTipoObservacaos" table="JRC_TIPO_OBSERVACAO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcTipoObservacao" />
+        </set>
+        <set name="jrcTipoCadastros" table="JRC_TIPO_CADASTRO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcTipoCadastro" />
+        </set>
+        <set name="jrcAutorizadorNfes" table="JRC_AUTORIZADOR_NFE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcAutorizadorNfe" />
+        </set>
+        <set name="jrcRecebimentosForIdUsuarioAgenda" table="JRC_RECEBIMENTO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_AGENDA" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcRecebimento" />
+        </set>
+        <set name="jrcClassificacaoProdutos" table="JRC_CLASSIFICACAO_PRODUTO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcClassificacaoProduto" />
+        </set>
+        <set name="jrcDevolucaoVendasForIdUsuarioPdv" table="JRC_DEVOLUCAO_VENDA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_PDV" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcDevolucaoVenda" />
+        </set>
+        <set name="jrcCorretoras" table="JRC_CORRETORA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcCorretora" />
+        </set>
+        <set name="jrcDevolucaoVendasForIdUsuarioAprovacao" table="JRC_DEVOLUCAO_VENDA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_APROVACAO" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcDevolucaoVenda" />
+        </set>
+        <set name="jrcModeloEcfs" table="JRC_MODELO_ECF" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcModeloEcf" />
+        </set>
+        <set name="jrcDevolucaoVendasForIdUsuarioDevolucao" table="JRC_DEVOLUCAO_VENDA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_DEVOLUCAO" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcDevolucaoVenda" />
+        </set>
+        <set name="jrcPrivilegios" table="JRC_PRIVILEGIO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcPrivilegio" />
+        </set>
+        <set name="jrcUnidades" table="JRC_UNIDADE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcUnidade" />
+        </set>
+        <set name="jrcCfops" table="JRC_CFOP" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcCfop" />
+        </set>
+        <set name="jrcTipoEstoques" table="JRC_TIPO_ESTOQUE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcTipoEstoque" />
+        </set>
+        <set name="jrcPedidoVendasForIdUsuarioCriou" table="JRC_PEDIDO_VENDA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_CRIOU" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcPedidoVenda" />
+        </set>
+        <set name="jrcPessoaTelefones" table="JRC_PESSOA_TELEFONE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcPessoaTelefone" />
+        </set>
+        <set name="jrcProdutosForIdUsuarioReg" table="JRC_PRODUTO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcProduto" />
+        </set>
+        <set name="jrcTipoVeiculos" table="JRC_TIPO_VEICULO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcTipoVeiculo" />
+        </set>
+        <set name="jrcTipoLojas" table="JRC_TIPO_LOJA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcTipoLoja" />
+        </set>
+        <set name="jrcTipoLogradouros" table="JRC_TIPO_LOGRADOURO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcTipoLogradouro" />
+        </set>
+        <set name="jrcCargos" table="JRC_CARGO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcCargo" />
+        </set>
+        <set name="jrcTipoEcfs" table="JRC_TIPO_ECF" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcTipoEcf" />
+        </set>
+        <set name="jrcProdutoPais" table="JRC_PRODUTO_PAI" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcProdutoPai" />
+        </set>
+        <set name="jrcTipoNotas" table="JRC_TIPO_NOTA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcTipoNota" />
+        </set>
+        <set name="jrcPedidoVendasForIdUsuarioAnalise" table="JRC_PEDIDO_VENDA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_ANALISE" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcPedidoVenda" />
+        </set>
+        <set name="jrcHorarioSemanals" table="JRC_HORARIO_SEMANAL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcHorarioSemanal" />
+        </set>
+        <set name="jrcMarcas" table="JRC_MARCA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcMarca" />
+        </set>
+        <set name="jrcUsuarios" table="JRC_USUARIO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcUsuario" />
+        </set>
+        <set name="jrcStatusDevolucaoVendas" table="JRC_STATUS_DEVOLUCAO_VENDA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcStatusDevolucaoVenda" />
+        </set>
+        <set name="jrcKitsForIdUsuarioAprovou" table="JRC_KIT" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_APROVOU" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcKit" />
+        </set>
+        <set name="jrcFornecedors" table="JRC_FORNECEDOR" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcFornecedor" />
+        </set>
+        <set name="jrcLojas" table="JRC_LOJA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcLoja" />
+        </set>
+        <set name="jrcKitsForIdUsuarioReg" table="JRC_KIT" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcKit" />
+        </set>
+        <set name="jrcCapitalizacaos" table="JRC_CAPITALIZACAO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcCapitalizacao" />
+        </set>
+        <set name="jrcProdutosForIdUsuarioAprovou" table="JRC_PRODUTO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_APROVOU" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcProduto" />
+        </set>
+        <set name="jrcEcfXPdvs" table="JRC_ECF_X_PDV" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcEcfXPdv" />
+        </set>
+        <set name="jrcTipoServicos" table="JRC_TIPO_SERVICO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcTipoServico" />
+        </set>
+        <set name="jrcFinanceiras" table="JRC_FINANCEIRA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcFinanceira" />
+        </set>
+        <set name="jrcTipoPassaportes" table="JRC_TIPO_PASSAPORTE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcTipoPassaporte" />
+        </set>
+        <set name="jrcHistoricoPadraos" table="JRC_HISTORICO_PADRAO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcHistoricoPadrao" />
+        </set>
+        <set name="jrcMensagemAnalises" table="JRC_MENSAGEM_ANALISE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcMensagemAnalise" />
+        </set>
+        <set name="jrcTipoTelefones" table="JRC_TIPO_TELEFONE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcTipoTelefone" />
+        </set>
+        <set name="jrcUfs" table="JRC_UF" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcUf" />
+        </set>
+        <set name="jrcOrganizacaos" table="JRC_ORGANIZACAO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcOrganizacao" />
+        </set>
+        <set name="jrcTipoVendas" table="JRC_TIPO_VENDA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcTipoVenda" />
+        </set>
+        <set name="jrcMovimentoPdvsForIdUsuarioOperador" table="JRC_MOVIMENTO_PDV" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_OPERADOR" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcMovimentoPdv" />
+        </set>
+        <set name="jrcSeguradoras" table="JRC_SEGURADORA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcSeguradora" />
+        </set>
+        <set name="jrcMovimentoPdvsForIdUsuarioAbertura" table="JRC_MOVIMENTO_PDV" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_ABERTURA" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcMovimentoPdv" />
+        </set>
+        <set name="jrcMovimentoPdvsForIdUsuarioFechamento" table="JRC_MOVIMENTO_PDV" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_FECHAMENTO" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcMovimentoPdv" />
+        </set>
+        <set name="jrcVeiculos" table="JRC_VEICULO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcVeiculo" />
+        </set>
+        <set name="jrcStatusPedidoVendas" table="JRC_STATUS_PEDIDO_VENDA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcStatusPedidoVenda" />
+        </set>
+        <set name="jrcStatusPromocaos" table="JRC_STATUS_PROMOCAO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcStatusPromocao" />
+        </set>
+        <set name="jrxHostFinanceiras" table="JRX_HOST_FINANCEIRA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrxHostFinanceira" />
+        </set>
+        <set name="jrcCors" table="JRC_COR" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcCor" />
+        </set>
+        <set name="jrcEmpresas" table="JRC_EMPRESA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcEmpresa" />
+        </set>
+        <set name="jrcMotoristas" table="JRC_MOTORISTA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcMotorista" />
+        </set>
+        <set name="jrcPafs" table="JRC_PAF" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcPaf" />
+        </set>
+        <set name="jrcBoxes" table="JRC_BOX" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcBox" />
+        </set>
+        <set name="jrcPedvdaitemApuracaos" table="JRC_PEDVDAITEM_APURACAO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcPedvdaitemApuracao" />
+        </set>
+        <set name="jrcTipoGrupos" table="JRC_TIPO_GRUPO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcTipoGrupo" />
+        </set>
+        <set name="jrcTipoOperacaos" table="JRC_TIPO_OPERACAO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcTipoOperacao" />
+        </set>
+        <set name="jrcRecebimentosForIdUsuarioAutorizou" table="JRC_RECEBIMENTO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_AUTORIZOU" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcRecebimento" />
+        </set>
+        <set name="jrcGrupoEstoques" table="JRC_GRUPO_ESTOQUE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcGrupoEstoque" />
+        </set>
+        <set name="jrcRecebimentosForIdUsuarioLiberou" table="JRC_RECEBIMENTO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_LIBEROU" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcRecebimento" />
+        </set>
+        <set name="jrcRecebimentosForIdUsuarioConferencia" table="JRC_RECEBIMENTO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_CONFERENCIA" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcRecebimento" />
+        </set>
+        <set name="jrcRecebimentosForIdUsuarioDescarregamento" table="JRC_RECEBIMENTO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_DESCARREGAMENTO" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcRecebimento" />
+        </set>
+        <set name="jrcTipoRendas" table="JRC_TIPO_RENDA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcTipoRenda" />
+        </set>
+        <set name="jrcGrupoImpostoProdutos" table="JRC_GRUPO_IMPOSTO_PRODUTO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcGrupoImpostoProduto" />
+        </set>
+        <set name="jrcMontadoras" table="JRC_MONTADORA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcMontadora" />
+        </set>
+        <set name="jrcConveniadas" table="JRC_CONVENIADA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcConveniada" />
+        </set>
+        <set name="jrcSequencias" table="JRC_SEQUENCIA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcSequencia" />
+        </set>
+    </class>
+</hibernate-mapping>

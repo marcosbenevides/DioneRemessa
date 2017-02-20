@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19/02/2017 12:54:03 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="br.com.gr.pojo.JrcPlanoFinanciamento" table="JRC_PLANO_FINANCIAMENTO" schema="DIONE_HOM" optimistic-lock="version">
+        <id name="idPlanoFinanciamento" type="long">
+            <column name="ID_PLANO_FINANCIAMENTO" precision="15" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="jrcEmpresa" class="br.com.gr.pojo.JrcEmpresa" fetch="select">
+            <column name="ID_EMPRESA" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcTabelaFinanciamento" class="br.com.gr.pojo.JrcTabelaFinanciamento" fetch="select">
+            <column name="ID_TABELA_FINANCIAMENTO" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcUsuario" class="br.com.gr.pojo.JrcUsuario" fetch="select">
+            <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="indPlanoComEntrada" type="boolean">
+            <column name="IND_PLANO_COM_ENTRADA" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="plano" type="short">
+            <column name="PLANO" precision="3" scale="0" not-null="true" />
+        </property>
+        <property name="carenciaIntervalo" type="java.lang.Short">
+            <column name="CARENCIA_INTERVALO" precision="3" scale="0" />
+        </property>
+        <property name="indCarenciaZero" type="boolean">
+            <column name="IND_CARENCIA_ZERO" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="dtInicioPeriodo" type="date">
+            <column name="DT_INICIO_PERIODO" length="7" not-null="true" />
+        </property>
+        <property name="dtFimPeriodo" type="date">
+            <column name="DT_FIM_PERIODO" length="7" not-null="true" />
+        </property>
+        <property name="dtInclusao" type="date">
+            <column name="DT_INCLUSAO" length="7" not-null="true" />
+        </property>
+        <property name="dtAlteracao" type="date">
+            <column name="DT_ALTERACAO" length="7" not-null="true" />
+        </property>
+        <property name="versaoSistema" type="long">
+            <column name="VERSAO_SISTEMA" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="versaoRegistro" type="long">
+            <column name="VERSAO_REGISTRO" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="taxaNominal" type="big_decimal">
+            <column name="TAXA_NOMINAL" precision="8" scale="5" not-null="true" />
+        </property>
+        <property name="taxaEfetiva" type="big_decimal">
+            <column name="TAXA_EFETIVA" precision="8" scale="5" not-null="true" />
+        </property>
+        <property name="taxaNominalReversao" type="big_decimal">
+            <column name="TAXA_NOMINAL_REVERSAO" precision="8" scale="5" />
+        </property>
+        <property name="taxaEfetivaReversao" type="big_decimal">
+            <column name="TAXA_EFETIVA_REVERSAO" precision="8" scale="5" />
+        </property>
+        <property name="flagTipoPagtoTef" type="string">
+            <column name="FLAG_TIPO_PAGTO_TEF" length="3" />
+        </property>
+        <property name="taxaEfetivaMin" type="big_decimal">
+            <column name="TAXA_EFETIVA_MIN" precision="8" scale="5" />
+        </property>
+        <property name="taxaEfetivaMax" type="big_decimal">
+            <column name="TAXA_EFETIVA_MAX" precision="8" scale="5" />
+        </property>
+        <property name="carenciaMin" type="java.lang.Short">
+            <column name="CARENCIA_MIN" precision="3" scale="0" />
+        </property>
+        <property name="carenciaMax" type="java.lang.Short">
+            <column name="CARENCIA_MAX" precision="3" scale="0" />
+        </property>
+        <property name="taxaRetencao" type="big_decimal">
+            <column name="TAXA_RETENCAO" precision="8" scale="5" />
+        </property>
+        <property name="percEntradaMin" type="big_decimal">
+            <column name="PERC_ENTRADA_MIN" precision="5" />
+        </property>
+        <property name="indCarenciaSemJuros" type="java.lang.Boolean">
+            <column name="IND_CARENCIA_SEM_JUROS" precision="1" scale="0" />
+        </property>
+        <property name="taxaAdm" type="big_decimal">
+            <column name="TAXA_ADM" precision="5" />
+        </property>
+        <set name="jrcPromocaoItems" table="JRC_PROMOCAO_ITEM" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_PLANO_FINANCIAMENTO" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcPromocaoItem" />
+        </set>
+        <set name="jrcPromocaoGerals" table="JRC_PROMOCAO_GERAL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_PLANO_FINANCIAMENTO" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcPromocaoGeral" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19/02/2017 12:54:03 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="br.com.gr.pojo.JrcBorderoProposta" table="JRC_BORDERO_PROPOSTA" schema="DIONE_HOM" optimistic-lock="version">
+        <id name="idBorderoProposta" type="long">
+            <column name="ID_BORDERO_PROPOSTA" precision="15" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="jrcBanco" class="br.com.gr.pojo.JrcBanco" fetch="select">
+            <column name="ID_BANCO" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcEmpresa" class="br.com.gr.pojo.JrcEmpresa" fetch="select">
+            <column name="ID_EMPRESA" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcLoja" class="br.com.gr.pojo.JrcLoja" fetch="select">
+            <column name="ID_LOJA" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcUsuario" class="br.com.gr.pojo.JrcUsuario" fetch="select">
+            <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="flagSituacaoBor" type="string">
+            <column name="FLAG_SITUACAO_BOR" length="4" not-null="true" />
+        </property>
+        <property name="flagApp" type="string">
+            <column name="FLAG_APP" length="1" not-null="true" />
+        </property>
+        <property name="dtInclusao" type="date">
+            <column name="DT_INCLUSAO" length="7" not-null="true" />
+        </property>
+        <property name="dtAlteracao" type="date">
+            <column name="DT_ALTERACAO" length="7" not-null="true" />
+        </property>
+        <property name="versaoSistema" type="long">
+            <column name="VERSAO_SISTEMA" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="versaoRegistro" type="long">
+            <column name="VERSAO_REGISTRO" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="inicioGeracao" type="date">
+            <column name="INICIO_GERACAO" length="7" />
+        </property>
+        <property name="finalGeracao" type="date">
+            <column name="FINAL_GERACAO" length="7" />
+        </property>
+        <property name="resultadoGeracao" type="string">
+            <column name="RESULTADO_GERACAO" />
+        </property>
+        <property name="flagTipo" type="string">
+            <column name="FLAG_TIPO" length="1" />
+        </property>
+        <property name="descricao" type="string">
+            <column name="DESCRICAO" length="100" />
+        </property>
+        <set name="jrcPedidoVendas" table="JRC_PEDIDO_VENDA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_BORDERO_PROPOSTA" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcPedidoVenda" />
+        </set>
+    </class>
+</hibernate-mapping>

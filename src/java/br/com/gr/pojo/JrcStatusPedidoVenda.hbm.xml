@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19/02/2017 12:54:03 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="br.com.gr.pojo.JrcStatusPedidoVenda" table="JRC_STATUS_PEDIDO_VENDA" schema="DIONE_HOM" optimistic-lock="version">
+        <id name="idStatusPedidoVenda" type="long">
+            <column name="ID_STATUS_PEDIDO_VENDA" precision="15" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="jrcEmpresa" class="br.com.gr.pojo.JrcEmpresa" fetch="select">
+            <column name="ID_EMPRESA" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcUsuario" class="br.com.gr.pojo.JrcUsuario" fetch="select">
+            <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="descBreve" type="string">
+            <column name="DESC_BREVE" length="20" not-null="true" />
+        </property>
+        <property name="descLonga" type="string">
+            <column name="DESC_LONGA" length="50" />
+        </property>
+        <property name="flagStatus" type="string">
+            <column name="FLAG_STATUS" length="4" not-null="true" />
+        </property>
+        <property name="prioridade" type="byte">
+            <column name="PRIORIDADE" precision="2" scale="0" not-null="true" />
+        </property>
+        <property name="dtInicioPeriodo" type="date">
+            <column name="DT_INICIO_PERIODO" length="7" not-null="true" />
+        </property>
+        <property name="dtFimPeriodo" type="date">
+            <column name="DT_FIM_PERIODO" length="7" not-null="true" />
+        </property>
+        <property name="dtInclusao" type="date">
+            <column name="DT_INCLUSAO" length="7" not-null="true" />
+        </property>
+        <property name="dtAlteracao" type="date">
+            <column name="DT_ALTERACAO" length="7" not-null="true" />
+        </property>
+        <property name="versaoSistema" type="long">
+            <column name="VERSAO_SISTEMA" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="versaoRegistro" type="long">
+            <column name="VERSAO_REGISTRO" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="indDocEntregue" type="java.lang.Boolean">
+            <column name="IND_DOC_ENTREGUE" precision="1" scale="0" />
+        </property>
+        <property name="indDocExportado" type="java.lang.Boolean">
+            <column name="IND_DOC_EXPORTADO" precision="1" scale="0" />
+        </property>
+        <property name="flagDocAgPag" type="string">
+            <column name="FLAG_DOC_AG_PAG" length="2" />
+        </property>
+        <property name="flagDocAgAvb" type="string">
+            <column name="FLAG_DOC_AG_AVB" length="2" />
+        </property>
+        <set name="jrcPedidoVendas" table="JRC_PEDIDO_VENDA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_STATUS_PEDIDO_VENDA" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcPedidoVenda" />
+        </set>
+    </class>
+</hibernate-mapping>

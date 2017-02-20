@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19/02/2017 12:54:03 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="br.com.gr.pojo.JrcFinConfigFormapagto" table="JRC_FIN_CONFIG_FORMAPAGTO" schema="DIONE_HOM" optimistic-lock="version">
+        <id name="idFormaPagamento" type="long">
+            <column name="ID_FORMA_PAGAMENTO" precision="15" scale="0" />
+            <generator class="foreign">
+                <param name="property">jrcFormaPagamento</param>
+            </generator>
+        </id>
+        <many-to-one name="jrcFinContaByIdFinContaPedvda" class="br.com.gr.pojo.JrcFinConta" fetch="select">
+            <column name="ID_FIN_CONTA_PEDVDA" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcFinContaByIdFinContaComParc" class="br.com.gr.pojo.JrcFinConta" fetch="select">
+            <column name="ID_FIN_CONTA_COM_PARC" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcFinContaByIdFinContaBon" class="br.com.gr.pojo.JrcFinConta" fetch="select">
+            <column name="ID_FIN_CONTA_BON" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcHistoricoPadrao" class="br.com.gr.pojo.JrcHistoricoPadrao" fetch="select">
+            <column name="ID_HSTPAD_RECAUT_PEDVDA" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcEmpresa" class="br.com.gr.pojo.JrcEmpresa" fetch="select">
+            <column name="ID_EMPRESA" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <one-to-one name="jrcFormaPagamento" class="br.com.gr.pojo.JrcFormaPagamento" constrained="true"></one-to-one>
+        <many-to-one name="jrcUsuario" class="br.com.gr.pojo.JrcUsuario" fetch="select">
+            <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="diasContasReceber" type="java.lang.Short">
+            <column name="DIAS_CONTAS_RECEBER" precision="3" scale="0" />
+        </property>
+        <property name="indAlertaPagSemAcres" type="boolean">
+            <column name="IND_ALERTA_PAG_SEM_ACRES" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="dtInicioPeriodo" type="date">
+            <column name="DT_INICIO_PERIODO" length="7" not-null="true" />
+        </property>
+        <property name="dtFimPeriodo" type="date">
+            <column name="DT_FIM_PERIODO" length="7" not-null="true" />
+        </property>
+        <property name="dtInclusao" type="date">
+            <column name="DT_INCLUSAO" length="7" not-null="true" />
+        </property>
+        <property name="dtAlteracao" type="date">
+            <column name="DT_ALTERACAO" length="7" not-null="true" />
+        </property>
+        <property name="versaoSistema" type="long">
+            <column name="VERSAO_SISTEMA" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="versaoRegistro" type="long">
+            <column name="VERSAO_REGISTRO" precision="15" scale="0" not-null="true" />
+        </property>
+        <set name="jrcFinBancoTipolanctos" table="JRC_FIN_BANCO_TIPOLANCTO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_FORMA_PAGAMENTO" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcFinBancoTipolancto" />
+        </set>
+    </class>
+</hibernate-mapping>

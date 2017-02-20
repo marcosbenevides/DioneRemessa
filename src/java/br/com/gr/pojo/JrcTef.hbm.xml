@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19/02/2017 12:54:03 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="br.com.gr.pojo.JrcTef" table="JRC_TEF" schema="DIONE_HOM" optimistic-lock="version">
+        <id name="idTef" type="long">
+            <column name="ID_TEF" precision="15" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="jrcEmpresa" class="br.com.gr.pojo.JrcEmpresa" fetch="select">
+            <column name="ID_EMPRESA" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcUsuario" class="br.com.gr.pojo.JrcUsuario" fetch="select">
+            <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="descBreve" type="string">
+            <column name="DESC_BREVE" length="20" not-null="true" />
+        </property>
+        <property name="descLonga" type="string">
+            <column name="DESC_LONGA" length="50" />
+        </property>
+        <property name="flagTef" type="string">
+            <column name="FLAG_TEF" length="5" not-null="true" />
+        </property>
+        <property name="indAtivo" type="boolean">
+            <column name="IND_ATIVO" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="dtInclusao" type="date">
+            <column name="DT_INCLUSAO" length="7" not-null="true" />
+        </property>
+        <property name="dtAlteracao" type="date">
+            <column name="DT_ALTERACAO" length="7" not-null="true" />
+        </property>
+        <property name="versaoSistema" type="long">
+            <column name="VERSAO_SISTEMA" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="versaoRegistro" type="long">
+            <column name="VERSAO_REGISTRO" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="indHabilitaConsistencia" type="java.lang.Boolean">
+            <column name="IND_HABILITA_CONSISTENCIA" precision="1" scale="0" />
+        </property>
+        <set name="jrcPdvs" table="JRC_PDV" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_TEF" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcPdv" />
+        </set>
+        <set name="jrcTransacaoTefs" table="JRC_TRANSACAO_TEF" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_TEF" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcTransacaoTef" />
+        </set>
+    </class>
+</hibernate-mapping>

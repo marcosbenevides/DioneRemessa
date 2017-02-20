@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19/02/2017 12:54:03 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="br.com.gr.pojo.JrcDesenvolvedora" table="JRC_DESENVOLVEDORA" schema="DIONE_HOM" optimistic-lock="version">
+        <id name="idDesenvolvedora" type="long">
+            <column name="ID_DESENVOLVEDORA" precision="15" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="jrcEmpresa" class="br.com.gr.pojo.JrcEmpresa" fetch="select">
+            <column name="ID_EMPRESA" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcUsuario" class="br.com.gr.pojo.JrcUsuario" fetch="select">
+            <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="dtInclusao" type="date">
+            <column name="DT_INCLUSAO" length="7" not-null="true" />
+        </property>
+        <property name="dtAlteracao" type="date">
+            <column name="DT_ALTERACAO" length="7" not-null="true" />
+        </property>
+        <property name="versaoSistema" type="long">
+            <column name="VERSAO_SISTEMA" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="versaoRegistro" type="long">
+            <column name="VERSAO_REGISTRO" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="razaoSocial" type="string">
+            <column name="RAZAO_SOCIAL" length="50" not-null="true" />
+        </property>
+        <property name="cnpj" type="long">
+            <column name="CNPJ" precision="14" scale="0" not-null="true" />
+        </property>
+        <property name="ieNumero" type="string">
+            <column name="IE_NUMERO" length="14" />
+        </property>
+        <property name="imNumero" type="string">
+            <column name="IM_NUMERO" length="14" />
+        </property>
+        <property name="endereco" type="string">
+            <column name="ENDERECO" length="100" />
+        </property>
+        <property name="telefone" type="string">
+            <column name="TELEFONE" length="14" />
+        </property>
+        <property name="contato" type="string">
+            <column name="CONTATO" length="20" />
+        </property>
+        <set name="jrcPafs" table="JRC_PAF" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_DESENVOLVEDORA" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcPaf" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19/02/2017 12:54:03 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="br.com.gr.pojo.JrcTipoCliente" table="JRC_TIPO_CLIENTE" schema="DIONE_HOM" optimistic-lock="version">
+        <id name="idTipoCliente" type="long">
+            <column name="ID_TIPO_CLIENTE" precision="15" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="jrcEmpresa" class="br.com.gr.pojo.JrcEmpresa" fetch="select">
+            <column name="ID_EMPRESA" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcUsuario" class="br.com.gr.pojo.JrcUsuario" fetch="select">
+            <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="descBreve" type="string">
+            <column name="DESC_BREVE" length="20" not-null="true" />
+        </property>
+        <property name="descLonga" type="string">
+            <column name="DESC_LONGA" length="50" />
+        </property>
+        <property name="indAtivo" type="boolean">
+            <column name="IND_ATIVO" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="dtInclusao" type="date">
+            <column name="DT_INCLUSAO" length="7" not-null="true" />
+        </property>
+        <property name="dtAlteracao" type="date">
+            <column name="DT_ALTERACAO" length="7" not-null="true" />
+        </property>
+        <property name="versaoSistema" type="long">
+            <column name="VERSAO_SISTEMA" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="versaoRegistro" type="long">
+            <column name="VERSAO_REGISTRO" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="sigla" type="string">
+            <column name="SIGLA" length="1" />
+        </property>
+        <property name="qtdeTotContratoDe" type="java.lang.Short">
+            <column name="QTDE_TOT_CONTRATO_DE" precision="3" scale="0" />
+        </property>
+        <property name="qtdeTotContratoAte" type="java.lang.Short">
+            <column name="QTDE_TOT_CONTRATO_ATE" precision="3" scale="0" />
+        </property>
+        <property name="diasAtrasoAtualDe" type="java.lang.Short">
+            <column name="DIAS_ATRASO_ATUAL_DE" precision="3" scale="0" />
+        </property>
+        <property name="diasAtrasoAtualAte" type="java.lang.Short">
+            <column name="DIAS_ATRASO_ATUAL_ATE" precision="3" scale="0" />
+        </property>
+        <property name="vrAtrasoAtualDe" type="big_decimal">
+            <column name="VR_ATRASO_ATUAL_DE" precision="15" />
+        </property>
+        <property name="vrAtrasoAtualAte" type="big_decimal">
+            <column name="VR_ATRASO_ATUAL_ATE" precision="15" />
+        </property>
+        <property name="percAtrasoAtualDe" type="big_decimal">
+            <column name="PERC_ATRASO_ATUAL_DE" precision="5" />
+        </property>
+        <property name="percAtrasoAtualAte" type="big_decimal">
+            <column name="PERC_ATRASO_ATUAL_ATE" precision="5" />
+        </property>
+        <set name="jrcPedidoVendas" table="JRC_PEDIDO_VENDA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_TIPO_CLIENTE" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcPedidoVenda" />
+        </set>
+    </class>
+</hibernate-mapping>

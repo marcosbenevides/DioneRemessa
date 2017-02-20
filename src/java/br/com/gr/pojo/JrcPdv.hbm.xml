@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19/02/2017 12:54:03 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="br.com.gr.pojo.JrcPdv" table="JRC_PDV" schema="DIONE_HOM" optimistic-lock="version">
+        <id name="idPdv" type="long">
+            <column name="ID_PDV" precision="15" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="jrcEmpresa" class="br.com.gr.pojo.JrcEmpresa" fetch="select">
+            <column name="ID_EMPRESA" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcImpressora" class="br.com.gr.pojo.JrcImpressora" fetch="select">
+            <column name="ID_IMPRESSORA_PADRAO" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcTef" class="br.com.gr.pojo.JrcTef" fetch="select">
+            <column name="ID_TEF" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcTesouraria" class="br.com.gr.pojo.JrcTesouraria" fetch="select">
+            <column name="ID_TESOURARIA" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcUsuario" class="br.com.gr.pojo.JrcUsuario" fetch="select">
+            <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="descBreve" type="string">
+            <column name="DESC_BREVE" length="20" not-null="true" />
+        </property>
+        <property name="descLonga" type="string">
+            <column name="DESC_LONGA" length="50" />
+        </property>
+        <property name="indObrigatoriedadeEcf" type="java.lang.Boolean">
+            <column name="IND_OBRIGATORIEDADE_ECF" precision="1" scale="0" />
+        </property>
+        <property name="hhMinFechDiaUtil" type="java.lang.Byte">
+            <column name="HH_MIN_FECH_DIA_UTIL" precision="2" scale="0" />
+        </property>
+        <property name="hhMinFechDiaNaoUtil" type="java.lang.Byte">
+            <column name="HH_MIN_FECH_DIA_NAO_UTIL" precision="2" scale="0" />
+        </property>
+        <property name="indObrigatoriedadeTef" type="java.lang.Boolean">
+            <column name="IND_OBRIGATORIEDADE_TEF" precision="1" scale="0" />
+        </property>
+        <property name="indAtivo" type="boolean">
+            <column name="IND_ATIVO" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="dtInclusao" type="date">
+            <column name="DT_INCLUSAO" length="7" not-null="true" />
+        </property>
+        <property name="dtAlteracao" type="date">
+            <column name="DT_ALTERACAO" length="7" not-null="true" />
+        </property>
+        <property name="versaoSistema" type="long">
+            <column name="VERSAO_SISTEMA" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="versaoRegistro" type="long">
+            <column name="VERSAO_REGISTRO" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="indConsisteOperador" type="boolean">
+            <column name="IND_CONSISTE_OPERADOR" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="dtUltimaAtualizacao" type="date">
+            <column name="DT_ULTIMA_ATUALIZACAO" length="7" />
+        </property>
+        <property name="indOperandoOffline" type="java.lang.Boolean">
+            <column name="IND_OPERANDO_OFFLINE" precision="1" scale="0" />
+        </property>
+        <property name="maxDiasValidadeAtualizacao" type="java.lang.Short">
+            <column name="MAX_DIAS_VALIDADE_ATUALIZACAO" precision="3" scale="0" />
+        </property>
+        <property name="dtUltimoArqmfd" type="date">
+            <column name="DT_ULTIMO_ARQMFD" length="7" />
+        </property>
+        <property name="codigoRef" type="string">
+            <column name="CODIGO_REF" length="20" />
+        </property>
+        <property name="flagTipoRelPadrao" type="string">
+            <column name="FLAG_TIPO_REL_PADRAO" length="3" />
+        </property>
+        <property name="flagDanfeNfc" type="string">
+            <column name="FLAG_DANFE_NFC" length="1" />
+        </property>
+        <set name="jrcProcessoPdvs" table="JRC_PROCESSO_PDV" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_PDV" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcProcessoPdv" />
+        </set>
+        <set name="jrcMovimentoPdvs" table="JRC_MOVIMENTO_PDV" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_PDV" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcMovimentoPdv" />
+        </set>
+        <set name="jrcEcfXPdvs" table="JRC_ECF_X_PDV" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_PDV" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcEcfXPdv" />
+        </set>
+    </class>
+</hibernate-mapping>

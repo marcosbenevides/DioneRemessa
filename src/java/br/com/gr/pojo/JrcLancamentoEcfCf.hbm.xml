@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19/02/2017 12:54:03 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="br.com.gr.pojo.JrcLancamentoEcfCf" table="JRC_LANCAMENTO_ECF_CF" schema="DIONE_HOM" optimistic-lock="version">
+        <id name="idLancamentoEcfCf" type="long">
+            <column name="ID_LANCAMENTO_ECF_CF" precision="15" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="jrcEmpresa" class="br.com.gr.pojo.JrcEmpresa" fetch="select">
+            <column name="ID_EMPRESA" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcMovimentoEcf" class="br.com.gr.pojo.JrcMovimentoEcf" fetch="select">
+            <column name="ID_MOVIMENTO_ECF" precision="15" scale="0" />
+        </many-to-one>
+        <property name="coo" type="java.lang.Integer">
+            <column name="COO" precision="6" scale="0" />
+        </property>
+        <property name="CReinicioOperacao" type="java.lang.Integer">
+            <column name="C_REINICIO_OPERACAO" precision="6" scale="0" />
+        </property>
+        <property name="CCupomFiscal" type="java.lang.Integer">
+            <column name="C_CUPOM_FISCAL" precision="6" scale="0" />
+        </property>
+        <property name="operador" type="string">
+            <column name="OPERADOR" length="20" />
+        </property>
+        <property name="dtEmissao" type="date">
+            <column name="DT_EMISSAO" length="7" />
+        </property>
+        <property name="subtotal" type="big_decimal">
+            <column name="SUBTOTAL" precision="15" not-null="true" />
+        </property>
+        <property name="descSubtotal" type="big_decimal">
+            <column name="DESC_SUBTOTAL" precision="15" />
+        </property>
+        <property name="flagDescSubtotal" type="string">
+            <column name="FLAG_DESC_SUBTOTAL" length="1" />
+        </property>
+        <property name="acresSubtotal" type="big_decimal">
+            <column name="ACRES_SUBTOTAL" precision="15" />
+        </property>
+        <property name="flagAcresSubtotal" type="string">
+            <column name="FLAG_ACRES_SUBTOTAL" length="1" />
+        </property>
+        <property name="totalLiquido" type="big_decimal">
+            <column name="TOTAL_LIQUIDO" precision="15" not-null="true" />
+        </property>
+        <property name="acresSubtotalCanc" type="big_decimal">
+            <column name="ACRES_SUBTOTAL_CANC" precision="15" />
+        </property>
+        <property name="ordemDescAcres" type="string">
+            <column name="ORDEM_DESC_ACRES" length="1" />
+        </property>
+        <property name="nomeAdquirente" type="string">
+            <column name="NOME_ADQUIRENTE" length="100" />
+        </property>
+        <property name="cpfCnpjAdquirente" type="java.lang.Long">
+            <column name="CPF_CNPJ_ADQUIRENTE" precision="14" scale="0" />
+        </property>
+        <property name="enderecoAdquirente" type="string">
+            <column name="ENDERECO_ADQUIRENTE" length="80" />
+        </property>
+        <property name="dav" type="java.lang.Long">
+            <column name="DAV" precision="15" scale="0" />
+        </property>
+        <property name="flagStatus" type="string">
+            <column name="FLAG_STATUS" length="1" not-null="true" />
+        </property>
+        <property name="dtInclusao" type="date">
+            <column name="DT_INCLUSAO" length="7" not-null="true" />
+        </property>
+        <property name="dtAlteracao" type="date">
+            <column name="DT_ALTERACAO" length="7" not-null="true" />
+        </property>
+        <property name="versaoSistema" type="long">
+            <column name="VERSAO_SISTEMA" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="CCupomFiscalCan" type="java.lang.Integer">
+            <column name="C_CUPOM_FISCAL_CAN" precision="6" scale="0" />
+        </property>
+        <property name="bairroAdquirente" type="string">
+            <column name="BAIRRO_ADQUIRENTE" length="40" />
+        </property>
+        <property name="localidadeAdquirente" type="string">
+            <column name="LOCALIDADE_ADQUIRENTE" length="40" />
+        </property>
+        <property name="ufAdquirente" type="string">
+            <column name="UF_ADQUIRENTE" length="2" />
+        </property>
+        <property name="cepAdquirente" type="java.lang.Integer">
+            <column name="CEP_ADQUIRENTE" precision="8" scale="0" />
+        </property>
+        <property name="dddAdquirente" type="java.lang.Short">
+            <column name="DDD_ADQUIRENTE" precision="4" scale="0" />
+        </property>
+        <property name="foneAdquirente" type="java.lang.Long">
+            <column name="FONE_ADQUIRENTE" precision="10" scale="0" />
+        </property>
+        <property name="indCanAntesTot" type="java.lang.Boolean">
+            <column name="IND_CAN_ANTES_TOT" precision="1" scale="0" />
+        </property>
+        <property name="versaoRegistro" type="long">
+            <column name="VERSAO_REGISTRO" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="auto" type="java.lang.Long">
+            <column name="AUTO" precision="15" scale="0" />
+        </property>
+        <property name="idPedidoVenda" type="java.lang.Long">
+            <column name="ID_PEDIDO_VENDA" precision="15" scale="0" />
+        </property>
+        <property name="indPfAdquirente" type="java.lang.Boolean">
+            <column name="IND_PF_ADQUIRENTE" precision="1" scale="0" />
+        </property>
+        <property name="hash1" type="string">
+            <column name="HASH_1" length="256" />
+        </property>
+        <property name="hash2" type="string">
+            <column name="HASH_2" length="256" />
+        </property>
+        <property name="hash3" type="string">
+            <column name="HASH_3" length="256" />
+        </property>
+        <property name="pv" type="java.lang.Long">
+            <column name="PV" precision="15" scale="0" />
+        </property>
+        <property name="msgPromocional" type="string">
+            <column name="MSG_PROMOCIONAL" length="1000" />
+        </property>
+        <property name="hashInc" type="string">
+            <column name="HASH_INC" length="256" />
+        </property>
+        <set name="jrcNotaFiscals" table="JRC_NOTA_FISCAL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_LANCAMENTO_ECF_CF" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcNotaFiscal" />
+        </set>
+    </class>
+</hibernate-mapping>

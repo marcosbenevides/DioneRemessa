@@ -1,0 +1,144 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19/02/2017 12:54:03 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="br.com.gr.pojo.JrcCarneConfig" table="JRC_CARNE_CONFIG" schema="DIONE_HOM" optimistic-lock="version">
+        <id name="idCarneConfig" type="long">
+            <column name="ID_CARNE_CONFIG" precision="15" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="jrcEmpresa" class="br.com.gr.pojo.JrcEmpresa" fetch="select">
+            <column name="ID_EMPRESA" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcUsuario" class="br.com.gr.pojo.JrcUsuario" fetch="select">
+            <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="codBanco" type="string">
+            <column name="COD_BANCO" length="5" />
+        </property>
+        <property name="banco" type="string">
+            <column name="BANCO" length="20" />
+        </property>
+        <property name="localPagto" type="string">
+            <column name="LOCAL_PAGTO" length="80" />
+        </property>
+        <property name="cedenteNome" type="string">
+            <column name="CEDENTE_NOME" length="80" />
+        </property>
+        <property name="cedenteAgencia" type="java.lang.Long">
+            <column name="CEDENTE_AGENCIA" precision="12" scale="0" />
+        </property>
+        <property name="cedenteAgenciaDigito" type="string">
+            <column name="CEDENTE_AGENCIA_DIGITO" length="2" />
+        </property>
+        <property name="cedenteConta" type="java.lang.Long">
+            <column name="CEDENTE_CONTA" precision="12" scale="0" />
+        </property>
+        <property name="cedenteContaDigito" type="string">
+            <column name="CEDENTE_CONTA_DIGITO" length="2" />
+        </property>
+        <property name="especieDocto" type="string">
+            <column name="ESPECIE_DOCTO" length="10" />
+        </property>
+        <property name="aceite" type="string">
+            <column name="ACEITE" length="10" />
+        </property>
+        <property name="usoBanco" type="string">
+            <column name="USO_BANCO" length="10" />
+        </property>
+        <property name="cip" type="string">
+            <column name="CIP" length="10" />
+        </property>
+        <property name="carteira" type="string">
+            <column name="CARTEIRA" length="10" />
+        </property>
+        <property name="especieMoeda" type="string">
+            <column name="ESPECIE_MOEDA" length="10" />
+        </property>
+        <property name="instrucao01" type="string">
+            <column name="INSTRUCAO_01" length="80" />
+        </property>
+        <property name="instrucao02" type="string">
+            <column name="INSTRUCAO_02" length="80" />
+        </property>
+        <property name="instrucao03" type="string">
+            <column name="INSTRUCAO_03" length="80" />
+        </property>
+        <property name="instrucao04" type="string">
+            <column name="INSTRUCAO_04" length="80" />
+        </property>
+        <property name="instrucao05" type="string">
+            <column name="INSTRUCAO_05" length="80" />
+        </property>
+        <property name="instrucao06" type="string">
+            <column name="INSTRUCAO_06" length="80" />
+        </property>
+        <property name="dtInicioPeriodo" type="date">
+            <column name="DT_INICIO_PERIODO" length="7" not-null="true" />
+        </property>
+        <property name="dtFimPeriodo" type="date">
+            <column name="DT_FIM_PERIODO" length="7" not-null="true" />
+        </property>
+        <property name="dtInclusao" type="date">
+            <column name="DT_INCLUSAO" length="7" not-null="true" />
+        </property>
+        <property name="dtAlteracao" type="date">
+            <column name="DT_ALTERACAO" length="7" not-null="true" />
+        </property>
+        <property name="versaoSistema" type="long">
+            <column name="VERSAO_SISTEMA" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="versaoRegistro" type="long">
+            <column name="VERSAO_REGISTRO" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="cedenteCpfCnpj" type="java.lang.Long">
+            <column name="CEDENTE_CPF_CNPJ" precision="14" scale="0" />
+        </property>
+        <property name="bancoDigito" type="string">
+            <column name="BANCO_DIGITO" length="1" />
+        </property>
+        <property name="cedenteSubconta" type="java.lang.Byte">
+            <column name="CEDENTE_SUBCONTA" precision="2" scale="0" />
+        </property>
+        <property name="cedenteEndereco" type="string">
+            <column name="CEDENTE_ENDERECO" length="50" />
+        </property>
+        <property name="cedenteBairro" type="string">
+            <column name="CEDENTE_BAIRRO" length="30" />
+        </property>
+        <property name="cedenteCidade" type="string">
+            <column name="CEDENTE_CIDADE" length="30" />
+        </property>
+        <property name="cedenteUf" type="string">
+            <column name="CEDENTE_UF" length="2" />
+        </property>
+        <property name="cedenteCep" type="java.lang.Integer">
+            <column name="CEDENTE_CEP" precision="8" scale="0" />
+        </property>
+        <property name="codEspecieDocto" type="string">
+            <column name="COD_ESPECIE_DOCTO" length="10" />
+        </property>
+        <property name="variacaoCarteira" type="string">
+            <column name="VARIACAO_CARTEIRA" length="10" />
+        </property>
+        <property name="foneSac" type="string">
+            <column name="FONE_SAC" length="20" />
+        </property>
+        <property name="foneSacEsp" type="string">
+            <column name="FONE_SAC_ESP" length="20" />
+        </property>
+        <property name="foneOuvidoria" type="string">
+            <column name="FONE_OUVIDORIA" length="20" />
+        </property>
+        <property name="flagLayoutBoleto" type="string">
+            <column name="FLAG_LAYOUT_BOLETO" length="3" />
+        </property>
+        <set name="jrcTipoVendas" table="JRC_TIPO_VENDA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_CARNE_CONFIG" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcTipoVenda" />
+        </set>
+    </class>
+</hibernate-mapping>

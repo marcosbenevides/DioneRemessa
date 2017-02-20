@@ -1,0 +1,201 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19/02/2017 12:54:03 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="br.com.gr.pojo.JrcTipoVenda" table="JRC_TIPO_VENDA" schema="DIONE_HOM" optimistic-lock="version">
+        <id name="idTipoVenda" type="long">
+            <column name="ID_TIPO_VENDA" precision="15" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="jrcCarneConfig" class="br.com.gr.pojo.JrcCarneConfig" fetch="select">
+            <column name="ID_CARNE_CONFIG" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcBanco" class="br.com.gr.pojo.JrcBanco" fetch="select">
+            <column name="ID_BANCO" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcEmpresa" class="br.com.gr.pojo.JrcEmpresa" fetch="select">
+            <column name="ID_EMPRESA" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcFinanceira" class="br.com.gr.pojo.JrcFinanceira" fetch="select">
+            <column name="ID_FINANCEIRA" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcLoja" class="br.com.gr.pojo.JrcLoja" fetch="select">
+            <column name="ID_LOJA_CR_FINANCEIRA" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcSequencia" class="br.com.gr.pojo.JrcSequencia" fetch="select">
+            <column name="ID_SEQUENCIA_NOSSONRO" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcUsuario" class="br.com.gr.pojo.JrcUsuario" fetch="select">
+            <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="descBreve" type="string">
+            <column name="DESC_BREVE" length="30" not-null="true" />
+        </property>
+        <property name="descLonga" type="string">
+            <column name="DESC_LONGA" length="50" />
+        </property>
+        <property name="indAvista" type="boolean">
+            <column name="IND_AVISTA" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="dtInicioPeriodo" type="date">
+            <column name="DT_INICIO_PERIODO" length="7" not-null="true" />
+        </property>
+        <property name="dtFimPeriodo" type="date">
+            <column name="DT_FIM_PERIODO" length="7" not-null="true" />
+        </property>
+        <property name="dtInclusao" type="date">
+            <column name="DT_INCLUSAO" length="7" not-null="true" />
+        </property>
+        <property name="dtAlteracao" type="date">
+            <column name="DT_ALTERACAO" length="7" not-null="true" />
+        </property>
+        <property name="versaoSistema" type="long">
+            <column name="VERSAO_SISTEMA" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="versaoRegistro" type="long">
+            <column name="VERSAO_REGISTRO" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="indOrganizacao" type="boolean">
+            <column name="IND_ORGANIZACAO" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="indGrupoLoja" type="boolean">
+            <column name="IND_GRUPO_LOJA" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="codigoRef" type="string">
+            <column name="CODIGO_REF" length="20" />
+        </property>
+        <property name="indCalculaIof" type="java.lang.Boolean">
+            <column name="IND_CALCULA_IOF" precision="1" scale="0" />
+        </property>
+        <property name="codigo" type="string">
+            <column name="CODIGO" length="10" not-null="true" />
+        </property>
+        <property name="qtdeMaxPendente" type="java.lang.Byte">
+            <column name="QTDE_MAX_PENDENTE" precision="2" scale="0" />
+        </property>
+        <property name="diasValidadePendente" type="java.lang.Short">
+            <column name="DIAS_VALIDADE_PENDENTE" precision="3" scale="0" />
+        </property>
+        <property name="flagEmprestimo" type="string">
+            <column name="FLAG_EMPRESTIMO" length="3" />
+        </property>
+        <property name="diasMaxPagtoVencido" type="java.lang.Short">
+            <column name="DIAS_MAX_PAGTO_VENCIDO" precision="3" scale="0" />
+        </property>
+        <property name="percJuros" type="big_decimal">
+            <column name="PERC_JUROS" precision="5" />
+        </property>
+        <property name="percMulta" type="big_decimal">
+            <column name="PERC_MULTA" precision="5" />
+        </property>
+        <property name="diasCarJuros" type="java.lang.Short">
+            <column name="DIAS_CAR_JUROS" precision="3" scale="0" />
+        </property>
+        <property name="diasCarMulta" type="java.lang.Short">
+            <column name="DIAS_CAR_MULTA" precision="3" scale="0" />
+        </property>
+        <property name="diasCarAntecipacao" type="java.lang.Short">
+            <column name="DIAS_CAR_ANTECIPACAO" precision="3" scale="0" />
+        </property>
+        <property name="indDescontoAntecipacao" type="java.lang.Boolean">
+            <column name="IND_DESCONTO_ANTECIPACAO" precision="1" scale="0" />
+        </property>
+        <property name="indTecAvista" type="java.lang.Boolean">
+            <column name="IND_TEC_AVISTA" precision="1" scale="0" />
+        </property>
+        <property name="tec" type="big_decimal">
+            <column name="TEC" precision="15" />
+        </property>
+        <property name="planoMax" type="java.lang.Short">
+            <column name="PLANO_MAX" precision="3" scale="0" />
+        </property>
+        <property name="taxaDesconto" type="big_decimal">
+            <column name="TAXA_DESCONTO" precision="8" scale="5" />
+        </property>
+        <property name="msgCfNf" type="string">
+            <column name="MSG_CF_NF" length="100" />
+        </property>
+        <property name="indTaxaAdicional" type="java.lang.Boolean">
+            <column name="IND_TAXA_ADICIONAL" precision="1" scale="0" />
+        </property>
+        <property name="flagValorNf" type="string">
+            <column name="FLAG_VALOR_NF" length="2" />
+        </property>
+        <property name="flagMultiFin" type="string">
+            <column name="FLAG_MULTI_FIN" length="1" />
+        </property>
+        <property name="flagTrocaTv" type="string">
+            <column name="FLAG_TROCA_TV" length="1" />
+        </property>
+        <property name="indPessoaFisica" type="java.lang.Boolean">
+            <column name="IND_PESSOA_FISICA" precision="1" scale="0" />
+        </property>
+        <property name="indFuncionario" type="java.lang.Boolean">
+            <column name="IND_FUNCIONARIO" precision="1" scale="0" />
+        </property>
+        <property name="flagTipoFormaFin" type="string">
+            <column name="FLAG_TIPO_FORMA_FIN" length="3" />
+        </property>
+        <property name="flagTipoNossonro" type="string">
+            <column name="FLAG_TIPO_NOSSONRO" length="5" />
+        </property>
+        <property name="codClienteNossonro" type="string">
+            <column name="COD_CLIENTE_NOSSONRO" length="7" />
+        </property>
+        <property name="indGeraCrFinanceira" type="java.lang.Boolean">
+            <column name="IND_GERA_CR_FINANCEIRA" precision="1" scale="0" />
+        </property>
+        <property name="indIntegraDataprev" type="java.lang.Boolean">
+            <column name="IND_INTEGRA_DATAPREV" precision="1" scale="0" />
+        </property>
+        <property name="indCompoeHstcli" type="java.lang.Boolean">
+            <column name="IND_COMPOE_HSTCLI" precision="1" scale="0" />
+        </property>
+        <property name="flagPagtoComSub" type="string">
+            <column name="FLAG_PAGTO_COM_SUB" length="1" />
+        </property>
+        <property name="flagPagtoBonSub" type="string">
+            <column name="FLAG_PAGTO_BON_SUB" length="1" />
+        </property>
+        <property name="flagPagtoComParcSub" type="string">
+            <column name="FLAG_PAGTO_COM_PARC_SUB" length="1" />
+        </property>
+        <property name="flagPagtoBonParcSub" type="string">
+            <column name="FLAG_PAGTO_BON_PARC_SUB" length="1" />
+        </property>
+        <property name="antecipacaoPerc" type="big_decimal">
+            <column name="ANTECIPACAO_PERC" precision="5" />
+        </property>
+        <property name="flagRefin" type="string">
+            <column name="FLAG_REFIN" length="3" />
+        </property>
+        <property name="indPagtoBon" type="java.lang.Boolean">
+            <column name="IND_PAGTO_BON" precision="1" scale="0" />
+        </property>
+        <property name="indPagtoComParc" type="java.lang.Boolean">
+            <column name="IND_PAGTO_COM_PARC" precision="1" scale="0" />
+        </property>
+        <property name="indPagtoBonParc" type="java.lang.Boolean">
+            <column name="IND_PAGTO_BON_PARC" precision="1" scale="0" />
+        </property>
+        <set name="jrcPromocaoGerals" table="JRC_PROMOCAO_GERAL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_TIPO_VENDA" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcPromocaoGeral" />
+        </set>
+        <set name="jrcPromocaoItems" table="JRC_PROMOCAO_ITEM" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_TIPO_VENDA" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcPromocaoItem" />
+        </set>
+        <set name="jrcPedidoVendaItems" table="JRC_PEDIDO_VENDA_ITEM" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_TIPOVENDA_PROMOCAO" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcPedidoVendaItem" />
+        </set>
+    </class>
+</hibernate-mapping>

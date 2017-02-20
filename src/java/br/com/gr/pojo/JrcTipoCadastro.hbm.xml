@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19/02/2017 12:54:03 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="br.com.gr.pojo.JrcTipoCadastro" table="JRC_TIPO_CADASTRO" schema="DIONE_HOM" optimistic-lock="version">
+        <id name="idTipoCadastro" type="long">
+            <column name="ID_TIPO_CADASTRO" precision="15" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="jrcEmpresa" class="br.com.gr.pojo.JrcEmpresa" fetch="select">
+            <column name="ID_EMPRESA" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcUsuario" class="br.com.gr.pojo.JrcUsuario" fetch="select">
+            <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="descBreve" type="string">
+            <column name="DESC_BREVE" length="20" not-null="true" />
+        </property>
+        <property name="descLonga" type="string">
+            <column name="DESC_LONGA" length="50" />
+        </property>
+        <property name="indAtivo" type="boolean">
+            <column name="IND_ATIVO" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="dtInclusao" type="date">
+            <column name="DT_INCLUSAO" length="7" not-null="true" />
+        </property>
+        <property name="dtAlteracao" type="date">
+            <column name="DT_ALTERACAO" length="7" not-null="true" />
+        </property>
+        <property name="versaoSistema" type="long">
+            <column name="VERSAO_SISTEMA" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="versaoRegistro" type="long">
+            <column name="VERSAO_REGISTRO" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="ordem" type="byte">
+            <column name="ORDEM" precision="2" scale="0" not-null="true" />
+        </property>
+        <property name="indDesabilitaConsistencias" type="boolean">
+            <column name="IND_DESABILITA_CONSISTENCIAS" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="indPermiteEndDesc" type="boolean">
+            <column name="IND_PERMITE_END_DESC" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="indObrigaEndPrincipal" type="boolean">
+            <column name="IND_OBRIGA_END_PRINCIPAL" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="indObrigaUmDocAdicional" type="boolean">
+            <column name="IND_OBRIGA_UM_DOC_ADICIONAL" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="indObrigaUmTipoEndereco" type="boolean">
+            <column name="IND_OBRIGA_UM_TIPO_ENDERECO" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="indObrigaUmTipoTelefone" type="boolean">
+            <column name="IND_OBRIGA_UM_TIPO_TELEFONE" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="indObrigaUmTipoVinculo" type="boolean">
+            <column name="IND_OBRIGA_UM_TIPO_VINCULO" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="indObrigaUmTipoPesveic" type="boolean">
+            <column name="IND_OBRIGA_UM_TIPO_PESVEIC" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="indObrigaUmTipoRenda" type="boolean">
+            <column name="IND_OBRIGA_UM_TIPO_RENDA" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="indObrigaUmTipoAnexo" type="boolean">
+            <column name="IND_OBRIGA_UM_TIPO_ANEXO" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="indObrigaUmTipoCartao" type="boolean">
+            <column name="IND_OBRIGA_UM_TIPO_CARTAO" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="indObrigaUmTipoConta" type="boolean">
+            <column name="IND_OBRIGA_UM_TIPO_CONTA" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="indConsisteCharEsp" type="boolean">
+            <column name="IND_CONSISTE_CHAR_ESP" precision="1" scale="0" not-null="true" />
+        </property>
+        <set name="jrcPedidoVendasForPeIdTipoCadastro" table="JRC_PEDIDO_VENDA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="PE_ID_TIPO_CADASTRO" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcPedidoVenda" />
+        </set>
+        <set name="jrcFormaPagamentos" table="JRC_FORMA_PAGAMENTO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_TIPO_CADASTRO" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcFormaPagamento" />
+        </set>
+        <set name="jrcPessoas" table="JRC_PESSOA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_TIPO_CADASTRO" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcPessoa" />
+        </set>
+        <set name="jrcTipoServicos" table="JRC_TIPO_SERVICO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_TIPO_CADASTRO" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcTipoServico" />
+        </set>
+        <set name="jrcPedidoVendasForIdTipoCadastroMinimo" table="JRC_PEDIDO_VENDA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_TIPO_CADASTRO_MINIMO" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcPedidoVenda" />
+        </set>
+    </class>
+</hibernate-mapping>

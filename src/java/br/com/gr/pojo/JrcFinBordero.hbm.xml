@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19/02/2017 12:54:03 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="br.com.gr.pojo.JrcFinBordero" table="JRC_FIN_BORDERO" schema="DIONE_HOM" optimistic-lock="version">
+        <id name="idFinBordero" type="long">
+            <column name="ID_FIN_BORDERO" precision="15" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="jrcFinLancamentoByIdFinLanctoBanco" class="br.com.gr.pojo.JrcFinLancamento" fetch="select">
+            <column name="ID_FIN_LANCTO_BANCO" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcFinLancamentoByIdFinLanctoBancoDev" class="br.com.gr.pojo.JrcFinLancamento" fetch="select">
+            <column name="ID_FIN_LANCTO_BANCO_DEV" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcEmpresa" class="br.com.gr.pojo.JrcEmpresa" fetch="select">
+            <column name="ID_EMPRESA" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcPessoa" class="br.com.gr.pojo.JrcPessoa" fetch="select">
+            <column name="ID_PESSOA_BORDERO" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcUsuario" class="br.com.gr.pojo.JrcUsuario" fetch="select">
+            <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="flagTipoBordero" type="string">
+            <column name="FLAG_TIPO_BORDERO" length="3" not-null="true" />
+        </property>
+        <property name="descricao" type="string">
+            <column name="DESCRICAO" length="20" not-null="true" />
+        </property>
+        <property name="vrLancto" type="big_decimal">
+            <column name="VR_LANCTO" precision="15" not-null="true" />
+        </property>
+        <property name="vrBordero" type="big_decimal">
+            <column name="VR_BORDERO" precision="15" not-null="true" />
+        </property>
+        <property name="flagStatus" type="string">
+            <column name="FLAG_STATUS" length="3" not-null="true" />
+        </property>
+        <property name="dtInclusao" type="date">
+            <column name="DT_INCLUSAO" length="7" not-null="true" />
+        </property>
+        <property name="dtAlteracao" type="date">
+            <column name="DT_ALTERACAO" length="7" not-null="true" />
+        </property>
+        <property name="versaoSistema" type="long">
+            <column name="VERSAO_SISTEMA" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="versaoRegistro" type="long">
+            <column name="VERSAO_REGISTRO" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="observacao" type="string">
+            <column name="OBSERVACAO" length="100" />
+        </property>
+        <set name="jrcFinLancamentos" table="JRC_FIN_LANCAMENTO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_FIN_BORDERO" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcFinLancamento" />
+        </set>
+    </class>
+</hibernate-mapping>

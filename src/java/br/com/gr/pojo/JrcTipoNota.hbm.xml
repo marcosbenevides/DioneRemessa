@@ -1,0 +1,180 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19/02/2017 12:54:03 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="br.com.gr.pojo.JrcTipoNota" table="JRC_TIPO_NOTA" schema="DIONE_HOM" optimistic-lock="version">
+        <id name="idTipoNota" type="long">
+            <column name="ID_TIPO_NOTA" precision="15" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="jrcFinContaByIdFinContaPagto" class="br.com.gr.pojo.JrcFinConta" fetch="select">
+            <column name="ID_FIN_CONTA_PAGTO" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcFinContaByIdFinContaRecdes" class="br.com.gr.pojo.JrcFinConta" fetch="select">
+            <column name="ID_FIN_CONTA_RECDES" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcHistoricoPadraoByIdHstpadNfPis" class="br.com.gr.pojo.JrcHistoricoPadrao" fetch="select">
+            <column name="ID_HSTPAD_NF_PIS" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcHistoricoPadraoByIdHstpadNfCofins" class="br.com.gr.pojo.JrcHistoricoPadrao" fetch="select">
+            <column name="ID_HSTPAD_NF_COFINS" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcHistoricoPadraoByIdHstpadNfEstoque" class="br.com.gr.pojo.JrcHistoricoPadrao" fetch="select">
+            <column name="ID_HSTPAD_NF_ESTOQUE" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcHistoricoPadraoByIdHstpadNfIcmsDr" class="br.com.gr.pojo.JrcHistoricoPadrao" fetch="select">
+            <column name="ID_HSTPAD_NF_ICMS_DR" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcHistoricoPadraoByIdHstpadNfEstoqueDr" class="br.com.gr.pojo.JrcHistoricoPadrao" fetch="select">
+            <column name="ID_HSTPAD_NF_ESTOQUE_DR" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcHistoricoPadraoByIdHstpadNf" class="br.com.gr.pojo.JrcHistoricoPadrao" fetch="select">
+            <column name="ID_HSTPAD_NF" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcHistoricoPadraoByIdHstpadNfIcms" class="br.com.gr.pojo.JrcHistoricoPadrao" fetch="select">
+            <column name="ID_HSTPAD_NF_ICMS" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcEmpresa" class="br.com.gr.pojo.JrcEmpresa" fetch="select">
+            <column name="ID_EMPRESA" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcModeloNota" class="br.com.gr.pojo.JrcModeloNota" fetch="select">
+            <column name="ID_MODELO_NOTA" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcPrivilegioByIdPrivilegioEmi" class="br.com.gr.pojo.JrcPrivilegio" fetch="select">
+            <column name="ID_PRIVILEGIO_EMI" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcPrivilegioByIdPrivilegioCan" class="br.com.gr.pojo.JrcPrivilegio" fetch="select">
+            <column name="ID_PRIVILEGIO_CAN" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcUsuario" class="br.com.gr.pojo.JrcUsuario" fetch="select">
+            <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="descBreve" type="string">
+            <column name="DESC_BREVE" length="20" not-null="true" />
+        </property>
+        <property name="descLonga" type="string">
+            <column name="DESC_LONGA" length="50" />
+        </property>
+        <property name="flagOperacaoEs" type="string">
+            <column name="FLAG_OPERACAO_ES" length="1" not-null="true" />
+        </property>
+        <property name="dtInicioPeriodo" type="date">
+            <column name="DT_INICIO_PERIODO" length="7" not-null="true" />
+        </property>
+        <property name="dtFimPeriodo" type="date">
+            <column name="DT_FIM_PERIODO" length="7" not-null="true" />
+        </property>
+        <property name="dtInclusao" type="date">
+            <column name="DT_INCLUSAO" length="7" not-null="true" />
+        </property>
+        <property name="dtAlteracao" type="date">
+            <column name="DT_ALTERACAO" length="7" not-null="true" />
+        </property>
+        <property name="versaoSistema" type="long">
+            <column name="VERSAO_SISTEMA" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="versaoRegistro" type="long">
+            <column name="VERSAO_REGISTRO" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="flagTipoNota" type="string">
+            <column name="FLAG_TIPO_NOTA" length="5" not-null="true" />
+        </property>
+        <property name="flagEmitente" type="string">
+            <column name="FLAG_EMITENTE" length="5" />
+        </property>
+        <property name="flagDestinatario" type="string">
+            <column name="FLAG_DESTINATARIO" length="5" />
+        </property>
+        <property name="indCalcCustoEntrada" type="java.lang.Boolean">
+            <column name="IND_CALC_CUSTO_ENTRADA" precision="1" scale="0" />
+        </property>
+        <property name="flagMovimentoEstoque" type="string">
+            <column name="FLAG_MOVIMENTO_ESTOQUE" length="1" />
+        </property>
+        <property name="flagTributacao" type="string">
+            <column name="FLAG_TRIBUTACAO" length="3" />
+        </property>
+        <property name="flagValorNf" type="string">
+            <column name="FLAG_VALOR_NF" length="2" />
+        </property>
+        <property name="indFornecedor" type="java.lang.Boolean">
+            <column name="IND_FORNECEDOR" precision="1" scale="0" />
+        </property>
+        <property name="codigoRef" type="string">
+            <column name="CODIGO_REF" length="10" />
+        </property>
+        <property name="indObrPedidoCompra" type="java.lang.Boolean">
+            <column name="IND_OBR_PEDIDO_COMPRA" precision="1" scale="0" />
+        </property>
+        <property name="indCalcPrecoCompra" type="java.lang.Boolean">
+            <column name="IND_CALC_PRECO_COMPRA" precision="1" scale="0" />
+        </property>
+        <property name="codigoRefDebIcms" type="string">
+            <column name="CODIGO_REF_DEB_ICMS" length="20" />
+        </property>
+        <property name="codigoRefCreIcms" type="string">
+            <column name="CODIGO_REF_CRE_ICMS" length="20" />
+        </property>
+        <property name="codigoRefDebPis" type="string">
+            <column name="CODIGO_REF_DEB_PIS" length="20" />
+        </property>
+        <property name="codigoRefCrePis" type="string">
+            <column name="CODIGO_REF_CRE_PIS" length="20" />
+        </property>
+        <property name="codigoRefDebCofins" type="string">
+            <column name="CODIGO_REF_DEB_COFINS" length="20" />
+        </property>
+        <property name="codigoRefCreCofins" type="string">
+            <column name="CODIGO_REF_CRE_COFINS" length="20" />
+        </property>
+        <property name="flagFinContaRecdes" type="string">
+            <column name="FLAG_FIN_CONTA_RECDES" length="3" not-null="true" />
+        </property>
+        <property name="flagFinContaPagto" type="string">
+            <column name="FLAG_FIN_CONTA_PAGTO" length="3" not-null="true" />
+        </property>
+        <property name="codigoRefDebEstoque" type="string">
+            <column name="CODIGO_REF_DEB_ESTOQUE" length="20" />
+        </property>
+        <property name="codigoRefCreEstoque" type="string">
+            <column name="CODIGO_REF_CRE_ESTOQUE" length="20" />
+        </property>
+        <property name="codigoRefDebIcmsDr" type="string">
+            <column name="CODIGO_REF_DEB_ICMS_DR" length="20" />
+        </property>
+        <property name="codigoRefCreIcmsDr" type="string">
+            <column name="CODIGO_REF_CRE_ICMS_DR" length="20" />
+        </property>
+        <property name="codigoRefDebEstoqueDr" type="string">
+            <column name="CODIGO_REF_DEB_ESTOQUE_DR" length="20" />
+        </property>
+        <property name="codigoRefCreEstoqueDr" type="string">
+            <column name="CODIGO_REF_CRE_ESTOQUE_DR" length="20" />
+        </property>
+        <property name="indAjustaTribEntrada" type="java.lang.Boolean">
+            <column name="IND_AJUSTA_TRIB_ENTRADA" precision="1" scale="0" />
+        </property>
+        <property name="flagFinalidade" type="string">
+            <column name="FLAG_FINALIDADE" length="3" />
+        </property>
+        <set name="jrcTipoNotaEstoques" table="JRC_TIPO_NOTA_ESTOQUE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_TIPO_NOTA" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcTipoNotaEstoque" />
+        </set>
+        <set name="jrcNotaFiscals" table="JRC_NOTA_FISCAL" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_TIPO_NOTA" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcNotaFiscal" />
+        </set>
+        <set name="jrcFinLancamentos" table="JRC_FIN_LANCAMENTO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="NF_ID_TIPO_NOTA" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcFinLancamento" />
+        </set>
+    </class>
+</hibernate-mapping>

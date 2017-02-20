@@ -1,0 +1,206 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19/02/2017 12:54:03 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="br.com.gr.pojo.JrcPedvdaitemApuracao" table="JRC_PEDVDAITEM_APURACAO" schema="DIONE_HOM" optimistic-lock="version">
+        <composite-id name="id" class="br.com.gr.pojo.JrcPedvdaitemApuracaoId">
+            <key-property name="idPedidoVenda" type="long">
+                <column name="ID_PEDIDO_VENDA" precision="15" scale="0" />
+            </key-property>
+            <key-property name="seqPedidoVendaItem" type="int">
+                <column name="SEQ_PEDIDO_VENDA_ITEM" precision="5" scale="0" />
+            </key-property>
+            <key-property name="seqPedvdaitemApuracao" type="int">
+                <column name="SEQ_PEDVDAITEM_APURACAO" precision="5" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="jrcApuracaoComissaoByIdApuracaoBon" class="br.com.gr.pojo.JrcApuracaoComissao" fetch="select">
+            <column name="ID_APURACAO_BON" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcApuracaoComissaoByIdApuracaoCom" class="br.com.gr.pojo.JrcApuracaoComissao" fetch="select">
+            <column name="ID_APURACAO_COM" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcPedvdaitemApuracao" class="br.com.gr.pojo.JrcPedvdaitemApuracao" fetch="select">
+            <column name="ID_PEDIDO_VENDA_EST" precision="15" scale="0" />
+            <column name="SEQ_PEDIDO_VENDA_ITEM_EST" precision="5" scale="0" />
+            <column name="SEQ_PEDVDAITEM_APURACAO_EST" precision="5" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcEmpresa" class="br.com.gr.pojo.JrcEmpresa" fetch="select">
+            <column name="ID_EMPRESA" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcPedidoVendaItem" class="br.com.gr.pojo.JrcPedidoVendaItem" update="false" insert="false" fetch="select">
+            <column name="ID_PEDIDO_VENDA" precision="15" scale="0" not-null="true" />
+            <column name="SEQ_PEDIDO_VENDA_ITEM" precision="5" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcUsuario" class="br.com.gr.pojo.JrcUsuario" fetch="select">
+            <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="parcela" type="short">
+            <column name="PARCELA" precision="3" scale="0" not-null="true" />
+        </property>
+        <property name="dtComissao" type="date">
+            <column name="DT_COMISSAO" length="7" not-null="true" />
+        </property>
+        <property name="flagTipoLancto" type="string">
+            <column name="FLAG_TIPO_LANCTO" length="3" not-null="true" />
+        </property>
+        <property name="flagStatusCom" type="string">
+            <column name="FLAG_STATUS_COM" length="3" not-null="true" />
+        </property>
+        <property name="flagStatusBon" type="string">
+            <column name="FLAG_STATUS_BON" length="3" not-null="true" />
+        </property>
+        <property name="vrComissao" type="big_decimal">
+            <column name="VR_COMISSAO" precision="15" not-null="true" />
+        </property>
+        <property name="vrBonus" type="big_decimal">
+            <column name="VR_BONUS" precision="15" not-null="true" />
+        </property>
+        <property name="vrCarteira" type="big_decimal">
+            <column name="VR_CARTEIRA" precision="15" not-null="true" />
+        </property>
+        <property name="vrComissaoAg" type="big_decimal">
+            <column name="VR_COMISSAO_AG" precision="15" not-null="true" />
+        </property>
+        <property name="vrBonusAg" type="big_decimal">
+            <column name="VR_BONUS_AG" precision="15" not-null="true" />
+        </property>
+        <property name="idUsuarioVenda" type="long">
+            <column name="ID_USUARIO_VENDA" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="comissaoPerc" type="big_decimal">
+            <column name="COMISSAO_PERC" precision="8" scale="5" not-null="true" />
+        </property>
+        <property name="comissaoBase" type="string">
+            <column name="COMISSAO_BASE" length="1" not-null="true" />
+        </property>
+        <property name="comissaoMin" type="big_decimal">
+            <column name="COMISSAO_MIN" precision="15" />
+        </property>
+        <property name="comissaoMax" type="big_decimal">
+            <column name="COMISSAO_MAX" precision="15" />
+        </property>
+        <property name="bonusPerc" type="big_decimal">
+            <column name="BONUS_PERC" precision="8" scale="5" not-null="true" />
+        </property>
+        <property name="bonusBase" type="string">
+            <column name="BONUS_BASE" length="1" not-null="true" />
+        </property>
+        <property name="bonusMin" type="big_decimal">
+            <column name="BONUS_MIN" precision="15" />
+        </property>
+        <property name="bonusMax" type="big_decimal">
+            <column name="BONUS_MAX" precision="15" />
+        </property>
+        <property name="carteiraPerc" type="big_decimal">
+            <column name="CARTEIRA_PERC" precision="5" />
+        </property>
+        <property name="carteiraBase" type="string">
+            <column name="CARTEIRA_BASE" length="1" />
+        </property>
+        <property name="agentePercComissao" type="big_decimal">
+            <column name="AGENTE_PERC_COMISSAO" precision="5" not-null="true" />
+        </property>
+        <property name="agentePercBonus" type="big_decimal">
+            <column name="AGENTE_PERC_BONUS" precision="5" not-null="true" />
+        </property>
+        <property name="agentePercComissaoCalc" type="big_decimal">
+            <column name="AGENTE_PERC_COMISSAO_CALC" precision="5" not-null="true" />
+        </property>
+        <property name="agentePercBonusCalc" type="big_decimal">
+            <column name="AGENTE_PERC_BONUS_CALC" precision="5" not-null="true" />
+        </property>
+        <property name="idUsuarioApuracaoCom" type="java.lang.Long">
+            <column name="ID_USUARIO_APURACAO_COM" precision="15" scale="0" />
+        </property>
+        <property name="dtApuracaoCom" type="date">
+            <column name="DT_APURACAO_COM" length="7" />
+        </property>
+        <property name="idUsuarioApuracaoBon" type="java.lang.Long">
+            <column name="ID_USUARIO_APURACAO_BON" precision="15" scale="0" />
+        </property>
+        <property name="dtApuracaoBon" type="date">
+            <column name="DT_APURACAO_BON" length="7" />
+        </property>
+        <property name="dtInclusao" type="date">
+            <column name="DT_INCLUSAO" length="7" not-null="true" />
+        </property>
+        <property name="dtAlteracao" type="date">
+            <column name="DT_ALTERACAO" length="7" not-null="true" />
+        </property>
+        <property name="versaoSistema" type="long">
+            <column name="VERSAO_SISTEMA" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="versaoRegistro" type="long">
+            <column name="VERSAO_REGISTRO" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="flagConComissao" type="string">
+            <column name="FLAG_CON_COMISSAO" length="3" />
+        </property>
+        <property name="flagConBonus" type="string">
+            <column name="FLAG_CON_BONUS" length="3" />
+        </property>
+        <property name="dtConComissao" type="date">
+            <column name="DT_CON_COMISSAO" length="7" />
+        </property>
+        <property name="dtConBonus" type="date">
+            <column name="DT_CON_BONUS" length="7" />
+        </property>
+        <property name="indVrAlterado" type="java.lang.Boolean">
+            <column name="IND_VR_ALTERADO" precision="1" scale="0" />
+        </property>
+        <property name="obsVrComissaoAlt" type="string">
+            <column name="OBS_VR_COMISSAO_ALT" />
+        </property>
+        <property name="vrComissaoAlt" type="big_decimal">
+            <column name="VR_COMISSAO_ALT" precision="15" />
+        </property>
+        <property name="obsVrBonusAlt" type="string">
+            <column name="OBS_VR_BONUS_ALT" />
+        </property>
+        <property name="vrBonusAlt" type="big_decimal">
+            <column name="VR_BONUS_ALT" precision="15" />
+        </property>
+        <property name="vrComissaoExtraAg" type="big_decimal">
+            <column name="VR_COMISSAO_EXTRA_AG" precision="15" />
+        </property>
+        <property name="vrBonusExtraAg" type="big_decimal">
+            <column name="VR_BONUS_EXTRA_AG" precision="15" />
+        </property>
+        <property name="agPercComissaoExtra" type="big_decimal">
+            <column name="AG_PERC_COMISSAO_EXTRA" precision="5" />
+        </property>
+        <property name="agPercBonusExtra" type="big_decimal">
+            <column name="AG_PERC_BONUS_EXTRA" precision="5" />
+        </property>
+        <property name="vrComissaoExtraAlt" type="big_decimal">
+            <column name="VR_COMISSAO_EXTRA_ALT" precision="15" />
+        </property>
+        <property name="vrBonusExtraAlt" type="big_decimal">
+            <column name="VR_BONUS_EXTRA_ALT" precision="15" />
+        </property>
+        <property name="indPagtoCom" type="java.lang.Boolean">
+            <column name="IND_PAGTO_COM" precision="1" scale="0" />
+        </property>
+        <property name="indPagtoBon" type="java.lang.Boolean">
+            <column name="IND_PAGTO_BON" precision="1" scale="0" />
+        </property>
+        <set name="jrcPedvdaitemApuracaos" table="JRC_PEDVDAITEM_APURACAO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_PEDIDO_VENDA_EST" precision="15" scale="0" />
+                <column name="SEQ_PEDIDO_VENDA_ITEM_EST" precision="5" scale="0" />
+                <column name="SEQ_PEDVDAITEM_APURACAO_EST" precision="5" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcPedvdaitemApuracao" />
+        </set>
+        <set name="jrcFinLancamentos" table="JRC_FIN_LANCAMENTO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CB_ID_PEDIDO_VENDA" precision="15" scale="0" />
+                <column name="CB_SEQ_PEDIDO_VENDA_ITEM" precision="5" scale="0" />
+                <column name="CB_SEQ_PEDVDAITEM_APURACAO" precision="5" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcFinLancamento" />
+        </set>
+    </class>
+</hibernate-mapping>

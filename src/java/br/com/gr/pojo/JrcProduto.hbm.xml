@@ -1,0 +1,180 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19/02/2017 12:54:03 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="br.com.gr.pojo.JrcProduto" table="JRC_PRODUTO" schema="DIONE_HOM" optimistic-lock="version">
+        <id name="idProduto" type="long">
+            <column name="ID_PRODUTO" precision="15" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="jrcProdutoPai" class="br.com.gr.pojo.JrcProdutoPai" fetch="select">
+            <column name="ID_PRODUTO_PAI" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcCest" class="br.com.gr.pojo.JrcCest" fetch="select">
+            <column name="ID_CEST" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcClassificacaoFiscal" class="br.com.gr.pojo.JrcClassificacaoFiscal" fetch="select">
+            <column name="ID_CLASSIFICACAO_FISCAL" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcCor" class="br.com.gr.pojo.JrcCor" fetch="select">
+            <column name="ID_COR" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcEmpresa" class="br.com.gr.pojo.JrcEmpresa" fetch="select">
+            <column name="ID_EMPRESA" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcFabricante" class="br.com.gr.pojo.JrcFabricante" fetch="select">
+            <column name="ID_FABRICANTE" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcGrupoImpostoProduto" class="br.com.gr.pojo.JrcGrupoImpostoProduto" fetch="select">
+            <column name="ID_GRUPO_IMPOSTO_PRODUTO" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcMarca" class="br.com.gr.pojo.JrcMarca" fetch="select">
+            <column name="ID_MARCA" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcStatusProduto" class="br.com.gr.pojo.JrcStatusProduto" fetch="select">
+            <column name="ID_STATUS_PRODUTO" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcUnidade" class="br.com.gr.pojo.JrcUnidade" fetch="select">
+            <column name="ID_UNIDADE" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcUsuarioByIdUsuarioReg" class="br.com.gr.pojo.JrcUsuario" fetch="select">
+            <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcUsuarioByIdUsuarioAprovou" class="br.com.gr.pojo.JrcUsuario" fetch="select">
+            <column name="ID_USUARIO_APROVOU" precision="15" scale="0" />
+        </many-to-one>
+        <many-to-one name="jrcVoltagem" class="br.com.gr.pojo.JrcVoltagem" fetch="select">
+            <column name="ID_VOLTAGEM" precision="15" scale="0" />
+        </many-to-one>
+        <property name="codigo" type="string">
+            <column name="CODIGO" length="14" not-null="true" />
+        </property>
+        <property name="descricao" type="string">
+            <column name="DESCRICAO" length="50" not-null="true" />
+        </property>
+        <property name="modelo" type="string">
+            <column name="MODELO" length="20" not-null="true" />
+        </property>
+        <property name="garantiaFabricante" type="short">
+            <column name="GARANTIA_FABRICANTE" precision="3" scale="0" not-null="true" />
+        </property>
+        <property name="dtStatusProduto" type="date">
+            <column name="DT_STATUS_PRODUTO" length="7" not-null="true" />
+        </property>
+        <property name="indConverteQtdeEntrada" type="boolean">
+            <column name="IND_CONVERTE_QTDE_ENTRADA" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="indSaidaLoja" type="boolean">
+            <column name="IND_SAIDA_LOJA" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="dtInicioPeriodo" type="date">
+            <column name="DT_INICIO_PERIODO" length="7" not-null="true" />
+        </property>
+        <property name="dtFimPeriodo" type="date">
+            <column name="DT_FIM_PERIODO" length="7" not-null="true" />
+        </property>
+        <property name="dtInclusao" type="date">
+            <column name="DT_INCLUSAO" length="7" not-null="true" />
+        </property>
+        <property name="dtAlteracao" type="date">
+            <column name="DT_ALTERACAO" length="7" not-null="true" />
+        </property>
+        <property name="versaoSistema" type="long">
+            <column name="VERSAO_SISTEMA" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="versaoRegistro" type="long">
+            <column name="VERSAO_REGISTRO" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="codigoRef" type="string">
+            <column name="CODIGO_REF" length="20" />
+        </property>
+        <property name="flagSerial" type="string">
+            <column name="FLAG_SERIAL" length="2" not-null="true" />
+        </property>
+        <property name="codProdutoFabricante" type="string">
+            <column name="COD_PRODUTO_FABRICANTE" length="20" />
+        </property>
+        <property name="cstOrigem" type="string">
+            <column name="CST_ORIGEM" length="1" not-null="true" />
+        </property>
+        <property name="dtAtivacaoProduto" type="date">
+            <column name="DT_ATIVACAO_PRODUTO" length="7" />
+        </property>
+        <property name="flagIat" type="string">
+            <column name="FLAG_IAT" length="1" not-null="true" />
+        </property>
+        <property name="flagIppt" type="string">
+            <column name="FLAG_IPPT" length="1" not-null="true" />
+        </property>
+        <property name="hash1" type="string">
+            <column name="HASH_1" length="256" />
+        </property>
+        <property name="hash2" type="string">
+            <column name="HASH_2" length="256" />
+        </property>
+        <property name="qtdeVolume" type="byte">
+            <column name="QTDE_VOLUME" precision="2" scale="0" not-null="true" />
+        </property>
+        <property name="indMontavel" type="boolean">
+            <column name="IND_MONTAVEL" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="hashInc" type="string">
+            <column name="HASH_INC" length="256" />
+        </property>
+        <property name="qtdeVolumeCaixa" type="int">
+            <column name="QTDE_VOLUME_CAIXA" precision="6" scale="0" not-null="true" />
+        </property>
+        <property name="qtdeAcessorio" type="java.lang.Byte">
+            <column name="QTDE_ACESSORIO" precision="2" scale="0" />
+        </property>
+        <property name="curvaAbcQtde" type="string">
+            <column name="CURVA_ABC_QTDE" length="1" />
+        </property>
+        <property name="dtCurvaAbcQtde" type="date">
+            <column name="DT_CURVA_ABC_QTDE" length="7" />
+        </property>
+        <property name="dtValidadeCurvaAbcQtde" type="date">
+            <column name="DT_VALIDADE_CURVA_ABC_QTDE" length="7" />
+        </property>
+        <property name="indAtivoWms" type="java.lang.Boolean">
+            <column name="IND_ATIVO_WMS" precision="1" scale="0" />
+        </property>
+        <property name="flagLote" type="string">
+            <column name="FLAG_LOTE" length="2" />
+        </property>
+        <property name="diasValidadeMin" type="java.lang.Short">
+            <column name="DIAS_VALIDADE_MIN" precision="4" scale="0" />
+        </property>
+        <property name="pesoLiquido" type="big_decimal">
+            <column name="PESO_LIQUIDO" precision="9" scale="3" />
+        </property>
+        <property name="comprimento" type="big_decimal">
+            <column name="COMPRIMENTO" precision="6" scale="3" />
+        </property>
+        <property name="largura" type="big_decimal">
+            <column name="LARGURA" precision="6" scale="3" />
+        </property>
+        <property name="altura" type="big_decimal">
+            <column name="ALTURA" precision="6" scale="3" />
+        </property>
+        <set name="jrcPedidoVendaItems" table="JRC_PEDIDO_VENDA_ITEM" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_PRODUTO" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcPedidoVendaItem" />
+        </set>
+        <set name="jrcPromocaoItemDetalhes" table="JRC_PROMOCAO_ITEM_DETALHE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_PRODUTO" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcPromocaoItemDetalhe" />
+        </set>
+        <set name="jrcEqualizacaoItems" table="JRC_EQUALIZACAO_ITEM" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_PRODUTO" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcEqualizacaoItem" />
+        </set>
+    </class>
+</hibernate-mapping>

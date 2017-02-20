@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19/02/2017 12:54:03 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="br.com.gr.pojo.JrcSeguroCobertura" table="JRC_SEGURO_COBERTURA" schema="DIONE_HOM" optimistic-lock="version">
+        <id name="idSeguroCobertura" type="long">
+            <column name="ID_SEGURO_COBERTURA" precision="15" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="jrcEmpresa" class="br.com.gr.pojo.JrcEmpresa" fetch="select">
+            <column name="ID_EMPRESA" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcUsuario" class="br.com.gr.pojo.JrcUsuario" fetch="select">
+            <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="flagCobertura" type="string">
+            <column name="FLAG_COBERTURA" length="3" not-null="true" />
+        </property>
+        <property name="descBreve" type="string">
+            <column name="DESC_BREVE" length="20" not-null="true" />
+        </property>
+        <property name="descLonga" type="string">
+            <column name="DESC_LONGA" length="50" />
+        </property>
+        <property name="vrCobertura" type="big_decimal">
+            <column name="VR_COBERTURA" precision="15" />
+        </property>
+        <property name="qtdeParcCobertura" type="java.lang.Short">
+            <column name="QTDE_PARC_COBERTURA" precision="3" scale="0" />
+        </property>
+        <property name="vrParcCobertura" type="big_decimal">
+            <column name="VR_PARC_COBERTURA" precision="15" />
+        </property>
+        <property name="mesesCobertura" type="java.lang.Short">
+            <column name="MESES_COBERTURA" precision="3" scale="0" />
+        </property>
+        <property name="percFranquia" type="big_decimal">
+            <column name="PERC_FRANQUIA" precision="5" />
+        </property>
+        <property name="diasFranquia" type="java.lang.Short">
+            <column name="DIAS_FRANQUIA" precision="3" scale="0" />
+        </property>
+        <property name="diasCarencia" type="java.lang.Short">
+            <column name="DIAS_CARENCIA" precision="3" scale="0" />
+        </property>
+        <property name="dtInicioPeriodo" type="date">
+            <column name="DT_INICIO_PERIODO" length="7" not-null="true" />
+        </property>
+        <property name="dtFimPeriodo" type="date">
+            <column name="DT_FIM_PERIODO" length="7" not-null="true" />
+        </property>
+        <property name="dtInclusao" type="date">
+            <column name="DT_INCLUSAO" length="7" not-null="true" />
+        </property>
+        <property name="dtAlteracao" type="date">
+            <column name="DT_ALTERACAO" length="7" not-null="true" />
+        </property>
+        <property name="versaoSistema" type="long">
+            <column name="VERSAO_SISTEMA" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="versaoRegistro" type="long">
+            <column name="VERSAO_REGISTRO" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="percPremio" type="big_decimal">
+            <column name="PERC_PREMIO" precision="8" scale="5" />
+        </property>
+        <set name="jrcServicoPrecosForIdSeguroCoberturaRou" table="JRC_SERVICO_PRECO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_SEGURO_COBERTURA_ROU" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcServicoPreco" />
+        </set>
+        <set name="jrcServicoPrecosForIdSeguroCoberturaFun" table="JRC_SERVICO_PRECO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_SEGURO_COBERTURA_FUN" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcServicoPreco" />
+        </set>
+        <set name="jrcServicoPrecosForIdSeguroCoberturaInt" table="JRC_SERVICO_PRECO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_SEGURO_COBERTURA_INT" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcServicoPreco" />
+        </set>
+        <set name="jrcServicoPrecosForIdSeguroCoberturaInv" table="JRC_SERVICO_PRECO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_SEGURO_COBERTURA_INV" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcServicoPreco" />
+        </set>
+        <set name="jrcServicoPrecosForIdSeguroCoberturaQue" table="JRC_SERVICO_PRECO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_SEGURO_COBERTURA_QUE" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcServicoPreco" />
+        </set>
+        <set name="jrcServicoPrecosForIdSeguroCoberturaInc" table="JRC_SERVICO_PRECO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_SEGURO_COBERTURA_INC" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcServicoPreco" />
+        </set>
+        <set name="jrcServicoPrecosForIdSeguroCoberturaDes" table="JRC_SERVICO_PRECO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_SEGURO_COBERTURA_DES" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcServicoPreco" />
+        </set>
+        <set name="jrcServicoPrecosForIdSeguroCoberturaMor" table="JRC_SERVICO_PRECO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_SEGURO_COBERTURA_MOR" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcServicoPreco" />
+        </set>
+    </class>
+</hibernate-mapping>

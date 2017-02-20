@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 19/02/2017 12:54:03 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="br.com.gr.pojo.JrcStatusProduto" table="JRC_STATUS_PRODUTO" schema="DIONE_HOM" optimistic-lock="version">
+        <id name="idStatusProduto" type="long">
+            <column name="ID_STATUS_PRODUTO" precision="15" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="jrcEmpresa" class="br.com.gr.pojo.JrcEmpresa" fetch="select">
+            <column name="ID_EMPRESA" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="jrcUsuario" class="br.com.gr.pojo.JrcUsuario" fetch="select">
+            <column name="ID_USUARIO_REG" precision="15" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="sigla" type="string">
+            <column name="SIGLA" length="2" not-null="true" />
+        </property>
+        <property name="descBreve" type="string">
+            <column name="DESC_BREVE" length="20" not-null="true" />
+        </property>
+        <property name="descLonga" type="string">
+            <column name="DESC_LONGA" length="50" />
+        </property>
+        <property name="flagStatus" type="string">
+            <column name="FLAG_STATUS" length="1" not-null="true" />
+        </property>
+        <property name="indPermiteCompra" type="boolean">
+            <column name="IND_PERMITE_COMPRA" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="indPermiteVenda" type="boolean">
+            <column name="IND_PERMITE_VENDA" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="diasReposicao" type="java.lang.Short">
+            <column name="DIAS_REPOSICAO" precision="3" scale="0" />
+        </property>
+        <property name="dtInicioPeriodo" type="date">
+            <column name="DT_INICIO_PERIODO" length="7" not-null="true" />
+        </property>
+        <property name="dtFimPeriodo" type="date">
+            <column name="DT_FIM_PERIODO" length="7" not-null="true" />
+        </property>
+        <property name="dtInclusao" type="date">
+            <column name="DT_INCLUSAO" length="7" not-null="true" />
+        </property>
+        <property name="dtAlteracao" type="date">
+            <column name="DT_ALTERACAO" length="7" not-null="true" />
+        </property>
+        <property name="versaoSistema" type="long">
+            <column name="VERSAO_SISTEMA" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="versaoRegistro" type="long">
+            <column name="VERSAO_REGISTRO" precision="15" scale="0" not-null="true" />
+        </property>
+        <property name="flagVendaSe" type="string">
+            <column name="FLAG_VENDA_SE" length="3" />
+        </property>
+        <property name="indLiberacaoVendaSe" type="java.lang.Boolean">
+            <column name="IND_LIBERACAO_VENDA_SE" precision="1" scale="0" />
+        </property>
+        <property name="flagCor" type="string">
+            <column name="FLAG_COR" length="2" />
+        </property>
+        <property name="indPadraoRelcom" type="java.lang.Boolean">
+            <column name="IND_PADRAO_RELCOM" precision="1" scale="0" />
+        </property>
+        <set name="jrcKits" table="JRC_KIT" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_STATUS_PRODUTO" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcKit" />
+        </set>
+        <set name="jrcProdutos" table="JRC_PRODUTO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_STATUS_PRODUTO" precision="15" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcProduto" />
+        </set>
+        <set name="jrcPedidoVendaItems" table="JRC_PEDIDO_VENDA_ITEM" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_STATUS_PRODUTO" precision="15" scale="0" />
+            </key>
+            <one-to-many class="br.com.gr.pojo.JrcPedidoVendaItem" />
+        </set>
+    </class>
+</hibernate-mapping>
